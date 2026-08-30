@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentación técnica, funcional y operativa de los tableros de control en Apache Superset.">
+        <meta name="description" content="Documentación técnica de tableros Apache Superset">
       
       
-        <meta name="author" content="Equipo de Inteligencia de Negocios">
       
+        <link rel="canonical" href="https://soportesaludtech.github.io/superset-docs/">
       
       
       
@@ -121,21 +121,13 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
     
   
 </form>
@@ -382,17 +374,6 @@
       Tabla de contenidos
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#estructura-del-ecosistema" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Estructura del Ecosistema
-      
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#modulos-documentados" class="md-nav__link">
@@ -729,17 +710,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#estructura-del-ecosistema" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Estructura del Ecosistema
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#modulos-documentados" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -769,23 +739,12 @@
 
 <h1 id="portal-de-documentacion-bi-hosvital-his-superset">Portal de Documentación BI - Hosvital HIS &amp; Superset</h1>
 <p>Bienvenido al repositorio central de documentación técnica, operativa y funcional de los tableros analíticos institucionales desarrollados sobre <strong>Microsoft SQL Server (<code>HVT_REDHUMANA</code>)</strong> y desplegados en <strong>Apache Superset</strong>.</p>
-<h2 id="estructura-del-ecosistema">Estructura del Ecosistema</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[ Hosvital HIS (SQL Server) ]
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>             │
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>             │ (Consultas SQL Optimizadas / Vistas)
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>             ▼
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>[ Datasets Físicos / Virtuales en Superset ]
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>             │
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>             │ (Métricas Agregadas / Filtros Globales)
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>             ▼
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>[ Tableros de Control Asistenciales, Financieros y Quirúrgicos ]
-</code></pre></div>
 <h2 id="modulos-documentados">Módulos Documentados</h2>
 <ul>
-<li><a href="dashboards/01-egresos-urgencias.md"><strong>Egresos Hospitalarios y Urgencias</strong></a>: Rotación de giro de cama, oportunidad de triage y promedio de estancia (ALOS).</li>
-<li><a href="dashboards/02-prefacturacion.md"><strong>Prefacturación y Producción Asistencial</strong></a>: Trazabilidad de cargos asistenciales en tablas temporales (<code>TMPFAC</code>) y envejecimiento de cuentas.</li>
-<li><a href="dashboards/03-ordenes-quirurgicas.md"><strong>Órdenes Quirúrgicas y Programación</strong></a>: Trazabilidad del ciclo de vida quirúrgico, tasas de cancelación y uso de quirófanos.</li>
-<li><a href="dashboards/04-vigilancia-iaas.md"><strong>Vigilancia Epidemiológica e IAAS</strong></a>: Presión infecciosa intrahospitalaria, índice por 100 camas-día y mapas de calor etarios.</li>
+<li><a href="dashboards/01-egresos-urgencias/"><strong>Egresos Hospitalarios y Urgencias</strong></a></li>
+<li><a href="dashboards/02-prefacturacion/"><strong>Prefacturación y Producción Asistencial</strong></a></li>
+<li><a href="dashboards/03-ordenes-quirurgicas/"><strong>Órdenes Quirúrgicas y Programación</strong></a></li>
+<li><a href="dashboards/04-vigilancia-iaas/"><strong>Vigilancia Epidemiológica e IAAS</strong></a></li>
 </ul>
 
 
@@ -846,10 +805,6 @@
     
     
       <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
