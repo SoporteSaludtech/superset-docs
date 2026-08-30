@@ -1,0 +1,30 @@
+Markdown# [Nombre del Dashboard]
+
+| Atributo | Detalle |
+| :--- | :--- |
+| **ID Superset** | `#00` |
+| **URL del Tablero** | `http://tu-superset:8088/superset/dashboard/slug-o-id/` |
+| **Estado** | `Producción` / `En Desarrollo` / `Deprecado` |
+| **Área Solicitante** | Operaciones / Finanzas / Dirección |
+| **Responsable Técnico** | Tu Nombre / Equipo BI |
+| **Frecuencia de Actualización** | En tiempo real / Diario / Horario |
+
+---
+
+## 1. Propósito de Negocio
+* **Objetivo:** Explica en 2 o 3 líneas qué problema operativo o estratégico resuelve este tablero.
+* **Usuarios Destino:** Roles que deben consultar esta información periódicamente.
+* **Decisiones que habilita:** Qué acciones concretas se toman a partir de estos datos.
+
+---
+
+## 2. Linaje y Fuentes de Datos
+Describe el origen de la información y la ruta que sigue hasta el reporte:
+
+```mermaid
+graph LR
+    A[(Base de Datos Transaccional)] --> B[Vista SQL / Consulta Base]
+    B --> C[(Dataset Virtual Superset)]
+    C --> D[Gráficos / Charts]
+    D --> E[Dashboard Final]
+Conexión / Database en Superset: Nombre de la base configurada en Settings > Data > Databases.Dataset / Origen: Nombre de la tabla física o dataset virtual en Settings > Data > Datasets.Lógica SQL Principal: (Si es un dataset virtual, documenta brevemente joins o filtros duros aplicados).3. Filtros Nativos Globales (Native Filters)Detalla los filtros disponibles en la barra lateral izquierda del tablero:FiltroTipo de ComponenteColumna OrigenObligatorioValor por DefectoRango de FechasTime rangefecha_corteSíÚltimos 30 díasSede / SucursalSelect boxid_sucursalNoTodasEstadoMulti-selectestado_registroNoTodos4. Diccionario de Gráficos y Métricas (Charts)Chart 1: [Nombre exacto del gráfico en Superset]Tipo de Visualización: Big Number / Bar Chart / Table / Line ChartMétricas utilizadas:Total Registros: COUNT(id)Monto Facturado: SUM(valor_total)Dimensiones de agrupación (Group by): sucursal, mesCriterio de alerta / Interpretación: Qué significa si el gráfico marca números rojos o picos atípicos.5. Seguridad y Permisos (RLS / Roles)Roles de acceso requeridos: Lista de roles de Superset autorizados a ver el dashboard.Filtros por usuario (Row Level Security): Si aplica restricción de filas, describe la cláusula SQL (ej. id_empresa = '{{ current_user_id() }}').6. Historial de Versiones (Changelog)VersiónFechaAutorDetalle del Cambiov1.0YYYY-MM-DDNombreCreación y despliegue inicial.
