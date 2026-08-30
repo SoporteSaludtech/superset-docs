@@ -2,39 +2,60 @@
 site_url: https://soportesaludtech.github.io/superset-docs/
 
 theme:
-  name: material
-  language: es
-  palette:
-    - scheme: default
-      primary: indigo
-      accent: blue
-    - scheme: slate
-      primary: indigo
-      accent: blue
-  features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.top
-    - search.suggest
-    - search.highlight
-    - content.code.copy
+name: material
+language: es
+palette:
+- scheme: default
+primary: indigo
+accent: blue
+toggle:
+icon: material/brightness-7
+name: Cambiar a modo oscuro
+- scheme: slate
+primary: indigo
+accent: blue
+toggle:
+icon: material/brightness-4
+name: Cambiar a modo claro
+features:
+- navigation.tabs
+- navigation.sections
+- navigation.top
+- search.suggest
+- search.highlight
+- content.code.copy
 
 markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - tables
-  - attr_list
+
+admonition
+
+pymdownx.details
+
+pymdownx.superfences
+
+pymdownx.highlight:
+anchor_linenums: true
+
+pymdownx.inlinehilite
+
+tables
+
+attr_list
 
 nav:
-  - Inicio: index.md
-  - Tableros Asistenciales:
-      - Egresos y Urgencias: dashboards/01-egresos-urgencias.md
-      - Calidad e IAAS: dashboards/04-vigilancia-iaas.md
-  - Tableros Financieros:
-      - Prefacturación y Producción: dashboards/02-prefacturacion.md
-  - Tableros Quirúrgicos:
-      - Órdenes y Programación QX: dashboards/03-ordenes-quirurgicas.md
+
+Inicio: index.md
+
+Tableros Asistenciales:
+
+Egresos y Urgencias: dashboards/01-egresos-urgencias.md
+
+Calidad e IAAS: dashboards/04-vigilancia-iaas.md
+
+Tableros Financieros:
+
+Prefacturación y Producción: dashboards/02-prefacturacion.md
+
+Tableros Quirúrgicos:
+
+Órdenes y Programación QX: dashboards/03-ordenes-quirurgicas.md
