@@ -6,11 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentación técnica de tableros Apache Superset">
       
-      
-      
-        <link rel="canonical" href="https://soportesaludtech.github.io/superset-docs/">
       
       
       
@@ -88,7 +84,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href="." title="Portal BI &amp; Analítica Asistencial - Hosvital" class="md-header__button md-logo" aria-label="Portal BI & Analítica Asistencial - Hosvital" data-md-component="logo">
+    <a href="index.html" title="Portal BI &amp; Analítica Asistencial - Hosvital" class="md-header__button md-logo" aria-label="Portal BI & Analítica Asistencial - Hosvital" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -203,7 +199,7 @@
   
   
     <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+      <a href="index.html" class="md-tabs__link">
         
   
   
@@ -298,7 +294,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Portal BI &amp; Analítica Asistencial - Hosvital" class="md-nav__button md-logo" aria-label="Portal BI & Analítica Asistencial - Hosvital" data-md-component="logo">
+    <a href="index.html" title="Portal BI &amp; Analítica Asistencial - Hosvital" class="md-nav__button md-logo" aria-label="Portal BI & Analítica Asistencial - Hosvital" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -343,7 +339,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
+      <a href="index.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -376,10 +372,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#modulos-documentados" class="md-nav__link">
+  <a href="#estructura-del-ecosistema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Módulos Documentados
+        Estructura del Ecosistema
       
     </span>
   </a>
@@ -710,10 +706,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#modulos-documentados" class="md-nav__link">
+  <a href="#estructura-del-ecosistema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Módulos Documentados
+        Estructura del Ecosistema
       
     </span>
   </a>
@@ -739,13 +735,22 @@
 
 <h1 id="portal-de-documentacion-bi-hosvital-his-superset">Portal de Documentación BI - Hosvital HIS &amp; Superset</h1>
 <p>Bienvenido al repositorio central de documentación técnica, operativa y funcional de los tableros analíticos institucionales desarrollados sobre <strong>Microsoft SQL Server (<code>HVT_REDHUMANA</code>)</strong> y desplegados en <strong>Apache Superset</strong>.</p>
-<h2 id="modulos-documentados">Módulos Documentados</h2>
-<ul>
-<li><a href="dashboards/01-egresos-urgencias/"><strong>Egresos Hospitalarios y Urgencias</strong></a></li>
-<li><a href="dashboards/02-prefacturacion/"><strong>Prefacturación y Producción Asistencial</strong></a></li>
-<li><a href="dashboards/03-ordenes-quirurgicas/"><strong>Órdenes Quirúrgicas y Programación</strong></a></li>
-<li><a href="dashboards/04-vigilancia-iaas/"><strong>Vigilancia Epidemiológica e IAAS</strong></a></li>
-</ul>
+<h2 id="estructura-del-ecosistema">Estructura del Ecosistema</h2>
+<p>```text
+[ Hosvital HIS (SQL Server) ]
+             │
+             │ (Consultas SQL Optimizadas / Vistas)
+             ▼
+[ Datasets Físicos / Virtuales en Superset ]
+             │
+             │ (Métricas Agregadas / Filtros Globales)
+             ▼
+[ Tableros de Control Asistenciales, Financieros y Quirúrgicos ]
+Módulos Documentados
+Egresos Hospitalarios y Urgencias: Rotación de giro de cama, oportunidad de triage y promedio de estancia (ALOS).</p>
+<p>Prefacturación y Producción Asistencial: Trazabilidad de cargos asistenciales en tablas temporales (TMPFAC) y envejecimiento de cuentas.</p>
+<p>Órdenes Quirúrgicas y Programación: Trazabilidad del ciclo de vida quirúrgico, tasas de cancelación y uso de quirófanos.</p>
+<p>Vigilancia Epidemiológica e IAAS: Presión infecciosa intrahospitalaria, índice por 100 camas-día y mapas de calor etarios.</p>
 
 
 
