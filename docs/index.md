@@ -1,26 +1,33 @@
-﻿# Portal de Documentación BI - Hosvital HIS & Superset
+﻿# Centro de Analítica e Inteligencia Clínica - Hosvital HIS
 
-Bienvenido al repositorio central de documentación técnica, operativa y funcional de los tableros analíticos institucionales desarrollados sobre **Microsoft SQL Server (`HVT_REDHUMANA`)** y desplegados en **Apache Superset**.
+Repositorio técnico y metodológico para el monitoreo del desempeño asistencial, la eficiencia en el ciclo de ingresos y la seguridad del paciente. Este portal centraliza las definiciones de métricas, reglas de negocio, modelos relacionales y criterios de auditoría aplicables sobre el sistema de información hospitalario.
 
 ---
 
-## Estructura del Ecosistema
+## Arquitectura del Flujo de Información
 
 ```text
-[ Hosvital HIS (SQL Server) ]
-             │
-             │ (Consultas SQL Optimizadas / Vistas)
-             ▼
-[ Datasets Físicos / Virtuales en Superset ]
-             │
-             │ (Métricas Agregadas / Filtros Globales)
-             ▼
-[ Tableros de Control Asistenciales, Financieros y Quirúrgicos ]
-Módulos Documentados
-Egresos Hospitalarios y Urgencias: Rotación de giro de cama, oportunidad de triage y promedio de estancia (ALOS).
+┌─────────────────────────────────────────────────────────────┐
+│                    Hosvital HIS (RDBMS)                     │
+│    Modelos Transaccionales: Capbas, Ingresos, TMPFAC, etc.  │
+└──────────────────────────────┬──────────────────────────────┘
+                               │
+                               ▼
+┌─────────────────────────────────────────────────────────────┐
+│                 Capa de Extracción y Reglas                 │
+│         Consultas T-SQL Optimizadas y Filtros de Negocio    │
+└──────────────────────────────┬──────────────────────────────┘
+                               │
+                               ▼
+┌─────────────────────────────────────────────────────────────┐
+│                Visualización y Cuadros de Mando             │
+│       Paneles de Gestión Asistencial, Quirúrgica y Financiera│
+└─────────────────────────────────────────────────────────────┘
+Catálogo de Módulos y Cuadros de Mando
+Egresos Hospitalarios y Urgencias: Control de giro de cama, oportunidad de atención en urgencias y cálculo de estancia media (ALOS).
 
-Prefacturación y Producción Asistencial: Trazabilidad de cargos asistenciales en tablas temporales (TMPFAC) y envejecimiento de cuentas.
+Prefacturación y Producción Asistencial: Trazabilidad de cargos asistenciales por contrato, balance de procedimientos frente a insumos y antigüedad de prefacturas.
 
-Órdenes Quirúrgicas y Programación: Trazabilidad del ciclo de vida quirúrgico, tasas de cancelación y uso de quirófanos.
+Ocupación y Programación Quirúrgica: Trazabilidad de órdenes quirúrgicas, adherencia a salas, índice de cancelaciones y distribución por especialidad.
 
-Vigilancia Epidemiológica e IAAS: Presión infecciosa intrahospitalaria, índice por 100 camas-día y mapas de calor etarios.
+Calidad, Seguridad del Paciente e IAAS: Vigilancia de infecciones asociadas a la atención en salud, tasa por 100 camas-día y segmentación etaria.
