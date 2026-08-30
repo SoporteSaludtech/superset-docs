@@ -386,10 +386,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arquitectura-del-flujo-de-informacion" class="md-nav__link">
+  <a href="#matriz-general-de-cuadros-de-mando" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Arquitectura del Flujo de Información
+        Matriz General de Cuadros de Mando
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujo-del-modelo-de-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo del Modelo de Información
       
     </span>
   </a>
@@ -720,10 +731,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arquitectura-del-flujo-de-informacion" class="md-nav__link">
+  <a href="#matriz-general-de-cuadros-de-mando" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Arquitectura del Flujo de Información
+        Matriz General de Cuadros de Mando
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujo-del-modelo-de-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo del Modelo de Información
       
     </span>
   </a>
@@ -748,31 +770,75 @@
 
 
 <h1 id="centro-de-analitica-e-inteligencia-clinica-hosvital-his">Centro de Analítica e Inteligencia Clínica - Hosvital HIS</h1>
-<p>Repositorio técnico y metodológico para el monitoreo del desempeño asistencial, la eficiencia en el ciclo de ingresos y la seguridad del paciente. Este portal centraliza las definiciones de métricas, reglas de negocio, modelos relacionales y criterios de auditoría aplicables sobre el sistema de información hospitalario.</p>
+<p>Repositorio central de documentación técnica, operativa y funcional de los cuadros de mando institucionales orientados al monitoreo del ciclo asistencial, la optimización financiera y la seguridad del paciente.</p>
 <hr />
-<h2 id="arquitectura-del-flujo-de-informacion">Arquitectura del Flujo de Información</h2>
+<h2 id="matriz-general-de-cuadros-de-mando">Matriz General de Cuadros de Mando</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Área de Gestión</th>
+<th style="text-align: left;">Cuadro de Mando</th>
+<th style="text-align: left;">Indicadores Principales</th>
+<th style="text-align: left;">Frecuencia de Actualización</th>
+<th style="text-align: left;">Enlace al Manual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Gestión Asistencial</strong></td>
+<td style="text-align: left;"><strong>Egresos y Urgencias</strong></td>
+<td style="text-align: left;">Estancia Media (ALOS), Tasa de Ocupación, Rotación de Camas</td>
+<td style="text-align: left;">15 Minutos</td>
+<td style="text-align: left;"><a href="dashboards/01-egresos-urgencias.md">Ver Ficha Técnica</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gestión Asistencial</strong></td>
+<td style="text-align: left;"><strong>Calidad, Seguridad e IAAS</strong></td>
+<td style="text-align: left;">Tasa de Infecciones x 100 Camas-Día, Aislamiento por Pabellón</td>
+<td style="text-align: left;">15 Minutos</td>
+<td style="text-align: left;"><a href="dashboards/04-vigilancia-iaas.md">Ver Ficha Técnica</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gestión Financiera</strong></td>
+<td style="text-align: left;"><strong>Prefacturación y Producción</strong></td>
+<td style="text-align: left;">Valor WIP en Tránsito, Aging de Prefactura, Consumos por EPS</td>
+<td style="text-align: left;">10 Minutos</td>
+<td style="text-align: left;"><a href="dashboards/02-prefacturacion.md">Ver Ficha Técnica</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gestión Quirúrgica</strong></td>
+<td style="text-align: left;"><strong>Programación y Ocupación QX</strong></td>
+<td style="text-align: left;">Tasa de Cancelación, Oportunidad Quirúrgica, Demanda por Especialidad</td>
+<td style="text-align: left;">5 Minutos</td>
+<td style="text-align: left;"><a href="dashboards/03-ordenes-quirurgicas.md">Ver Ficha Técnica</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="flujo-del-modelo-de-informacion">Flujo del Modelo de Información</h2>
 <p>```text
-┌─────────────────────────────────────────────────────────────┐
-│                    Hosvital HIS (RDBMS)                     │
-│    Modelos Transaccionales: Capbas, Ingresos, TMPFAC, etc.  │
-└──────────────────────────────┬──────────────────────────────┘
-                               │
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                 Capa de Extracción y Reglas                 │
-│         Consultas T-SQL Optimizadas y Filtros de Negocio    │
-└──────────────────────────────┬──────────────────────────────┘
-                               │
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                Visualización y Cuadros de Mando             │
-│       Paneles de Gestión Asistencial, Quirúrgica y Financiera│
-└─────────────────────────────────────────────────────────────┘
-Catálogo de Módulos y Cuadros de Mando
-Egresos Hospitalarios y Urgencias: Control de giro de cama, oportunidad de atención en urgencias y cálculo de estancia media (ALOS).</p>
-<p>Prefacturación y Producción Asistencial: Trazabilidad de cargos asistenciales por contrato, balance de procedimientos frente a insumos y antigüedad de prefacturas.</p>
-<p>Ocupación y Programación Quirúrgica: Trazabilidad de órdenes quirúrgicas, adherencia a salas, índice de cancelaciones y distribución por especialidad.</p>
-<p>Calidad, Seguridad del Paciente e IAAS: Vigilancia de infecciones asociadas a la atención en salud, tasa por 100 camas-día y segmentación etaria.</p>
+┌─────────────────────────────────────────────────────────────────────────┐
+│                     HOSVITAL HIS - CAPA TRANSACCIONAL                   │
+│  Tablas Núcleo: Ingresos, Capbas, TMPFAC, procir, HCDIAGN, MAEDIA       │
+└────────────────────────────────────┬────────────────────────────────────┘
+                                     │
+                                     ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    CAPA DE TRANSFORMACIÓN Y REGLAS T-SQL                │
+│  • Tratamiento de fechas centinela (1753-01-01)                         │
+│  • Filtro de anulaciones operativas (tfestaanu = 'N')                   │
+│  • Consolidación multirubro y cálculo de tiempos asistenciales          │
+└────────────────────────────────────┬────────────────────────────────────┘
+                                     │
+                                     ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                     CAPA DE EXPLOTACIÓN Y DECISIÓN                      │
+│  Cuadros de mando con filtros interactivos, KPIs y consolas operativas  │
+└─────────────────────────────────────────────────────────────────────────┘
+Estándares Técnicos y de Gobierno del Dato
+Tratamiento de Nulos y Fechas Centinela: Todas las consultas analíticas aíslan valores no inicializados del motor relacional (&lt;= 1753-01-01) para evitar distorsiones en los cálculos de estancia y oportunidad.</p>
+<p>Integridad de Transacciones Válidas: Se aplican filtros estrictos de no anulación en los módulos financieros (TMPFAC1.tfestaanu1 = 'N' y TMPFAC2.TFestaanu2 = 'N') y de trazabilidad en cancelaciones de sala (PFcHrCnc).</p>
+<p>Seguridad y Confidencialidad: El acceso a los manuales y tableros está segmentado según el rol operativo (Dirección Médica, Coordinación Quirúrgica, Auditoría de Cuentas y Comité de Infecciones).</p>
 
 
 
