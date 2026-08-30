@@ -1,5 +1,5 @@
 ﻿site_name: Portal BI & Analítica Asistencial - Hosvital
-use_directory_urls: false
+site_url: https://soportesaludtech.github.io/superset-docs/
 
 theme:
   name: material
