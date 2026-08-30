@@ -407,6 +407,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#estandares-de-calidad-y-gobierno-del-dato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estándares de Calidad y Gobierno del Dato
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -752,6 +763,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#estandares-de-calidad-y-gobierno-del-dato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estándares de Calidad y Gobierno del Dato
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -779,7 +801,7 @@
 <th style="text-align: left;">Área de Gestión</th>
 <th style="text-align: left;">Cuadro de Mando</th>
 <th style="text-align: left;">Indicadores Principales</th>
-<th style="text-align: left;">Frecuencia de Actualización</th>
+<th style="text-align: left;">Frecuencia</th>
 <th style="text-align: left;">Enlace al Manual</th>
 </tr>
 </thead>
@@ -816,29 +838,37 @@
 </table>
 <hr />
 <h2 id="flujo-del-modelo-de-informacion">Flujo del Modelo de Información</h2>
-<p>```text
-┌─────────────────────────────────────────────────────────────────────────┐
-│                     HOSVITAL HIS - CAPA TRANSACCIONAL                   │
-│  Tablas Núcleo: Ingresos, Capbas, TMPFAC, procir, HCDIAGN, MAEDIA       │
-└────────────────────────────────────┬────────────────────────────────────┘
-                                     │
-                                     ▼
-┌─────────────────────────────────────────────────────────────────────────┐
-│                    CAPA DE TRANSFORMACIÓN Y REGLAS T-SQL                │
-│  • Tratamiento de fechas centinela (1753-01-01)                         │
-│  • Filtro de anulaciones operativas (tfestaanu = 'N')                   │
-│  • Consolidación multirubro y cálculo de tiempos asistenciales          │
-└────────────────────────────────────┬────────────────────────────────────┘
-                                     │
-                                     ▼
-┌─────────────────────────────────────────────────────────────────────────┐
-│                     CAPA DE EXPLOTACIÓN Y DECISIÓN                      │
-│  Cuadros de mando con filtros interactivos, KPIs y consolas operativas  │
-└─────────────────────────────────────────────────────────────────────────┘
-Estándares Técnicos y de Gobierno del Dato
-Tratamiento de Nulos y Fechas Centinela: Todas las consultas analíticas aíslan valores no inicializados del motor relacional (&lt;= 1753-01-01) para evitar distorsiones en los cálculos de estancia y oportunidad.</p>
-<p>Integridad de Transacciones Válidas: Se aplican filtros estrictos de no anulación en los módulos financieros (TMPFAC1.tfestaanu1 = 'N' y TMPFAC2.TFestaanu2 = 'N') y de trazabilidad en cancelaciones de sala (PFcHrCnc).</p>
-<p>Seguridad y Confidencialidad: El acceso a los manuales y tableros está segmentado según el rol operativo (Dirección Médica, Coordinación Quirúrgica, Auditoría de Cuentas y Comité de Infecciones).</p>
+<p>=== "1. Capa Transaccional (Origen)"
+    <strong>Hosvital HIS - Motor Relacional SQL Server</strong></p>
+<div class="highlight"><pre><span></span><code>* **Entidades Principales:** `Ingresos`, `Capbas`, `TMPFAC`, `procir`, `HCDIAGN`, `MAEDIA`.
+* **Naturaleza del Dato:** Registro transaccional en tiempo real derivado de la operación clínica, admisión de pacientes, programación quirúrgica y facturación médica.
+</code></pre></div>
+<p>=== "2. Capa de Transformación y Reglas"
+    <strong>Ingeniería de Datos y Consultas T-SQL</strong></p>
+<div class="highlight"><pre><span></span><code>* **Tratamiento de Fechas:** Aislamiento de valores centinela por omisión (`&lt;= 1753-01-01`).
+* **Filtros de Integridad:** Depuración de anulación de cargos (`tfestaanu = 'N'`) y trazabilidad de cancelaciones (`PFcHrCnc`).
+* **Métricas Asistenciales:** Cálculo dinámico de estancias acumuladas, rangos etarios quinquenales y consolidación multirubro.
+</code></pre></div>
+<p>=== "3. Capa de Explotación y Decisión"
+    <strong>Consolas Analíticas e Indicadores Institucionales</strong></p>
+<div class="highlight"><pre><span></span><code>* **Tarjetas KPI y Big Numbers:** Resumen consolidado para la toma de decisiones directivas.
+* **Visualización Segmentada:** Distribución por asegurador (EPS), pabellón y especialidad médica.
+* **Consolas Nominales:** Tablas de auditoría caso a caso para comités de calidad y jefaturas asistenciales.
+</code></pre></div>
+<hr />
+<h2 id="estandares-de-calidad-y-gobierno-del-dato">Estándares de Calidad y Gobierno del Dato</h2>
+<div class="admonition info">
+<p class="admonition-title">Tratamiento de Valores Nulos y Fechas Centinela</p>
+<p>Todas las consultas aíslan fechas no registradas (<code>&lt;= 1753-01-01</code>) para evitar distorsiones en los promedios de estancia (ALOS), oportunidad en triage y programación quirúrgica.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Integridad de Transacciones Asistenciales y Financieras</p>
+<p>Se aplican criterios estrictos de no anulación en los consumos clínicos (<code>TMPFAC1.tfestaanu1 = 'N'</code> y <code>TMPFAC2.TFestaanu2 = 'N'</code>), garantizando que solo la producción real sea considerada en los balances de prefacturación.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Seguridad, Perfiles y Confidencialidad</p>
+<p>La información clínica sensible se encuentra protegida bajo políticas de gobierno del dato, permitiendo el acceso a las vistas de auditoría únicamente a los roles correspondientes (Dirección Médica, Coordinación de Quirófanos, Auditoría de Cuentas y Comité de Infecciones).</p>
+</div>
 
 
 
