@@ -2,9 +2,23 @@
 
 Bienvenido al repositorio central de documentación técnica, operativa y funcional de los tableros analíticos institucionales desarrollados sobre **Microsoft SQL Server (`HVT_REDHUMANA`)** y desplegados en **Apache Superset**.
 
-## Módulos Documentados
+## Estructura del Ecosistema
 
-* [**Egresos Hospitalarios y Urgencias**](dashboards/01-egresos-urgencias/)
-* [**Prefacturación y Producción Asistencial**](dashboards/02-prefacturacion/)
-* [**Órdenes Quirúrgicas y Programación**](dashboards/03-ordenes-quirurgicas/)
-* [**Vigilancia Epidemiológica e IAAS**](dashboards/04-vigilancia-iaas/)
+```text
+[ Hosvital HIS (SQL Server) ]
+             │
+             │ (Consultas SQL Optimizadas / Vistas)
+             ▼
+[ Datasets Físicos / Virtuales en Superset ]
+             │
+             │ (Métricas Agregadas / Filtros Globales)
+             ▼
+[ Tableros de Control Asistenciales, Financieros y Quirúrgicos ]
+Módulos Documentados
+Egresos Hospitalarios y Urgencias: Rotación de giro de cama, oportunidad de triage y promedio de estancia (ALOS).
+
+Prefacturación y Producción Asistencial: Trazabilidad de cargos asistenciales en tablas temporales (TMPFAC) y envejecimiento de cuentas.
+
+Órdenes Quirúrgicas y Programación: Trazabilidad del ciclo de vida quirúrgico, tasas de cancelación y uso de quirófanos.
+
+Vigilancia Epidemiológica e IAAS: Presión infecciosa intrahospitalaria, índice por 100 camas-día y mapas de calor etarios.

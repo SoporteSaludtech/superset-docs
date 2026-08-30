@@ -1,7 +1,5 @@
 ﻿site_name: Portal BI & Analítica Asistencial - Hosvital
-site_url: https://soportesaludtech.github.io/superset-docs/
-site_description: Documentación técnica de tableros Apache Superset
-use_directory_urls: true
+use_directory_urls: false
 
 theme:
   name: material
