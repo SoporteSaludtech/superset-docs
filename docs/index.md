@@ -1,12 +1,12 @@
 ﻿# Portal de Documentación BI - Hosvital HIS & Superset
 
-Bienvenido al repositorio central de documentación técnica, operativa y funcional de los tableros analíticos institucionales desarrollados sobre **Microsoft SQL Server (HVT_REDHUMANA)** y desplegados en **Apache Superset**.
+Bienvenido al repositorio central de documentación técnica, operativa y funcional de los tableros analíticos institucionales desarrollados sobre **Microsoft SQL Server (`HVT_REDHUMANA`)** y desplegados en **Apache Superset**.
 
 ---
 
 ## Estructura del Ecosistema
 
-``text
+```text
 [ Hosvital HIS (SQL Server) ]
              │
              │ (Consultas SQL Optimizadas / Vistas)
