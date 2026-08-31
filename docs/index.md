@@ -1,8 +1,10 @@
-﻿# Centro de Analítica e Inteligencia Clínica - Hosvital HIS
+# Centro de Analítica e Inteligencia Clínica - Hosvital HIS
 
 Repositorio central de documentación técnica, operativa y funcional de los cuadros de mando institucionales orientados al monitoreo del ciclo asistencial, la optimización financiera y la seguridad del paciente.
 
 ---
+
+## Matriz General de Cuadros de Mando
 
 | Área de Gestión | Cuadro de Mando | Indicadores Principales | Frecuencia | Enlace al Manual |
 | :--- | :--- | :--- | :--- | :--- |
@@ -11,6 +13,7 @@ Repositorio central de documentación técnica, operativa y funcional de los cua
 | **Gestión Asistencial** | **Vigilancia en Salud Pública (SIVIGILA)** | Índice de Detección SIVIGILA, Casos Totales, Transmisibilidad ETV vs ETS | 15 Minutos | [Ver Ficha Técnica](dashboards/05 - Sivigila.md) |
 | **Gestión Financiera** | **Prefacturación y Producción** | Valor WIP en Tránsito, Aging de Prefactura, Consumos por EPS | 10 Minutos | [Ver Ficha Técnica](dashboards/02-prefacturacion.md) |
 | **Gestión Quirúrgica** | **Programación y Ocupación QX** | Tasa de Cancelación, Oportunidad Quirúrgica, Demanda por Especialidad | 5 Minutos | [Ver Ficha Técnica](dashboards/03-ordenes-quirurgicas.md) |
+
 ---
 
 ## Flujo del Modelo de Información
