@@ -4,15 +4,13 @@ Repositorio central de documentación técnica, operativa y funcional de los cua
 
 ---
 
-## Matriz General de Cuadros de Mando
-
 | Área de Gestión | Cuadro de Mando | Indicadores Principales | Frecuencia | Enlace al Manual |
 | :--- | :--- | :--- | :--- | :--- |
 | **Gestión Asistencial** | **Egresos y Urgencias** | Estancia Media (ALOS), Tasa de Ocupación, Rotación de Camas | 15 Minutos | [Ver Ficha Técnica](dashboards/01-egresos-urgencias.md) |
 | **Gestión Asistencial** | **Calidad, Seguridad e IAAS** | Tasa de Infecciones x 100 Camas-Día, Aislamiento por Pabellón | 15 Minutos | [Ver Ficha Técnica](dashboards/04-vigilancia-iaas.md) |
+| **Gestión Asistencial** | **Vigilancia en Salud Pública (SIVIGILA)** | Índice de Detección SIVIGILA, Casos Totales, Transmisibilidad ETV vs ETS | 15 Minutos | [Ver Ficha Técnica](dashboards/05 - Sivigila.md) |
 | **Gestión Financiera** | **Prefacturación y Producción** | Valor WIP en Tránsito, Aging de Prefactura, Consumos por EPS | 10 Minutos | [Ver Ficha Técnica](dashboards/02-prefacturacion.md) |
 | **Gestión Quirúrgica** | **Programación y Ocupación QX** | Tasa de Cancelación, Oportunidad Quirúrgica, Demanda por Especialidad | 5 Minutos | [Ver Ficha Técnica](dashboards/03-ordenes-quirurgicas.md) |
-
 ---
 
 ## Flujo del Modelo de Información
