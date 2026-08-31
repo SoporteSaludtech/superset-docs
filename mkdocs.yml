@@ -48,6 +48,7 @@ nav:
   - Gestión Asistencial:
       - Egresos y Urgencias: dashboards/01-egresos-urgencias.md
       - Calidad e IAAS: dashboards/04-vigilancia-iaas.md
+      - SIVIGILA: dashboards/05 - Sivigila.md
   - Gestión Financiera:
       - Prefacturación y Producción: dashboards/02-prefacturacion.md
   - Gestión Quirúrgica:
