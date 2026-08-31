@@ -7,7 +7,7 @@ Este tablero consolida la información clínica y epidemiológica para la detecc
 ## 1. Definición del Dataset Base (DS_Hosvital_SIVIGILA)
 Los datos se obtienen mediante un modelo relacional que cruza la información de atenciones clínicas (HCCOM1), diagnósticos registrados (HCDIAGN) y el maestro normativo de patologías de notificación obligatoria (Diagnosticos).
 
-`sql
+```sql
 SELECT 
     C1.HISCKEY AS NUMERO_IDENTIFICACION,
     C1.HISCSEC AS CONSECUTIVO_ATENCION,
