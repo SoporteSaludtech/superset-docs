@@ -89,20 +89,19 @@ INNER JOIN dbo.Ingresos i ON hc.hisckey = i.MPCedu AND c1.HISTIPDOC = i.MPTDoc
 INNER JOIN dbo.Capbas c ON i.MPCedu = c.MPCedu AND i.MPTDoc = c.MPTDoc
 LEFT JOIN dbo.Maepab pab ON i.MPCodP = pab.MPCodP
 LEFT JOIN dbo.Maeemp emp ON i.IngNit = emp.MENNIT
-WHERE (hc.HCDXCOD LIKE 'A%' OR hc.HCDXCOD LIKE 'B%' OR hc.HCDXCOD LIKE 'J0%' OR hc.HCDXCOD LIKE 'J1%' OR hc.HCDXCOD LIKE 'N
+WHERE (hc.HCDXCOD LIKE 'A%' OR hc.HCDXCOD LIKE 'B%' OR hc.HCDXCOD LIKE 'J0%' OR hc.HCDXCOD LIKE 'J1%' OR hc.HCDXCOD LIKE 'N;
+```
 
 
 ## 3. Diccionario de Componentes Visuales
 
-|Componente|  Tipo de Visualización | Métrica / Dimensión| Objetivo Operativo |
+| Componente | Tipo de Visualización | Métrica / Dimensión | Objetivo Operativo |
 | :--- | :--- | :--- | :--- |
-
-
-
-|**Índice IAAS**|  Big Number| (COUNT(DISTINCT ID)*100.0) / NULLIF(SUM(ESTANCIA), 0)| Presión infecciosa sobre camas ocupadas.|
-|**Matriz Térmica**| (Heatmap)Mapa de Calor Diagnóstico| CIE-10 vs Grupo Etario| Identificación de poblaciones vulnerables.|
-|**Aislamientos por Pabellón**| Gráfico Circular (Donut)| SERVICIO_ACTUAL | Distribución de carga asistencial de bioseguridad.|
-|**Consola Epidemiológica Tabla Interactiva Paciente**| CIE-10| Estancia| Pabellón Herramienta de ronda para el Comité de Infecciones.|
+| **Total Pacientes IAAS** | Big Number | `COUNT(DISTINCT NUMERO_IDENTIFICACION)` | Cuantificar los casos únicos activos con diagnóstico infeccioso. |
+| **Índice IAAS** | Big Number | `(COUNT(DISTINCT ID)*100.0) / NULLIF(SUM(ESTANCIA), 0)` | Presión infecciosa sobre camas ocupadas.[cite: 2] |
+| **Matriz Térmica (Heatmap)** | Mapa de Calor | Diagnóstico CIE-10 vs Grupo Etario | Identificación de poblaciones vulnerables.[cite: 2] |
+| **Aislamientos por Pabellón** | Gráfico Circular (Donut) | `SERVICIO_ACTUAL` | Distribución de carga asistencial de bioseguridad.[cite: 2] |
+| **Consola Epidemiológica** | Tabla Interactiva | Paciente, CIE-10, Estancia, Pabellón | Herramienta de ronda para el Comité de Infecciones.[cite: 2] |
 
 4. Parámetros Operativos y Filtros (Superset)
 1. El tablero cuenta con reglas de formato condicional (Color Formatting) y filtros maestros diseñados para la gestión ágil del Comité de Infecciones:
