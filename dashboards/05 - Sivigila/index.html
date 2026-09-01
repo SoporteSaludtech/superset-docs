@@ -540,6 +540,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2-componentes-del-tablero-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Componentes del Tablero (Charts)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-interactividad-y-filtros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Interactividad y Filtros
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -795,6 +817,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2-componentes-del-tablero-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Componentes del Tablero (Charts)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-interactividad-y-filtros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Interactividad y Filtros
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -835,8 +879,8 @@
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">LTRIM</span><span class="p">(</span><span class="n">RTRIM</span><span class="p">(</span><span class="n">HC</span><span class="p">.</span><span class="n">HCDXCOD</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LTRIM</span><span class="p">(</span><span class="n">RTRIM</span><span class="p">(</span><span class="n">D</span><span class="p">.</span><span class="n">DMCodi</span><span class="p">))</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">C1</span><span class="p">.</span><span class="n">HISCFCON</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="s1">'1753-01-01'</span><span class="p">;</span>
 </code></pre></div>
-<p>. Componentes del Tablero (Charts)
-El tablero se compone de 4 visualizaciones principales diseñadas para el monitoreo gerencial y operativo:</p>
+<h2 id="2-componentes-del-tablero-charts">2. Componentes del Tablero (Charts)</h2>
+<p>El tablero se compone de 4 visualizaciones principales diseñadas para el monitoreo gerencial y operativo:</p>
 <p>A. Indicadores Clave de Desempeño (KPIs)
 Índice de Detección SIVIGILA (Big Number): Mide el porcentaje de pacientes atendidos que requieren notificación obligatoria.</p>
 <p>Fórmula de Métrica: (SUM(FLAG_SIVIGILA) * 100.0) / NULLIF(COUNT(DISTINCT NUMERO_IDENTIFICACION), 0)</p>
@@ -851,10 +895,8 @@ Consola Nominal SIVIGILA (Table): Listado detallado y filtrado exclusivamente pa
 <p>Modo: Raw records.</p>
 <p>Columnas: Fecha de Atención, Consecutivo, Identificación, Código CIE-10, Nombre del Diagnóstico y Médico Tratante.</p>
 <p>Filtro Fijo: FLAG_SIVIGILA = 1.</p>
-<ol>
-<li>Interactividad y Filtros
-Filtro Nativo de Tiempo: El tablero cuenta con un filtro maestro de tipo Time range vinculado a la columna FECHA_ATENCION del dataset, permitiendo segmentar el análisis por rangos personalizados (diario, semanal, mensual o anual) de forma simultánea en todas las vistas.</li>
-</ol>
+<h2 id="3-interactividad-y-filtros">3. Interactividad y Filtros</h2>
+<p>Filtro Nativo de Tiempo: El tablero cuenta con un filtro maestro de tipo Time range vinculado a la columna FECHA_ATENCION del dataset, permitiendo segmentar el análisis por rangos personalizados (diario, semanal, mensual o anual) de forma simultánea en todas las vistas.</p>
 
 
 
