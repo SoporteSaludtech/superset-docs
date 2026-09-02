@@ -8,11 +8,17 @@ Repositorio central de documentación técnica, operativa y funcional de los cua
 
 | Área de Gestión | Cuadro de Mando | Indicadores Principales | Frecuencia | Enlace al Manual |
 | :--- | :--- | :--- | :--- | :--- |
-| **Gestión Asistencial** | **Egresos y Urgencias** | Estancia Media (ALOS), Tasa de Ocupación, Rotación de Camas | 15 Minutos | [Ver Ficha Técnica](dashboards/01-egresos-urgencias.md) |
-| **Gestión Asistencial** | **Calidad, Seguridad e IAAS** | Tasa de Infecciones x 100 Camas-Día, Aislamiento por Pabellón | 15 Minutos | [Ver Ficha Técnica](dashboards/04-vigilancia-iaas.md) |
-| **Gestión Asistencial** | **Vigilancia en Salud Pública (SIVIGILA)** | Índice de Detección SIVIGILA, Casos Totales, Transmisibilidad ETV vs ETS | 15 Minutos | [Ver Ficha Técnica](dashboards/05 - Sivigila.md) |
-| **Gestión Financiera** | **Prefacturación y Producción** | Valor WIP en Tránsito, Aging de Prefactura, Consumos por EPS | 10 Minutos | [Ver Ficha Técnica](dashboards/02-prefacturacion.md) |
-| **Gestión Quirúrgica** | **Programación y Ocupación QX** | Tasa de Cancelación, Oportunidad Quirúrgica, Demanda por Especialidad | 5 Minutos | [Ver Ficha Técnica](dashboards/03-ordenes-quirurgicas.md) |
+| **Gestión Asistencial** | **Consola Egresos y Urgencias** | Estancia Media (ALOS), Tasa de Ocupación, Rotación de Camas | 15 Minutos | [Ver Ficha Técnica](dashboards/01-egresos-urgencias.md) |
+| **Gestión Asistencial** | **Consola Análisis de Ingresos** | Total Ingresos, Distribución Ambulatorio vs Hospitalización, Top Especialidades Tratantes, Concentración por EPS | 15 Minutos | [Ver Ficha Técnica](dashboards/consola_analisis_ingresos.md) |
+| **Gestión Asistencial** | **Consola Calidad, Seguridad e IAAS** | Tasa de Infecciones x 100 Camas-Día, Aislamiento por Pabellón | 6 Horas | [Ver Ficha Técnica](dashboards/04-vigilancia-iaas.md) |
+| **Gestión Asistencial** | **Consola Vigilancia en Salud Pública (SIVIGILA)** | Índice de Detección SIVIGILA, Casos Totales, Transmisibilidad ETV vs ETS | 6 Horas | [Ver Ficha Técnica](dashboards/05%20-%20Sivigila.md) |
+| **Gestión Asistencial** | **Cosola Riesgo y Altocosto** | Tasa de Detección CAC, Adherencia a Guías Clínicas, Distribución de Estadíos | 6 Horas | [Ver Ficha Técnica](dashboards/06-alto-costo-cac.md) |
+| **Gestión Asistencial** | **Consola y Cohortes CAC** | Auditoría Nominal de Cohortes, Tasa de Cumplimiento Terapéutico, Días de Tratamiento Activo | 6 Horas| [Ver Ficha Técnica](dashboards/07-consola-y-cohortes-cac.md) |
+| **Gestión Asistencial** | **Consola de Gestión y Cohortes - Enfermedades Crónicas** | Control HTA (PAS < 140 / PAD < 90), Control Metabólico DM2 (HbA1c ≤ 7.0%), Tasa de Reingreso EPOC | 6 Horas | [Ver Ficha Técnica](dashboards/08-consola_gestion_cohortes_cronicas.md) |
+| **Gestión Asistencial** | **Consola Estadísticas de Trauma** | Volumen por Nivel de Triage, Tiempo Puerta-Médico, Tasa de Intervención Quirúrgica de Trauma | 6 Horas | [Ver Ficha Técnica](dashboards/09-consola_estadisticas_trauma.md) |
+| **Gestión Financiera** | **Consola Prefacturación y Producción** | Valor WIP en Tránsito, Aging de Prefactura, Consumos por EPS | 15 Minutos | [Ver Ficha Técnica](dashboards/02-prefacturacion.md) |
+| **Gestión Quirúrgica** | **Consola Programación y Ocupación QX** | Tasa de Cancelación, Oportunidad Quirúrgica, Demanda por Especialidad | 15 Minutos | [Ver Ficha Técnica](dashboards/03-ordenes-quirurgicas.md) |
+
 
 ---
 

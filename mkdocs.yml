@@ -44,11 +44,16 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 nav:
-  - Marco General: index.md
+  - Inicio: index.md
   - Gestión Asistencial:
-      - Egresos y Urgencias: dashboards/01-egresos-urgencias.md
-      - Calidad e IAAS: dashboards/04-vigilancia-iaas.md
-      - SIVIGILA: dashboards/05 - Sivigila.md
+      - Consola Egresos y Urgencias: dashboards/01-egresos-urgencias.md
+      - Consola Análisis de Ingresos: dashboards/consola_analisis_ingresos.md
+      - Consola Calidad, Seguridad e IAAS: dashboards/04-vigilancia-iaas.md
+      - Consola Vigilancia en Salud Pública (SIVIGILA): dashboards/05 - Sivigila.md
+      - Consola Riesgo y Altocosto: dashboards/06-alto-costo-cac.md
+      - Consola y Cohortes CAC: dashboards/07-consola-y-cohortes-cac.md
+      - Consola de Gestión y Cohortes - Enfermedades Crónicas: dashboards/08-consola_gestion_cohortes_cronicas.md
+      - Consola Estadísticas de Trauma: dashboards/09-consola_estadisticas_trauma.md
   - Gestión Financiera:
       - Prefacturación y Producción: dashboards/02-prefacturacion.md
   - Gestión Quirúrgica:
