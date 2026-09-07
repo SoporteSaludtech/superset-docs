@@ -1,0 +1,2260 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Repositorio técnico, funcional y normativo de indicadores de gestión clínica y financiera.">
+      
+      
+        <meta name="author" content="Dirección de Analítica y Soluciones en Salud">
+      
+      
+        <link rel="canonical" href="https://soportesaludtech.github.io/superset-docs/dashboards/12-consola-facturacion-wip/">
+      
+      
+        <link rel="prev" href="../02-prefacturacion/">
+      
+      
+        <link rel="next" href="../../guia-usuario/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Facturación y WIP Post-Alta - Centro de Analítica e Inteligencia Clínica - Hosvital HIS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#consola-facturacion-y-cuentas-por-emitir-wip-post-alta" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Centro de Analítica e Inteligencia Clínica - Hosvital HIS" class="md-header__button md-logo" aria-label="Centro de Analítica e Inteligencia Clínica - Hosvital HIS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Centro de Analítica e Inteligencia Clínica - Hosvital HIS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Facturación y WIP Post-Alta
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Modo Oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo Oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Modo Claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo Claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../arquitectura/modelo-datos/" class="md-tabs__link">
+          
+  
+  
+  Arquitectura y Datos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../01-egresos-urgencias/" class="md-tabs__link">
+          
+  
+  
+  Gestión Asistencial
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../03-ordenes-quirurgicas/" class="md-tabs__link">
+          
+  
+  
+  Gestión Quirúrgica
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../11-consola-censo-hospitalario/" class="md-tabs__link">
+          
+  
+  
+  Gestión Administrativa
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../logistica/13-control_fefo_lotes/" class="md-tabs__link">
+          
+  
+  
+  Gestión Logística
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../financiera/" class="md-tabs__link">
+          
+  
+  
+  Gestión Financiera y Cartera
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Centro de Analítica e Inteligencia Clínica - Hosvital HIS" class="md-nav__button md-logo" aria-label="Centro de Analítica e Inteligencia Clínica - Hosvital HIS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Centro de Analítica e Inteligencia Clínica - Hosvital HIS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura y Datos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitectura y Datos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitectura/modelo-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo de Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diccionario-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diccionario Vistas BI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diccionario-general/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Catálogo General HOSVITAL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Asistencial
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Asistencial
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-egresos-urgencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Egresos y Urgencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-consola_analisis_ingresos.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Análisis de Ingresos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-vigilancia-iaas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Calidad, Seguridad e IAAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05%20-%20Sivigila/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Vigilancia en Salud Pública (SIVIGILA)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-alto-costo-cac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Riesgo y Altocosto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-consola-y-cohortes-cac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola y Cohortes CAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-consola_gestion_cohortes_cronicas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola de Gestión y Cohortes - Enfermedades Crónicas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-consola_estadisticas_trauma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Estadísticas de Trauma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Quirúrgica
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Quirúrgica
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-ordenes-quirurgicas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ocupación y Programación QX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Administrativa
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Administrativa
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-consola-censo-hospitalario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Censo Hospitalario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Logística
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Logística
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logistica/13-control_fefo_lotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Logística
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Financiera y Cartera
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Financiera y Cartera
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financiera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen del Área
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-prefacturacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prefacturación y Producción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Facturación y WIP Post-Alta
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Facturación y WIP Post-Alta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ficha-tecnica-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ficha Técnica General
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-proposito-y-alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Propósito y Alcance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Propósito y Alcance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Propósito
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Alcance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-modelo-de-datos-y-origen-de-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Modelo de Datos y Origen de Información
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Modelo de Datos y Origen de Información">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-tablas-involucradas-en-hosvital-his" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Tablas Involucradas en Hosvital HIS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ddl-de-la-vista" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 DDL de la Vista:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-reglas-y-logica-de-negociotratamiento-de-fecha-centinela-en-hosvital-his" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Reglas y Lógica de NegocioTratamiento de Fecha Centinela: En Hosvital HIS,
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-metricas-y-logica-aritmetica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Métricas y Lógica Aritmética
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Métricas y Lógica Aritmética">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-formulas-matematicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Fórmulas Matemáticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-consultas-sql-por-cada-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Consultas SQL por cada Chart
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-estructura-de-visualizaciones-y-kpis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Estructura de Visualizaciones y KPIs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Estructura de Visualizaciones y KPIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-esquema-de-distribucion-en-grilla-grid-de-12-columnas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Esquema de Distribución en Grilla (Grid de 12 Columnas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-detalle-de-configuracion-por-componente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Detalle de Configuración por Componente
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guia-usuario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola de Glosas y Devoluciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ficha-tecnica-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ficha Técnica General
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-proposito-y-alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Propósito y Alcance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Propósito y Alcance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Propósito
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Alcance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-modelo-de-datos-y-origen-de-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Modelo de Datos y Origen de Información
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Modelo de Datos y Origen de Información">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-tablas-involucradas-en-hosvital-his" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Tablas Involucradas en Hosvital HIS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ddl-de-la-vista" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 DDL de la Vista:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-reglas-y-logica-de-negociotratamiento-de-fecha-centinela-en-hosvital-his" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Reglas y Lógica de NegocioTratamiento de Fecha Centinela: En Hosvital HIS,
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-metricas-y-logica-aritmetica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Métricas y Lógica Aritmética
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Métricas y Lógica Aritmética">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-formulas-matematicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Fórmulas Matemáticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-consultas-sql-por-cada-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Consultas SQL por cada Chart
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-estructura-de-visualizaciones-y-kpis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Estructura de Visualizaciones y KPIs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Estructura de Visualizaciones y KPIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-esquema-de-distribucion-en-grilla-grid-de-12-columnas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Esquema de Distribución en Grilla (Grid de 12 Columnas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-detalle-de-configuracion-por-componente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Detalle de Configuración por Componente
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="consola-facturacion-y-cuentas-por-emitir-wip-post-alta">Consola Facturación y Cuentas por Emitir (WIP Post-Alta)</h1>
+<hr />
+<h2 id="1-ficha-tecnica-general">1. Ficha Técnica General</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parámetro</th>
+<th style="text-align: left;">Valor / Especificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Nombre del Cuadro de Mando</strong></td>
+<td style="text-align: left;">Consola Facturación y Cuentas por Emitir (WIP Post-Alta)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Código del Manual</strong></td>
+<td style="text-align: left;"><code>DASH-ADM-012</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Área Funcional</strong></td>
+<td style="text-align: left;">Gestión Administrativa / Ciclo de Ingresos Hospitalario (<em>Revenue Cycle Management - RCM</em>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Herramienta de Visualización</strong></td>
+<td style="text-align: left;">IntelliHealth</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Motor de Base de Datos</strong></td>
+<td style="text-align: left;">Microsoft SQL Server (Hosvital HIS)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vistas Principales</strong></td>
+<td style="text-align: left;"><code>dbo.VW_PENDIENTE_POR_FACTURAR</code> / <code>dbo.VW_FACTURACION_EMITIDA</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Frecuencia de Actualización</strong></td>
+<td style="text-align: left;">Cada 15 Minutos (Caché Redis / TTL IntelliHealth: 900 s)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Marco Normativo Vigente</strong></td>
+<td style="text-align: left;">Ley 1438 de 2011 (Arts. 56 y 57), Decreto 4747 de 2007, Circular Única SNS</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Audiencia / Roles de Uso</strong></td>
+<td style="text-align: left;">Gerencia Financiera, Dirección Administrativa, Jefatura de Facturación, Auditoría Concurrente y Cuentas Médicas</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-proposito-y-alcance">2. Propósito y Alcance</h2>
+<h3 id="21-proposito">2.1 Propósito</h3>
+<p>Garantizar la supervisión y trazabilidad continua del ciclo de ingresos de la institución mediante un modelo dual:
+1. <strong>Facturación Emitida:</strong> Análisis de la producción formalmente liquidada, facturada y radicada ante las Entidades Administradoras de Planes de Beneficios (EAPB).
+2. <strong>Cuentas por Emitir (WIP - Work in Progress):</strong> Monitoreo operativo de atenciones con egreso médico que continúan acumulando cargos prefacturados en la tabla temporal <code>TMPFAC</code> sin haber sido cerradas ni facturadas.</p>
+<h3 id="22-alcance">2.2 Alcance</h3>
+<ul>
+<li><strong>Población Objeto:</strong> Todos los pacientes con cargos activos en <code>TMPFAC</code> y atenciones clínicas cerradas en <code>INGRESOS</code>.</li>
+<li><strong>Segregación:</strong> Cuentas con orden médica de salida (<em>Post-Egreso</em>) vs. Cuentas con paciente en estancia (<em>Abiertas</em>).</li>
+<li><strong>Control de Oportunidad:</strong> Detección de cuellos de botella por piso asistencial (<code>MAEPAB</code>), aseguradora (<code>EMPRESs</code>) y tipo de atención clínica.</li>
+</ul>
+<hr />
+<h2 id="3-modelo-de-datos-y-origen-de-informacion">3. Modelo de Datos y Origen de Información</h2>
+<h3 id="31-tablas-involucradas-en-hosvital-his">3.1 Tablas Involucradas en Hosvital HIS</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  +------------------+           +------------------+
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  |      TMPFAC      |           |     INGRESOS     |
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  |------------------|           |------------------|
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  | TmCtvIng (FK)    |----------&gt;| IngCsc (PK)      |
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  | TFCEDU / TFTDoc  |           | MPCodP (Pabellón)|
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  | TFMENi (Nit EPS) |           | MPNUMC (Cama)    |
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  | Clapro (Tipo)    |           | IngFecAdm (Ing)  |
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  | TFVAPU (Val Pac) |           | IngFecEgr (Egr)  |
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  | TFTOTP (Val Proc)|           +------------------+
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  | TFTOTS (Val Sum) |                     |
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  +------------------+                     |
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>           |                               v
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>           |                     +------------------+
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>           |                     |      MAEPAB      |
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>           |                     |------------------|
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>           |                     | MPCodP (PK)      |
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>           |                     | MPNomP (Nombre)  |
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>           |                     +------------------+
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>           v
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>  +------------------+           +------------------+
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>  |      MAEEMP      |           |     EMPRESs      |
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>  |------------------|           |------------------|
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>  | MENNIT (PK)      |           | MEcntr (PK)      |
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>  | MEcntr (FK)      |----------&gt;| EmpDsc (Nombre)  |
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>  | MENOMB (Contrato)|           +------------------+
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>  | mecapi (Modali.) |
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>  +------------------+
+</code></pre></div>
+<h3 id="32-ddl-de-la-vista">3.2 DDL de la Vista:</h3>
+<p>VW_PENDIENTE_POR_FACTURARSQLCREATE OR ALTER VIEW dbo.VW_PENDIENTE_POR_FACTURAR AS
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">WITH</span><span class="w"> </span><span class="n">ResumenTmpfac</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="n">tf</span><span class="p">.</span><span class="n">TmCtvIng</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="n">tf</span><span class="p">.</span><span class="n">TFCEDU</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="n">tf</span><span class="p">.</span><span class="n">TFTDoc</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="n">tf</span><span class="p">.</span><span class="n">TFMENi</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="n">tf</span><span class="p">.</span><span class="n">Clapro</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="k">SUM</span><span class="p">(</span><span class="k">ISNULL</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">TFVAPU</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">VALOR_PENDIENTE</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="k">SUM</span><span class="p">(</span><span class="k">ISNULL</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">TFTOTP</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">VALOR_PROCEDIMIENTOS</span><span class="p">,</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="k">SUM</span><span class="p">(</span><span class="k">ISNULL</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">TFTOTS</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">VALOR_SUMINISTROS</span><span class="p">,</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">CANTIDAD_CARGOS</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">TMPFAC</span><span class="w"> </span><span class="n">tf</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">NOLOCK</span><span class="p">)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="n">tf</span><span class="p">.</span><span class="n">TmCtvIng</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="n">tf</span><span class="p">.</span><span class="n">TFCEDU</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="n">tf</span><span class="p">.</span><span class="n">TFTDoc</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="n">tf</span><span class="p">.</span><span class="n">TFMENi</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="n">tf</span><span class="p">.</span><span class="n">Clapro</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="k">HAVING</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="k">ISNULL</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">TFVAPU</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="p">)</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="c1">-- 1. Identificadores de Cuenta y Usuario</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="n">r</span><span class="p">.</span><span class="n">TmCtvIng</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">CONSECUTIVO_INGRESO</span><span class="p">,</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="n">r</span><span class="p">.</span><span class="n">TFTDoc</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">TIPO_DOC_PACIENTE</span><span class="p">,</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="n">r</span><span class="p">.</span><span class="n">TFCEDU</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">IDENTIFICACION_PACIENTE</span><span class="p">,</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="n">MPnomC</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">PACIENTE</span><span class="p">,</span><span class="w">   </span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="c1">-- 2. Ubicación Asistencial</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="n">i</span><span class="p">.</span><span class="n">MPCodP</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">PABELLON_SERVICIO</span><span class="p">,</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="k">ISNULL</span><span class="p">(</span><span class="n">pab</span><span class="p">.</span><span class="n">MPNomP</span><span class="p">,</span><span class="w"> </span><span class="s1">'Sin Pabellón Asignado'</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">NOMBRE_PABELLON</span><span class="p">,</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">    </span><span class="n">i</span><span class="p">.</span><span class="n">MPNUMC</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">CAMA_ACTUAL</span><span class="p">,</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">    </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecAdm</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">FECHA_INGRESO</span><span class="p">,</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">    </span><span class="c1">-- 3. Temporalidad de Egreso</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'1753-01-01 00:00:00.000'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="w"> </span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">FECHA_ORDEN_SALIDA</span><span class="p">,</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">    </span><span class="c1">-- 4. Estados y Métricas de Rezago Operativo</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'1753-01-01 00:00:00.000'</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Abierta (En Estancia)'</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'Con Orden de Salida'</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ESTADO_ATENCION</span><span class="p">,</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s1">'1753-01-01 00:00:00.000'</span><span class="w"> </span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">             </span><span class="k">AND</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">             </span><span class="k">AND</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">()</span><span class="w"> </span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">        </span><span class="k">THEN</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">day</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">DIAS_REZAGO</span><span class="p">,</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">    </span><span class="c1">-- 5. Semáforo Normativo Ley 1438</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span>
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'1753-01-01 00:00:00.000'</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'En Estancia'</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">day</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'0 – 3 d'</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">day</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'4 – 7 d'</span>
+<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'&gt; 7 d'</span>
+<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">RANGO_REZAGO</span><span class="p">,</span>
+<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="w">    </span><span class="c1">-- 6. Estratificación Cronológica Detallada</span>
+<a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span>
+<a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'1753-01-01 00:00:00.000'</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'En Estancia'</span>
+<a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">day</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'1. 0 – 2 días'</span>
+<a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">day</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'2. 3 – 5 días'</span>
+<a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">day</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'3. 6 – 7 días'</span>
+<a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">day</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecEgr</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'4. 8 – 15 días'</span>
+<a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a><span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'5. &gt; 15 días'</span>
+<a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">RANGO_REZAGO_DETALLADO</span><span class="p">,</span>
+<a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a><span class="w">    </span><span class="c1">-- 7. Clasificación del Servicio</span>
+<a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">Clapro</span>
+<a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'1'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Urgencias'</span>
+<a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'2'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Consulta Externa / Ambulatorio'</span>
+<a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'3'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Hospitalización'</span>
+<a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'4'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Recién Nacido'</span>
+<a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'5'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Remitido'</span>
+<a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'Ambulatorio / General'</span>
+<a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">TIPO_ATENCION</span><span class="p">,</span>
+<a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a><span class="w">    </span><span class="c1">-- 8. Entidad Responsable del Pago y Contratación</span>
+<a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a><span class="w">    </span><span class="n">emp</span><span class="p">.</span><span class="n">EmpDsc</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ASEGURADORA</span><span class="p">,</span>
+<a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a><span class="w">    </span><span class="n">me</span><span class="p">.</span><span class="n">MENOMB</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">CONTRATO</span><span class="p">,</span>
+<a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span><span class="n">me</span><span class="p">.</span><span class="n">MEestado</span><span class="w"> </span>
+<a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'0'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Activo'</span><span class="w"> </span>
+<a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'1'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Inactivo'</span><span class="w"> </span>
+<a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'Otro'</span><span class="w"> </span>
+<a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ESTADO_CONTRATO</span><span class="p">,</span>
+<a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span><span class="n">me</span><span class="p">.</span><span class="n">mecapi</span>
+<a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Cápita'</span>
+<a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Evento'</span>
+<a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'PGP'</span>
+<a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a><span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'Otro'</span>
+<a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">MODALIDAD_CONTRATO</span><span class="p">,</span>
+<a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a><span class="w">    </span><span class="c1">-- 9. Importes Económicos</span>
+<a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a><span class="w">    </span><span class="n">r</span><span class="p">.</span><span class="n">VALOR_PENDIENTE</span><span class="p">,</span>
+<a id="__codelineno-1-90" name="__codelineno-1-90" href="#__codelineno-1-90"></a><span class="w">    </span><span class="n">r</span><span class="p">.</span><span class="n">VALOR_PROCEDIMIENTOS</span><span class="p">,</span>
+<a id="__codelineno-1-91" name="__codelineno-1-91" href="#__codelineno-1-91"></a><span class="w">    </span><span class="n">r</span><span class="p">.</span><span class="n">VALOR_SUMINISTROS</span><span class="p">,</span>
+<a id="__codelineno-1-92" name="__codelineno-1-92" href="#__codelineno-1-92"></a><span class="w">    </span><span class="n">r</span><span class="p">.</span><span class="n">CANTIDAD_CARGOS</span>
+<a id="__codelineno-1-93" name="__codelineno-1-93" href="#__codelineno-1-93"></a><span class="k">FROM</span><span class="w"> </span><span class="n">ResumenTmpfac</span><span class="w"> </span><span class="n">r</span>
+<a id="__codelineno-1-94" name="__codelineno-1-94" href="#__codelineno-1-94"></a><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">INGRESOS</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">NOLOCK</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-1-95" name="__codelineno-1-95" href="#__codelineno-1-95"></a><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">TmCtvIng</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">IngCsc</span>
+<a id="__codelineno-1-96" name="__codelineno-1-96" href="#__codelineno-1-96"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">CAPBAS</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">NOLOCK</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-1-97" name="__codelineno-1-97" href="#__codelineno-1-97"></a><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">TFCEDU</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">MPCEDU</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">TFTDoc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">MPTDoc</span>
+<a id="__codelineno-1-98" name="__codelineno-1-98" href="#__codelineno-1-98"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">MAEPAB</span><span class="w"> </span><span class="n">pab</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">NOLOCK</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-1-99" name="__codelineno-1-99" href="#__codelineno-1-99"></a><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">MPCodP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pab</span><span class="p">.</span><span class="n">MPCodP</span>
+<a id="__codelineno-1-100" name="__codelineno-1-100" href="#__codelineno-1-100"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">MAEEMP</span><span class="w"> </span><span class="n">me</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">NOLOCK</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-1-101" name="__codelineno-1-101" href="#__codelineno-1-101"></a><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">TFMENi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">me</span><span class="p">.</span><span class="n">MENNIT</span>
+<a id="__codelineno-1-102" name="__codelineno-1-102" href="#__codelineno-1-102"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">EMPRESs</span><span class="w"> </span><span class="n">emp</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">NOLOCK</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-1-103" name="__codelineno-1-103" href="#__codelineno-1-103"></a><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">me</span><span class="p">.</span><span class="n">MEcntr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emp</span><span class="p">.</span><span class="n">MEcntr</span><span class="p">;</span>
+<a id="__codelineno-1-104" name="__codelineno-1-104" href="#__codelineno-1-104"></a><span class="k">GO</span>
+</code></pre></div></p>
+<h2 id="4-reglas-y-logica-de-negociotratamiento-de-fecha-centinela-en-hosvital-his">4. Reglas y Lógica de NegocioTratamiento de Fecha Centinela: En Hosvital HIS,</h2>
+<ul>
+<li>
+<p>los pacientes hospitalizados que aún no tienen alta médica registran en INGRESOS.IngFecEgr el valor centinela '1753-01-01 00:00:00.000'. La vista transforma este valor en NULL y lo clasifica bajo el estado Abierta (En Estancia).</p>
+</li>
+<li>
+<p>Cálculo de Días de Rezago: Solo computa para atenciones que poseen orden de salida confirmada (IngFecEgr &gt; 1753-01-01 y fecha válida en el pasado). </p>
+</li>
+<li>
+<p>Para pacientes activos en cama, el rezago es estrictamente 0.Agrupación Previa en TMPFAC: TMPFAC maneja cargos a nivel de ítem individual facturable. </p>
+</li>
+<li>
+<p>La vista consolida previamente los cargos mediante un CTE (ResumenTmpfac) agrupando por ingreso, paciente y aseguradora para evitar duplicaciones cartesianas.
+<strong>Semáforo Normativo de Liquidación (Ley 1438):</strong></p>
+<ul>
+<li><strong>Verde (0 a 3 días):</strong> Intervalo legal oportuno de facturación y auditoría médica.</li>
+<li><strong>Amarillo (4 a 7 días):</strong> Alerta administrativa; riesgo de vencimiento en tiempos de radicación.</li>
+<li><strong>Rojo (&gt; 7 días):</strong> Desviación crítica; cuenta bloqueada por pertinencia médica, falta de soportes, autorizaciones o inconsistencia en cargos.</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-metricas-y-logica-aritmetica">5. Métricas y Lógica Aritmética</h2>
+<h3 id="51-formulas-matematicas">5.1 Fórmulas Matemáticas</h3>
+<p><strong>A. Total Saldo Pendiente (<span class="arithmatex">\(S_{total}\)</span>)</strong><br />
+Consolidación monetaria absoluta de cargos sin liquidar:</p>
+<div class="arithmatex">\[
+S_{total} = \sum_{i=1}^{n} \text{VALOR\_PENDIENTE}_i
+\]</div>
+<p><strong>B. Saldo en Rezago Post-Alta (<span class="arithmatex">\(S_{rezago}\)</span>)</strong><br />
+Importe de atenciones con egreso médico efectivo que aún no se radican:</p>
+<div class="arithmatex">\[
+S_{rezago} = \sum_{i \in \text{Con Orden de Salida}} \text{VALOR\_PENDIENTE}_i
+\]</div>
+<p><strong>C. Rezago Operativo Promedio (<span class="arithmatex">\(\overline{R}\)</span>)</strong><br />
+Días medios transcurridos desde el alta médica institucional:</p>
+<div class="arithmatex">\[
+\overline{R} = \frac{1}{N_{alta}} \sum_{i=1}^{N_{alta}} \left( \text{Fecha Actual} - \text{Fecha Egreso}_i \right)
+\]</div>
+<p>Donde <span class="arithmatex">\(N_{alta}\)</span> es el total de ingresos con estado <em>Con Orden de Salida</em>.</p>
+<p><strong>D. Tasa de Cumplimiento de Oportunidad (<span class="arithmatex">\(\%Oport\)</span>)</strong><br />
+Porcentaje de atenciones dentro del margen de la Ley 1438:</p>
+<div class="arithmatex">\[
+\%Oport = \left( \frac{\sum [ \text{DIAS\_REZAGO}_i \le 3 ]}{N_{alta}} \right) \times 100
+\]</div>
+<hr />
+<h2 id="6-consultas-sql-por-cada-chart">6. Consultas SQL por cada Chart</h2>
+<p><strong>Chart 01: KPI - Total Saldo Pendiente</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">VALOR_PENDIENTE</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"Total Saldo Pendiente"</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">VW_PENDIENTE_POR_FACTURAR</span><span class="p">;</span>
+</code></pre></div>
+<strong>Chart 02: KPI - Saldo con Alta Médica (Rezago)</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">VALOR_PENDIENTE</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"Saldo con Alta Medica"</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">VW_PENDIENTE_POR_FACTURAR</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">ESTADO_ATENCION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Con Orden de Salida'</span><span class="p">;</span>
+</code></pre></div>
+<strong>Chart 03: KPI - Cuentas por Liquidar</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">CONSECUTIVO_INGRESO</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"Cuentas por Liquidar"</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">VW_PENDIENTE_POR_FACTURAR</span><span class="p">;</span>
+</code></pre></div>
+<strong>Chart 04: Tacómetro - Días Promedio de Rezago Operativo</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="k">COALESCE</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ESTADO_ATENCION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Con Orden de Salida'</span><span class="w"> </span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="k">THEN</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="n">DIAS_REZAGO</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">FLOAT</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="k">END</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"Rezago Operativo"</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">VW_PENDIENTE_POR_FACTURAR</span><span class="p">;</span>
+</code></pre></div>
+<strong>Chart 05: Distribución del Saldo por Días Post-Egreso</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">RANGO_REZAGO_DETALLADO</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"Rango"</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="k">CAST</span><span class="p">(</span><span class="n">RANGO_REZAGO_DETALLADO</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"Rango_Color"</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">VALOR_PENDIENTE</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"Saldo"</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">VW_PENDIENTE_POR_FACTURAR</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">ESTADO_ATENCION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Con Orden de Salida'</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">RANGO_REZAGO_DETALLADO</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">RANGO_REZAGO_DETALLADO</span><span class="w"> </span><span class="k">ASC</span><span class="p">;</span>
+</code></pre></div>
+<strong>Chart 06: Rezago Operativo y Saldo por Pabellón / Servicio</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">NOMBRE_PABELLON</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"Pabellon"</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">AVG</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ESTADO_ATENCION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Con Orden de Salida'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="n">DIAS_REZAGO</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">FLOAT</span><span class="p">)</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"Dias_Promedio"</span><span class="p">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">VALOR_PENDIENTE</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"Saldo_Pendiente"</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">VW_PENDIENTE_POR_FACTURAR</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">ESTADO_ATENCION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Con Orden de Salida'</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">NOMBRE_PABELLON</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Dias_Promedio</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<strong>Chart 07: Distribución por Estado Asistencial (Dona)</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="n">ESTADO_ATENCION</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"Estado"</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">VALOR_PENDIENTE</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"Valor"</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">VW_PENDIENTE_POR_FACTURAR</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">ESTADO_ATENCION</span><span class="p">;</span>
+</code></pre></div>
+<strong>Chart 08: Top 10 Aseguradoras con Mayor Saldo Pendiente</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">TOP</span><span class="w"> </span><span class="mi">10</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="n">ASEGURADORA</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">VALOR_PENDIENTE</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"Valor_Pendiente"</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">VW_PENDIENTE_POR_FACTURAR</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">ASEGURADORA</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Valor_Pendiente</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<strong>Chart 09: Detalle Operativo de Auditoría de Cuentas</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="n">CONSECUTIVO_INGRESO</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="n">TIPO_DOC_PACIENTE</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="n">IDENTIFICACION_PACIENTE</span><span class="p">,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="n">PACIENTE</span><span class="p">,</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="n">ASEGURADORA</span><span class="p">,</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="n">TIPO_ATENCION</span><span class="p">,</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="n">NOMBRE_PABELLON</span><span class="p">,</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="n">CAMA_ACTUAL</span><span class="p">,</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="n">FECHA_ORDEN_SALIDA</span><span class="p">,</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="n">DIAS_REZAGO</span><span class="p">,</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="n">RANGO_REZAGO_DETALLADO</span><span class="p">,</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">VALOR_PENDIENTE</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"VALOR_PENDIENTE"</span><span class="p">,</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">VALOR_PROCEDIMIENTOS</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"VALOR_PROCEDIMIENTOS"</span><span class="p">,</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">VALOR_SUMINISTROS</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">"VALOR_SUMINISTROS"</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">VW_PENDIENTE_POR_FACTURAR</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">    </span><span class="n">CONSECUTIVO_INGRESO</span><span class="p">,</span><span class="w"> </span><span class="n">TIPO_DOC_PACIENTE</span><span class="p">,</span><span class="w"> </span><span class="n">IDENTIFICACION_PACIENTE</span><span class="p">,</span><span class="w"> </span><span class="n">PACIENTE</span><span class="p">,</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">    </span><span class="n">ASEGURADORA</span><span class="p">,</span><span class="w"> </span><span class="n">TIPO_ATENCION</span><span class="p">,</span><span class="w"> </span><span class="n">NOMBRE_PABELLON</span><span class="p">,</span><span class="w"> </span><span class="n">CAMA_ACTUAL</span><span class="p">,</span><span class="w"> </span><span class="n">FECHA_ORDEN_SALIDA</span><span class="p">,</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="n">DIAS_REZAGO</span><span class="p">,</span><span class="w"> </span><span class="n">RANGO_REZAGO_DETALLADO</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">DIAS_REZAGO</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="7-estructura-de-visualizaciones-y-kpis">7. Estructura de Visualizaciones y KPIs</h2>
+<h3 id="71-esquema-de-distribucion-en-grilla-grid-de-12-columnas">7.1 Esquema de Distribución en Grilla (Grid de 12 Columnas)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>+---------------------------------------------------------------------------------------------------+
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>| PESTAÑA: PENDIENTE POR FACTURAR (WIP POST-ALTA)                                                   |
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>+---------------------------------------------------------------------------------------------------+
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>| FILA 1: KPIs EJECUTIVOS                                                                           |
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>| [ Total Saldo Pendiente ] (4 col) | [ Saldo con Alta Médica ] (4 col) | [ Total Cuentas ] (4 col) |
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>+---------------------------------------------------------------------------------------------------+
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>| FILA 2: GESTIÓN OPERATIVA Y REZAGO (LEY 1438)                                                     |
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>| [ Convención Markdown ] (3 col)   | [ Tacómetro Rezago ] (4 col)      | [ Barras x Rango ] (5 col) |
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>+---------------------------------------------------------------------------------------------------+
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>| FILA 3: CAUSA RAÍZ ASISTENCIAL                                                                    |
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>| [ Rezago Operativo por Servicio / Pabellón ] (12 col)                                             |
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>+---------------------------------------------------------------------------------------------------+
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>| FILA 4: DISTRIBUCIÓN Y CONCENTRACIÓN                                                              |
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>| [ Dona: Estado Asistencial ] (5 col) | [ Barras Horiz: Top 10 Aseguradoras ] (7 col)               |
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>+---------------------------------------------------------------------------------------------------+
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>| FILA 5: AUDITORÍA DETALLADA                                                                       |
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>| [ Malla de Priorización y Trabajo Operativo de Facturación ] (12 col - Ancho completo)            |
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>+---------------------------------------------------------------------------------------------------+
+</code></pre></div>
+<hr />
+<h3 id="72-detalle-de-configuracion-por-componente">7.2 Detalle de Configuración por Componente</h3>
+<p><strong>1. Total Saldo Pendiente</strong></p>
+<ul>
+<li><strong>Tipo:</strong> <code>Big Number</code></li>
+<li><strong>Grid:</strong> 4 columnas</li>
+<li><strong>Métrica:</strong> <code>SUM(VALOR_PENDIENTE)</code></li>
+<li><strong>Formato Numérico:</strong> <code>$,.2s</code></li>
+<li><strong>Subheader:</strong> <code>Saldo preliminar total en cargos (TMPFAC)</code></li>
+</ul>
+<p><strong>2. Saldo con Alta Médica</strong></p>
+<ul>
+<li><strong>Tipo:</strong> <code>Big Number</code></li>
+<li><strong>Grid:</strong> 4 columnas</li>
+<li><strong>Métrica:</strong> <code>SUM(CASE WHEN ESTADO_ATENCION = 'Con Orden de Salida' THEN VALOR_PENDIENTE ELSE 0 END)</code></li>
+<li><strong>Formato Numérico:</strong> <code>$,.2s</code></li>
+<li><strong>Subheader:</strong> <code>Cargos con paciente egresado (Impacto directo)</code></li>
+</ul>
+<p><strong>3. Total Cuentas por Liquidar</strong></p>
+<ul>
+<li><strong>Tipo:</strong> <code>Big Number</code></li>
+<li><strong>Grid:</strong> 4 columnas</li>
+<li><strong>Métrica:</strong> <code>COUNT(DISTINCT CONSECUTIVO_INGRESO)</code></li>
+<li><strong>Formato Numérico:</strong> <code>,d</code></li>
+<li><strong>Subheader:</strong> <code>Ingresos con cargos en proceso</code></li>
+</ul>
+<p><strong>4. Convención de Rezago Normativo</strong></p>
+<ul>
+<li><strong>Tipo:</strong> <code>Markdown</code></li>
+<li><strong>Grid:</strong> 3 columnas</li>
+<li><strong>Contenido HTML / Markdown:</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">align</span><span class="o">=</span><span class="s">"center"</span><span class="p">&gt;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Convención de Rezago<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">"color: #2e7d32; font-size: 13px; font-weight: bold;"</span><span class="p">&gt;</span>Meta: ≤ 3.0 días (Ley 1438)<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>| Antigüedad | Estado | Acción Requerida |
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>| :---: | :---: | :--- |
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>| **0 – 3 d** | 🟢 **Óptimo** | Facturación en ciclo ordinario |
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>| **4 – 7 d** | 🟡 **Alerta** | Agilizar auditoría médica concurrente |
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>| **&gt; 7 d** | 🔴 **Crítico** | Cuentas bloqueadas / Prioridad alta |
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<p><strong>5. Tacómetro de Rezago Promedio</strong></p>
+<ul>
+<li><strong>Tipo:</strong> <code>Gauge Chart</code> (ECharts)</li>
+<li><strong>Grid:</strong> 4 columnas</li>
+<li><strong>Métrica:</strong>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">COALESCE</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ESTADO_ATENCION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Con Orden de Salida'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="n">DIAS_REZAGO</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">FLOAT</span><span class="p">)</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">END</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></li>
+<li><strong>Configuración Customize:</strong></li>
+<li><strong>Min / Max:</strong> <code>0</code> a <code>15</code></li>
+<li><strong>Interval bounds:</strong> <code>3, 7, 15</code></li>
+<li><strong>Interval colors:</strong> <code>3, 7, 6</code></li>
+<li><strong>Number format:</strong> <code>,.1f</code></li>
+<li><strong>Value format:</strong> <code>{value} días</code></li>
+<li><strong>Show progress:</strong> Desmarcado</li>
+<li><strong>Round cap:</strong> Desmarcado</li>
+</ul>
+<p><strong>6. Distribución del Saldo por Días Post-Egreso</strong></p>
+<ul>
+<li><strong>Tipo:</strong> <code>Bar Chart</code> (ECharts)</li>
+<li><strong>Grid:</strong> 5 columnas</li>
+<li><strong>X-Axis:</strong> <code>RANGO_REZAGO_DETALLADO</code></li>
+<li><strong>Dimensions (Breakdown):</strong> <code>CAST(RANGO_REZAGO_DETALLADO AS VARCHAR(50))</code> con Label <code>Rango_Color</code></li>
+<li><strong>Métrica:</strong> <code>SUM(VALOR_PENDIENTE)</code></li>
+<li><strong>Filtros del Chart:</strong> <code>ESTADO_ATENCION = 'Con Orden de Salida'</code></li>
+<li><strong>Configuración Customize:</strong></li>
+<li><strong>Stacked:</strong> <code>MARCADO (ON)</code></li>
+<li><strong>Stack Position:</strong> <code>Top</code></li>
+<li><strong>Show Value:</strong> <code>MARCADO (ON)</code></li>
+<li><strong>Value format:</strong> <code>$,.0f</code></li>
+</ul>
+<p><strong>7. Rezago Operativo por Pabellón / Servicio</strong></p>
+<ul>
+<li><strong>Tipo:</strong> <code>Bar Chart</code> (ECharts)</li>
+<li><strong>Grid:</strong> 12 columnas (Ancho completo)</li>
+<li><strong>X-Axis:</strong> <code>NOMBRE_PABELLON</code></li>
+<li><strong>Metrics:</strong></li>
+<li><code>AVG(DIAS_REZAGO)</code> (Label: <code>Días Promedio Rezago</code>, Formato: <code>,.1f</code>)</li>
+<li><code>SUM(VALOR_PENDIENTE)</code> (Label: <code>Saldo Pendiente</code>, Formato: <code>$,.2s</code>)</li>
+<li><strong>Filtros del Chart:</strong> <code>ESTADO_ATENCION = 'Con Orden de Salida'</code></li>
+<li><strong>Configuración Customize:</strong></li>
+<li><strong>Orientation:</strong> <code>Horizontal</code></li>
+<li><strong>Show Value:</strong> <code>MARCADO (ON)</code></li>
+</ul>
+<p><strong>8. Distribución por Estado Asistencial</strong></p>
+<ul>
+<li><strong>Tipo:</strong> <code>Pie Chart</code> (Donut)</li>
+<li><strong>Grid:</strong> 5 columnas</li>
+<li><strong>Dimensión:</strong> <code>ESTADO_ATENCION</code></li>
+<li><strong>Métrica:</strong> <code>SUM(VALOR_PENDIENTE)</code></li>
+<li><strong>Configuración Customize:</strong></li>
+<li><strong>Outer radius:</strong> <code>65%</code></li>
+<li><strong>Inner radius:</strong> <code>45%</code></li>
+<li><strong>Label type:</strong> <code>Category and percentage</code></li>
+<li><strong>Show Legend:</strong> Desmarcado</li>
+<li><strong>Number format:</strong> <code>$,.2s</code></li>
+</ul>
+<p><strong>9. Top 10 Aseguradoras con Mayor Saldo Pendiente</strong></p>
+<ul>
+<li><strong>Tipo:</strong> <code>Bar Chart</code> (ECharts)</li>
+<li><strong>Grid:</strong> 7 columnas</li>
+<li><strong>X-Axis:</strong> <code>ASEGURADORA</code></li>
+<li><strong>Métrica:</strong> <code>SUM(VALOR_PENDIENTE)</code></li>
+<li><strong>Sort:</strong> <code>SUM(VALOR_PENDIENTE)</code> Descendente</li>
+<li><strong>Row limit:</strong> <code>10</code></li>
+<li><strong>Configuración Customize:</strong></li>
+<li><strong>Orientation:</strong> <code>Horizontal</code></li>
+<li><strong>Show Value:</strong> <code>MARCADO (ON)</code></li>
+<li><strong>Number format:</strong> <code>$,.2s</code></li>
+</ul>
+<p><strong>10. Detalle Operativo de Cuentas por Liquidar</strong></p>
+<ul>
+<li><strong>Tipo:</strong> <code>Table</code></li>
+<li><strong>Grid:</strong> 12 columnas (Ancho completo)</li>
+<li><strong>Dimensiones:</strong> <code>CONSECUTIVO_INGRESO</code>, <code>TIPO_DOC_PACIENTE</code>, <code>IDENTIFICACION_PACIENTE</code>, <code>PACIENTE</code>, <code>ASEGURADORA</code>, <code>TIPO_ATENCION</code>, <code>NOMBRE_PABELLON</code>, <code>CAMA_ACTUAL</code>, <code>FECHA_ORDEN_SALIDA</code>, <code>DIAS_REZAGO</code>, <code>RANGO_REZAGO_DETALLADO</code></li>
+<li><strong>Métricas:</strong> <code>SUM(VALOR_PENDIENTE)</code>, <code>SUM(VALOR_PROCEDIMIENTOS)</code>, <code>SUM(VALOR_SUMINISTROS)</code></li>
+<li><strong>Sort By:</strong> <code>DIAS_REZAGO</code> Descendente</li>
+<li><strong>Configuración Customize:</strong></li>
+<li><strong>Search box:</strong> Marcado</li>
+<li><strong>Page length:</strong> <code>15</code></li>
+<li><strong>Table Font Size:</strong> <code>small</code></li>
+<li><strong>Number format:</strong> <code>$,.0f</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
