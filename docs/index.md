@@ -25,7 +25,7 @@ Repositorio central de documentación técnica, operativa y funcional de los cua
 | **Gestión Financiera y Cartera** | Consola de Glosas y Devoluciones | Efectividad de recobro, saldo objetado, pérdidas y homologación | 24 Horas | [Ver Manual](guia-usuario.md) |
 | **Gestión Financiera y Cartera** | Prefacturación y Producción | Días de rezago de prefactura, WIP y cargos en tránsito | Turno / 8 Horas | [Ver Ficha Técnica](dashboards/02-prefacturacion.md) |
 | **Gestión Financiera y Cartera** | Facturación y WIP Post-Alta | Tiempos de egreso a factura, Ley 1438 y corte de estancias | 12 Horas | [Ver Ficha Técnica](dashboards/12-consola-facturacion-wip.md) |
-
+| **Gestión Financiera y Cartera** | Edades de Cartera y Recaudo | Saldo neto exigible, recaudo acumulado, valor glosado, efectividad (%) y estratificación etaria (0 a >360 días) | 8 Horas | [Ver Ficha Técnica](dashboards/14-consola-edades-cartera-recaudo.md) |
 
 ---
 

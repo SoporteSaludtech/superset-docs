@@ -69,3 +69,5 @@ nav:
     - Prefacturación y Producción: dashboards/02-prefacturacion.md
     - Facturación y WIP Post-Alta: dashboards/12-consola-facturacion-wip.md
     - Consola de Glosas y Devoluciones: guia-usuario.md
+    - 'Edades de Cartera y Recaudo': dashboards/14-consola-edades-cartera-recaudo.md
+    
