@@ -12,7 +12,7 @@
 | **Sistema Origen** | HOSVITAL HIS (Módulo de Inventarios y Suministros) |
 | **Motor de Base de Datos** | Microsoft SQL Server |
 | **Capa Semántica** | `dbo.VW_FARMACIA_STOCK_LOTES` |
-| **Herramienta de Visualización** | Apache Superset |
+| **Herramienta de Visualización** | Intelligy Health |
 | **Frecuencia de Actualización** | Turno / 8 Horas (Corte programado en cada cambio de turno asistencial) |
 | **Marco Normativo Aplicable** | **Resolución 1403 de 2007 (Ministerio de la Protección Social)**: Modelo de Gestión del Servicio Farmacéutico, condiciones esenciales de almacenamiento, semaforización tricolor y política FEFO obligatoria en Colombia. |
 
@@ -149,33 +149,109 @@ GO;
 ```
 
 ## 4. Reglas y Lógica de Negocio
-Jerarquía Normativa del Semáforo FEFO:0. BLOQUEADO / CUARENTENA: Todo lote cuyo estado no sea 'A' (Activo). Se aísla preventivamente de la dispensación asistencial con independencia de su fecha de vencimiento.1. VENCIDO: Lote con fecha de caducidad menor estricta a la fecha del sistema (CAST(GETDATE() AS DATE)). Genera valores negativos en DIAS_PARA_VENCER. Exige acta de baja técnica y traslado a área de descarte.2. ROJO (<= 90 Días): Lote que vence en 90 días calendario o menos. Prioridad crítica de rotación, consumo inmediato en servicios de alta demanda o solicitud formal de canje con el proveedor.3. AMARILLO (91-180 Días): Alerta preventiva (ventana de 3 a 6 meses de vigencia). Se prioriza en traslados asistenciales hacia áreas de alto recambio (Urgencias / Hospitalización).4. VERDE (> 180 Días): Existencia óptima y segura con vigencia mayor a 6 meses.5. NO PERECEDERO / SIN VCTO: Dispositivos médicos o insumos sin fecha o con fechas centinela (<= 1900-01-01 o >= 2040-01-01). Devuelven NULL en días para no distorsionar promedios.Homologación Multi-Empresa: El cruce entre LOTESUM y BODEGAS se enlaza estrictamente por BODEGA y EMPCOD, garantizando que almacenes homónimos en diferentes empresas no provoquen productos cartesianos ni duplicidad de inventario.Depuración de Registros Atípicos (Data Cleansing): Para asegurar la confiabilidad financiera en entornos de pruebas y producción, la vista filtra automáticamente registros con nombres de test (ANDRES, ASDASD%) o saldos irreales ($\ge 25.000$ unidades individuales o valores $> \$500M$ COP por lote).5. Métricas y Lógica Aritmética5.1 Fórmulas MatemáticasDías para Vencer ($D_v$):$$D_v = \text{DATEDIFF}(\text{DAY}, \text{GETDATE}(), \text{LoteFVcto})$$Valorización Económica del Lote ($V_L$):$$V_L = \text{SaldoUnidades} \times \text{CostoPromedioUnitario}$$Capital Total en Inventario ($K_{total}$):$$K_{total} = \sum_{i=1}^{n} V_{L_i}$$Capital Crítico en Riesgo de Caducidad ($K_{riesgo}$):$$K_{riesgo} = \sum V_L \quad \forall \quad \text{ESTADO\_SEMAFORO\_FEFO} \in \{'1.\text{ VENCIDO}', '2.\text{ ROJO (<= 90 Días)}'\}$$Porcentaje de Exposición a Merma ($\% Exp$):$$\% Exp = \left( \frac{K_{riesgo}}{K_{total}} \right) \times 100$$6. Consultas SQL por cada ChartKPI 1: Capital Total en InventarioSQLSELECT 
+
+### Jerarquía Normativa del Semáforo FEFO
+
+| Nivel Semáforo | Condición Técnica | Impacto Asistencial y Operativo |
+| :--- | :--- | :--- |
+| **`0. BLOQUEADO / CUARENTENA`** | `LoteEst <> 'A'` | Todo lote cuyo estado no sea `'A'` (Activo). Se aísla preventivamente de la dispensación asistencial sin importar su fecha de caducidad. |
+| **`1. VENCIDO`** | $\text{FechaVcto} < \text{Hoy}$ | Lote con caducidad rebasada. Genera valores negativos en `DIAS_PARA_VENCER`. Exige acta de baja técnica y traslado físico a estiba de descarte. |
+| **`2. ROJO (<= 90 Días)`** | $0 \le \text{Días} \le 90$ | Lote en ventana crítica ($\le 3$ meses). Prioridad número uno de consumo asistencial o activación urgente de canje con el proveedor. |
+| **`3. AMARILLO (91-180 Días)`** | $91 \le \text{Días} \le 180$ | Alerta preventiva (ventana de 3 a 6 meses). Se prioriza su traslado hacia servicios de alto flujo (Urgencias u Hospitalización). |
+| **`4. VERDE (> 180 Días)`** | $\text{Días} > 180$ | Existencia óptima y segura con vigencia mayor a 6 meses de margen. |
+| **`5. NO PERECEDERO / SIN VCTO`** | $\text{Fecha} \le 1900 \lor \ge 2040$ | Dispositivos médicos o insumos sin fecha de caducidad. Devuelven `NULL` en días para no distorsionar promedios. |
+
+### Homologación Multi-Empresa
+
+El cruce entre `LOTESUM` y `BODEGAS` se enlaza estrictamente por la tupla `(BODEGA, EMPCOD)`. Esto previene multiplicaciones cartesianas cuando existen almacenes con el mismo código en diferentes sedes o razones sociales dentro de la misma base de datos.
+
+### Depuración de Registros Atípicos (Data Cleansing)
+
+Para asegurar la confiabilidad financiera en entornos de pruebas y producción, la vista filtra de forma automática:
+
+* Lotes comodín o de pruebas de usuario (`ANDRES`, `PRUEBA`, `TEST`, `ASDASD%`).
+* Saldos individuales físicamente irreales ($\gt 25.000$ unidades en un único lote).
+* Lotes con valorización desproporcionada ($\gt \$500.000.000$ COP).
+* Registros con descripciones maestras marcadas como `"NO USAR"` o bodegas de migración `"SOLO PARA TRASLADOS"`.
+
+---
+
+## 5. Métricas y Lógica Aritmética
+
+### 5.1 Fórmulas Matemáticas
+
+**Días para Vencer ($D_v$):**
+
+$$D_v = \text{DATEDIFF}(\text{DAY}, \text{GETDATE}(), \text{LoteFVcto})$$
+
+**Valorización Económica del Lote ($V_L$):**
+
+$$V_L = \text{SaldoUnidades} \times \text{CostoPromedioUnitario}$$
+
+**Capital Total en Inventario ($K_{total}$):**
+
+$$K_{total} = \sum_{i=1}^{n} V_{L_i}$$
+
+**Capital Crítico en Riesgo de Caducidad ($K_{riesgo}$):**
+
+$$K_{riesgo} = \sum V_L \quad \forall \quad \text{ESTADO\_SEMAFORO\_FEFO} \in \{'1.\text{ VENCIDO}', '2.\text{ ROJO (<= 90 Días)}'\}$$
+
+**Porcentaje de Exposición a Merma ($\% Exp$):**
+
+$$\% Exp = \left( \frac{K_{riesgo}}{K_{total}} \right) \times 100$$
+
+---
+
+## 6. Consultas SQL por cada Chart
+
+### KPI 1: Capital Total en Inventario
+
+```sql
+SELECT 
     SUM(VALOR_TOTAL_LOTE) AS VALOR_INVENTARIO_TOTAL
 FROM dbo.VW_FARMACIA_STOCK_LOTES;
-KPI 2: Saldo Físico Total de UnidadesSQLSELECT 
-    SUM(SALDO_UNIDADES) AS TOTAL_UNIDADES_FISICAS
+```
+### KPI 2: Saldo Físico Total de Unidades
+```SQL 
+SELECT 
+    	SUM(SALDO_UNIDADES) AS TOTAL_UNIDADES_FISICAS
 FROM dbo.VW_FARMACIA_STOCK_LOTES;
-KPI 3: Lotes en Riesgo Crítico (Vencidos y $\le 90$ Días)SQLSELECT 
+```
+### KPI 3: Lotes en Riesgo Crítico (Vencidos y $\le 90$ Días)
+```SQL
+SELECT 
     COUNT(DISTINCT NUMERO_LOTE) AS TOTAL_LOTES_CRITICOS
 FROM dbo.VW_FARMACIA_STOCK_LOTES
 WHERE ESTADO_SEMAFORO_FEFO IN ('1. VENCIDO', '2. ROJO (<= 90 Días)');
-KPI 4: Capital Financiero en Riesgo CríticoSQLSELECT 
+```
+### KPI 4: Capital Financiero en Riesgo Crítico
+```SQL
+SELECT 
     SUM(VALOR_TOTAL_LOTE) AS CAPITAL_EN_RIESGO_COP
 FROM dbo.VW_FARMACIA_STOCK_LOTES
 WHERE ESTADO_SEMAFORO_FEFO IN ('1. VENCIDO', '2. ROJO (<= 90 Días)');
-Chart 5: Gráfico de Barras Apiladas (Composición FEFO por Bodega)SQLSELECT 
+```
+### Chart 5: Gráfico de Barras Apiladas (Composición FEFO por Bodega)
+```SQL
+SELECT 
     NOMBRE_BODEGA,
     ESTADO_SEMAFORO_FEFO,
     SUM(VALOR_TOTAL_LOTE) AS VALOR_TOTAL
 FROM dbo.VW_FARMACIA_STOCK_LOTES
 GROUP BY NOMBRE_BODEGA, ESTADO_SEMAFORO_FEFO
 ORDER BY SUM(VALOR_TOTAL_LOTE) DESC;
-Chart 6: Gráfico de Dona (Distribución del Portafolio de Lotes)SQLSELECT 
+```
+### Chart 6: Gráfico de Dona (Distribución del Portafolio de Lotes)
+```SQL
+SELECT 
     ESTADO_SEMAFORO_FEFO,
     SUM(VALOR_TOTAL_LOTE) AS VALOR_TOTAL
 FROM dbo.VW_FARMACIA_STOCK_LOTES
 GROUP BY ESTADO_SEMAFORO_FEFO;
-Chart 7: Matriz de Control FEFO y Trazabilidad de Lotes (Tabla Operativa)SQLSELECT 
+```
+### Chart 7: Matriz de Control FEFO y Trazabilidad de Lotes (Tabla Operativa)
+```SQL
+SELECT 
     CODIGO_SUMINISTRO,
     DESCRIPCION_MEDICAMENTO,
     CODIGO_CUM,
@@ -199,22 +275,93 @@ GROUP BY
     ESTADO_SEMAFORO_FEFO,
     NIT_PROVEEDOR
 ORDER BY MIN(DIAS_PARA_VENCER) ASC;
-7. Estructura de Visualizaciones y KPIs7.1 Esquema de Distribución en GrillaEl tablero está diseñado sobre la cuadrícula estándar de 12 columnas de Apache Superset:Plaintext+-----------------------------------------------------------------------------------------------+
-| PANEL LATERAL IZQUIERDO: FILTROS NATIVOS (Bodega, Semáforo FEFO, Medicamento, Alto Costo)     |
-+-----------------------------------------------------------------------------------------------+
-| FILA 1: KPIS DE IMPACTO ECONÓMICO Y VOLUMEN                                                   |
-| [ KPI 1: Valor Total ] [ KPI 2: Total Unidades ] [ KPI 3: Lotes Críticos ] [ KPI 4: Cap. Riesgo]|
-| (3 Columnas)           (3 Columnas)              (3 Columnas)              (3 Columnas)       |
-+---------------------------------------------------------------+-------------------------------+
-| FILA 2: ANÁLISIS TÁCTICO Y MONITOREO                          | DISTRIBUCIÓN DEL PORTAFOLIO   |
-| Chart 5: Barras Apiladas por Bodega                           | Chart 6: Gráfico de Dona      |
-| (7 Columnas)                                                  | (5 Columnas)                  |
-+---------------------------------------------------------------+-------------------------------+
-| FILA 3: MATRIZ DE CONTROL OPERATIVO Y AUDITORÍA SANITARIA                                     |
-| Chart 7: Matriz de Control FEFO y Trazabilidad de Lotes (Tabla Detallada)                     |
-| (12 Columnas - Ancho Completo)                                                                |
-+-----------------------------------------------------------------------------------------------+
-7.2 Detalle de Configuración por ComponenteComponentes Tipo KPI (Fila 1)Visualización: Big Number (ECharts).Formato Numérico Monetario (KPI 1 y 4): $,.2f (ej. $ 1,250,450.00).Formato Numérico de Conteo (KPI 2 y 3): ,d (ej. 45,210).Chart 5: Composición FEFO por Bodega (Fila 2)Visualización: Bar Chart (ECharts).Eje X: NOMBRE_BODEGA.Dimensión de Agrupación (Series): ESTADO_SEMAFORO_FEFO.Métrica: SUM(VALOR_TOTAL_LOTE).Configuración Customize: Stacked: YES, Orientación: Vertical, Format: $,.3s.Chart 6: Proporción Global de Exposición FEFO (Fila 2)Visualización: Pie Chart / Donut (ECharts).Dimensión: ESTADO_SEMAFORO_FEFO.Métrica: SUM(VALOR_TOTAL_LOTE).Configuración Customize: Donut: YES (Radio interior 50%), Label Type: Category Name + Percentage.Chart 7: Matriz de Control FEFO y Trazabilidad (Fila 3)Visualización: Table.Ordenamiento Inicial: DIAS_PARA_VENCER con agregación MIN en sentido Ascendente (lotes vencidos y críticos al tope de la grilla).Búsqueda Dinámica: Habilitada (Search box: YES).Formato Condicional Sólido (Pestaña Customize):Para evitar degradados borrosos sobre fondo oscuro y respetar la evaluación en cascada de Superset, se configuran las siguientes 3 reglas exactas (con la casilla Use gradient DESMARCADA en todas):Orden en ListaOperatorTarget ValueColor SchemeUse gradientInterpretación en Pantalla1ª≤180warning (Amarillo)DesmarcadoIdentifica existencias dentro del semestre de vigencia.2ª≤90error o alert (Rojo)DesmarcadoSobreescribe a Rojo sólido los días críticos ($\le 90$) y los negativos (vencidos).3ª>180success (Verde)DesmarcadoPinta de Verde uniforme el inventario con vigencia superior a 180 días.JSON Metadata del Tablero (Paleta Homologada)Para asegurar que los gráficos de Barras Apiladas y Dona mantengan los colores oficiales de la Resolución 1403 de forma fija e inmune al tema general, se incluye en las propiedades del Dashboard:JSON{
+```
+
+### 7.1 Esquema de Distribución en Grilla
+
+El tablero organiza el flujo visual desde indicadores directivos macro hasta la auditoría granular de lotes, distribuido sobre el estándar de 12 columnas:
+
+```text
++---------------------------------------------------------------------------------------------------+
+| FILTROS NATIVOS (Panel Lateral Izquierdo)                                                         |
+| [Bodega / Almacén]  |  [Semáforo FEFO]  |  [Medicamento / Principio Activo]  |  [Es Alto Costo]   |
++---------------------------------------------------------------------------------------------------+
+| FILA 1: TARJETAS DE IMPACTO ECONÓMICO Y VOLUMEN (KPIS)                                            |
+| +--------------------+ +--------------------+ +--------------------+ +--------------------+       |
+| | KPI 1: Valor Total | | KPI 2: Unidades   | | KPI 3: Lotes Crít. | | KPI 4: Cap. Riesgo |       |
+| | 3 Columnas (25%)   | | 3 Columnas (25%)   | | 3 Columnas (25%)   | | 3 Columnas (25%)   |       |
+| +--------------------+ +--------------------+ +--------------------+ +--------------------+       |
++---------------------------------------------------------------------------------------------------+
+| FILA 2: ANÁLISIS TÁCTICO Y DISTRIBUCIÓN POR SERVICIO                                              |
+| +---------------------------------------------------+ +-----------------------------------------+ |
+| | Chart 5: Barras Apiladas por Bodega               | | Chart 6: Proporción Global Portafolio   | |
+| | 7 Columnas (58% del ancho)                        | | 5 Columnas (42% del ancho)              | |
+| +---------------------------------------------------+ +-----------------------------------------+ |
++---------------------------------------------------------------------------------------------------+
+| FILA 3: MATRIZ DE CONTROL OPERATIVO Y AUDITORÍA SANITARIA                                         |
+| +-----------------------------------------------------------------------------------------------+ |
+| | Chart 7: Matriz de Control FEFO y Trazabilidad de Lotes (Tabla Granular)                      | |
+| | 12 Columnas (Ancho Completo - 100%)                                                           | |
+| +-----------------------------------------------------------------------------------------------+ |
++---------------------------------------------------------------------------------------------------+
+```
+
+| Nivel / Sección | Componente | Visualización | Ancho Superset | Propósito Operativo |
+| :--- | :--- | :--- | :---: | :--- |
+| **Lateral** | Filtros de Control | Filtros nativos | Barra lateral | Segmentación rápida por almacén, medicamento o nivel de riesgo. |
+| **Fila 1** | KPI 1: Valor Total | `Big Number` | 3 cols (25%) | Capital total inventariado en moneda local. |
+| **Fila 1** | KPI 2: Total Unidades | `Big Number` | 3 cols (25%) | Conteo físico global de unidades en existencia. |
+| **Fila 1** | KPI 3: Lotes Críticos | `Big Number` | 3 cols (25%) | Cantidad de lotes vencidos o con vigencia ≤ 90 días. |
+| **Fila 1** | KPI 4: Capital en Riesgo | `Big Number` | 3 cols (25%) | Exposición económica sujeta a posible merma asistencial. |
+| **Fila 2** | Chart 5: FEFO por Bodega | `Bar Chart` (Stacked) | 7 cols (58%) | Concentración del semáforo normativo por centro de costo. |
+| **Fila 2** | Chart 6: Proporción Global | `Donut Chart` | 5 cols (42%) | Distribución porcentual según Resolución 1403 de 2007. |
+| **Fila 3** | Chart 7: Matriz de Control | `Table` | 12 cols (100%) | Trazabilidad granular: CUM, Lote, Vencimiento y Proveedor. |
+
+---
+
+### 7.2 Detalle de Configuración por Componente
+
+#### Componentes Tipo KPI (Fila 1)
+
+* **Visualización:** `Big Number` (ECharts).
+* **Formato Numérico Monetario (KPI 1 y KPI 4):** `$,.2f` (ej. `$ 1,250,450.00`).
+* **Formato Numérico de Conteo (KPI 2 y KPI 3):** `,d` (ej. `45,210`).
+
+#### Chart 5: Composición FEFO por Bodega (Fila 2)
+
+* **Visualización:** `Bar Chart` (ECharts).
+* **Eje X:** `NOMBRE_BODEGA`.
+* **Dimensión de Agrupación (Series):** `ESTADO_SEMAFORO_FEFO`.
+* **Métrica:** `SUM(VALOR_TOTAL_LOTE)`.
+* **Configuración Customize:** Stacked: `YES`, Orientación: `Vertical`, Formato Eje Y: `$,.3s`.
+
+#### Chart 6: Proporción Global de Exposición FEFO (Fila 2)
+
+* **Visualización:** `Pie Chart / Donut` (ECharts).
+* **Dimensión:** `ESTADO_SEMAFORO_FEFO`.
+* **Métrica:** `SUM(VALOR_TOTAL_LOTE)`.
+* **Configuración Customize:** Donut: `YES` (Radio interior 50%), Label Type: `Category Name + Percentage`.
+
+#### Chart 7: Matriz de Control FEFO y Trazabilidad (Fila 3)
+
+* **Visualización:** `Table`.
+* **Ordenamiento Inicial:** `DIAS_PARA_VENCER` con agregación `MIN` en sentido **Ascendente** (lotes críticos y vencidos al tope).
+* **Búsqueda Dinámica:** Activada (`Search box: YES`).
+* **Paginación:** 25 registros por página.
+* **Formato Condicional Sólido (Pestaña Customize):**
+
+| Orden en Lista | Operador | Valor Objetivo | Esquema de Color | Use gradient | Interpretación en Pantalla |
+| :---: | :---: | :---: | :---: | :---: | :--- |
+| **1ª** | `≤` | `180` | `warning` (Amarillo) | **Desmarcado** | Identifica preventivamente existencias dentro del semestre. |
+| **2ª** | `≤` | `90` | `error` o `alert` (Rojo) | **Desmarcado** | Sobreescribe a Rojo sólido los días críticos (≤ 90) y vencidos. |
+| **3ª** | `>` | `180` | `success` (Verde) | **Desmarcado** | Pinta de Verde uniforme el inventario con vigencia superior a 180 días. |
+
+#### Paleta Institucional Homologada (JSON Metadata)
+
+Inyectar en las propiedades generales del tablero (*Dashboard Properties -> JSON Metadata*):
+
+```json
+{
   "label_colors": {
     "0. BLOQUEADO / CUARENTENA": "#2C3E50",
     "1. VENCIDO": "#78281F",
@@ -224,11 +371,6 @@ ORDER BY MIN(DIAS_PARA_VENCER) ASC;
     "5. NO PERECEDERO / SIN VCTO": "#2980B9"
   }
 }
+```
 
----
 
-### Ajustes clave aplicados:
-1. **Título institucional alineado:** Se renombró a `# Consola Gestión de Inventarios: Control FEFO y Trazabilidad de Lotes`.
-2. **Tablas reconstruidas:** Se formatearon todas las tablas Markdown con encabezados, alineaciones y delimitadores de celda limpios.
-3. **Bloques de código identificados:** Código SQL, Mermaid, JSON y texto plano quedaron encapsulados con sus etiquetas sintácticas correspondientes.
-4. **Matemáticas en LaTeX:** Las fórmulas de días para vencer, valorización y porcentaj
