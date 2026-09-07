@@ -103,7 +103,7 @@ WHERE (hc.HCDXCOD LIKE 'A%' OR hc.HCDXCOD LIKE 'B%' OR hc.HCDXCOD LIKE 'J0%' OR 
 | **Aislamientos por Pabellón** | Gráfico Circular (Donut) | `SERVICIO_ACTUAL` | Distribución de carga asistencial de bioseguridad.[cite: 2] |
 | **Consola Epidemiológica** | Tabla Interactiva | Paciente, CIE-10, Estancia, Pabellón | Herramienta de ronda para el Comité de Infecciones.[cite: 2] |
 
-4. Parámetros Operativos y Filtros (Superset)
+4. Parámetros Operativos y Filtros (IntelliHealth)
 1. El tablero cuenta con reglas de formato condicional (Color Formatting) y filtros maestros diseñados para la gestión ágil del Comité de Infecciones:
 2. Alerta de Población Vulnerable (Warning): Resalta en color ámbar las celdas de pacientes pediátricos (menores de 5 años) y geriátricos (mayores o iguales a 65 años) mediante reglas de validación múltiple (< 5 y >= 65).
 3. Control de Estancia (Cell Bars): La columna DIAS_ESTANCIA_ACUMULADOS proyecta una barra de calor interna y se ordena de manera descendente para enfocar la auditoría en los pacientes con mayor riesgo de complicaciones.

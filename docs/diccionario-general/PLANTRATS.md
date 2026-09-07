@@ -1,0 +1,17 @@
+﻿# PLANTRATS
+
+**Tipo de Objeto:** Tabla Transaccional  
+**Base de Datos:** `HVT_HOSVITAL`  
+**Esquema:** `dbo`
+
+---
+
+## Estructura de Campos
+
+| PK | Nombre de Columna | Tipo de Dato | Admite Nulos | Descripción / Rol Funcional |
+| :-: | :--- | :--- | :-: | :--- |
+| 🔑 | **`PltCod`** | `char(6)` | NO | Campo transaccional de Hosvital HIS |
+| 🔑 | **`EMPCOD`** | `char(2)` | NO | Campo transaccional de Hosvital HIS |
+| 🔑 | **`MCDpto`** | `char(9)` | NO | Campo transaccional de Hosvital HIS |
+|  | **`PLTSEDADM`** | `char(9)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`PLTEMPADM`** | `char(2)` | SI | Campo transaccional de Hosvital HIS |

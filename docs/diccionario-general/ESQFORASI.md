@@ -1,0 +1,16 @@
+﻿# ESQFORASI
+
+**Tipo de Objeto:** Tabla Transaccional  
+**Base de Datos:** `HVT_HOSVITAL`  
+**Esquema:** `dbo`
+
+---
+
+## Estructura de Campos
+
+| PK | Nombre de Columna | Tipo de Dato | Admite Nulos | Descripción / Rol Funcional |
+| :-: | :--- | :--- | :-: | :--- |
+| 🔑 | **`EsqCod`** | `smallint` | NO | Campo transaccional de Hosvital HIS |
+|  | **`EsqDsc`** | `char(60)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`EsqEst`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`EsqUltCns`** | `smallint` | SI | Campo transaccional de Hosvital HIS |

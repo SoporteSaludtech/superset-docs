@@ -1,0 +1,16 @@
+﻿# ETNNACPUE
+
+**Tipo de Objeto:** Tabla Transaccional  
+**Base de Datos:** `HVT_HOSVITAL`  
+**Esquema:** `dbo`
+
+---
+
+## Estructura de Campos
+
+| PK | Nombre de Columna | Tipo de Dato | Admite Nulos | Descripción / Rol Funcional |
+| :-: | :--- | :--- | :-: | :--- |
+| 🔑 | **`MPCodEt`** | `char(2)` | NO | Campo transaccional de Hosvital HIS |
+| 🔑 | **`MPCNEtn`** | `char(4)` | NO | Campo transaccional de Hosvital HIS |
+| 🔑 | **`PUEID`** | `smallint` | NO | Campo transaccional de Hosvital HIS |
+|  | **`ENPEst`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |

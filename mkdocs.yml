@@ -45,16 +45,27 @@ extra_javascript:
 
 nav:
   - Inicio: index.md
+  - Arquitectura y Datos:
+    - Modelo de Datos: arquitectura/modelo-datos.md
+    - Diccionario Vistas BI: diccionario-datos.md
+    - Catálogo General HOSVITAL: diccionario-general/index.md
   - Gestión Asistencial:
-      - Consola Egresos y Urgencias: dashboards/01-egresos-urgencias.md
-      - Consola Análisis de Ingresos: dashboards/consola_analisis_ingresos.md
-      - Consola Calidad, Seguridad e IAAS: dashboards/04-vigilancia-iaas.md
-      - Consola Vigilancia en Salud Pública (SIVIGILA): dashboards/05 - Sivigila.md
-      - Consola Riesgo y Altocosto: dashboards/06-alto-costo-cac.md
-      - Consola y Cohortes CAC: dashboards/07-consola-y-cohortes-cac.md
-      - Consola de Gestión y Cohortes - Enfermedades Crónicas: dashboards/08-consola_gestion_cohortes_cronicas.md
-      - Consola Estadísticas de Trauma: dashboards/09-consola_estadisticas_trauma.md
-  - Gestión Financiera:
-      - Prefacturación y Producción: dashboards/02-prefacturacion.md
+    - Consola Egresos y Urgencias: dashboards/01-egresos-urgencias.md
+    - Consola Análisis de Ingresos: dashboards/10-consola_analisis_ingresos.md
+    - Consola Calidad, Seguridad e IAAS: dashboards/04-vigilancia-iaas.md
+    - Consola Vigilancia en Salud Pública (SIVIGILA): dashboards/05 - Sivigila.md
+    - Consola Riesgo y Altocosto: dashboards/06-alto-costo-cac.md
+    - Consola y Cohortes CAC: dashboards/07-consola-y-cohortes-cac.md
+    - Consola de Gestión y Cohortes - Enfermedades Crónicas: dashboards/08-consola_gestion_cohortes_cronicas.md
+    - Consola Estadísticas de Trauma: dashboards/09-consola_estadisticas_trauma.md
   - Gestión Quirúrgica:
-      - Ocupación y Programación QX: dashboards/03-ordenes-quirurgicas.md
+    - Ocupación y Programación QX: dashboards/03-ordenes-quirurgicas.md
+  - Gestión Administrativa:
+    - Consola Censo Hospitalario: dashboards/11-consola-censo-hospitalario.md
+  - Gestión Logística:
+    - Gestión Logística: logistica/13-control_fefo_lotes.md
+  - Gestión Financiera y Cartera:
+    - Resumen del Área: financiera/index.md
+    - Prefacturación y Producción: dashboards/02-prefacturacion.md
+    - Facturación y WIP Post-Alta: dashboards/12-consola-facturacion-wip.md
+    - Consola de Glosas y Devoluciones: guia-usuario.md

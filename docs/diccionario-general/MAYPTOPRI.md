@@ -1,0 +1,18 @@
+﻿# MAYPTOPRI
+
+**Tipo de Objeto:** Tabla Transaccional  
+**Base de Datos:** `HVT_HOSVITAL`  
+**Esquema:** `dbo`
+
+---
+
+## Estructura de Campos
+
+| PK | Nombre de Columna | Tipo de Dato | Admite Nulos | Descripción / Rol Funcional |
+| :-: | :--- | :--- | :-: | :--- |
+| 🔑 | **`EMPCOD`** | `char(2)` | NO | Campo transaccional de Hosvital HIS |
+| 🔑 | **`MaPPreCod`** | `char(20)` | NO | Campo transaccional de Hosvital HIS |
+| 🔑 | **`MaPPAnio`** | `smallint` | NO | Campo transaccional de Hosvital HIS |
+| 🔑 | **`MaPPMes`** | `smallint` | NO | Campo transaccional de Hosvital HIS |
+|  | **`MaPPValRe`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`MaPPValPr`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |

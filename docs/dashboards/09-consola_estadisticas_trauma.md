@@ -1,7 +1,7 @@
 # Consola y Estadísticas de Trauma
 
 ## 📌 Contexto y Objetivo
-El **Dashboard de Consola y Estadísticas de Trauma** es una herramienta analítica y operativa desplegada en Apache Superset. Su objetivo principal es permitir la visualización, auditoría y análisis detallado de los pacientes ingresados por causas externas asociadas a trauma en la base de datos `HOSVITAL HIS`. 
+El **Dashboard de Consola y Estadísticas de Trauma** es una herramienta analítica y operativa desplegada en Apache IntelliHealth. Su objetivo principal es permitir la visualización, auditoría y análisis detallado de los pacientes ingresados por causas externas asociadas a trauma en la base de datos `HOSVITAL HIS`. 
 
 El tablero no posee filtros de fecha "hardcodeados" en las vistas, delegando el control temporal al filtro nativo global del dashboard.
 
@@ -9,7 +9,7 @@ El tablero no posee filtros de fecha "hardcodeados" en las vistas, delegando el 
 
 ## 🗄️ Datasets Utilizados (SQL Server)
 
-| Dataset en Superset | Tipo | Propósito | Columna Temporal |
+| Dataset en IntelliHealth | Tipo | Propósito | Columna Temporal |
 |---------------------|------|-----------|------------------|
 | `VW_Trauma_Consolidado` | Vista | Totales agrupados por servicio y diagnóstico. | `FECHA_ATENCION` |
 | `VW_Trauma_Universo_Pacientes`| Vista | Detalle clínico y administrativo (Consola). | `FECHA_ATENCION` |

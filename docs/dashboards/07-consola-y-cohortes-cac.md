@@ -1,6 +1,6 @@
 ﻿# Ficha Técnica: Dashboard 07 - Consola y Cohortes CAC (Demografía)
 
-Este documento detalla la especificación técnica, la arquitectura de base de datos y la configuración de visualización en Apache Superset para el cuadro de mando de **Consola y Cohortes CAC**, enfocado en el análisis demográfico, estratificación por quinquenios y distribución por sexo de pacientes con patologías de alto costo (Cáncer, VIH, Renal y Huérfanas).
+Este documento detalla la especificación técnica, la arquitectura de base de datos y la configuración de visualización en Apache IntelliHealth para el cuadro de mando de **Consola y Cohortes CAC**, enfocado en el análisis demográfico, estratificación por quinquenios y distribución por sexo de pacientes con patologías de alto costo (Cáncer, VIH, Renal y Huérfanas).
 
 ---
 
@@ -75,7 +75,7 @@ CROSS APPLY (
 WHERE Cohorte.Tiene_Cohorte = 1;
 GO;
 ```
-## 2. Registro del Dataset en Apache Superset
+## 2. Registro del Dataset en Apache IntelliHealth
 Nombre del Dataset: DS_Hosvital_CAC_Demografia
 
 Columna Temporal: Marcar FECHA_ATENCION como Is temporal para habilitar el filtrado cronológico.

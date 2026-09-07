@@ -3,7 +3,7 @@
 ## 1. Marco Conceptual y Fundamento Clínico-Epidemiológico
 
 ### 1.1. Propósito y Alcance Asistencial
-Las Enfermedades Crónicas No Transmisibles (ECNT) constituyen la mayor carga de morbilidad, años de vida ajustados por discapacidad (AVAD) y costos asistenciales evitables dentro del sistema de salud. La **Consola de Gestión y Cohortes - Enfermedades Crónicas** es una solución de analítica avanzada y monitorización en tiempo de ejecución construida sobre **Apache Superset** y **Microsoft SQL Server (Hosvital HIS)**.
+Las Enfermedades Crónicas No Transmisibles (ECNT) constituyen la mayor carga de morbilidad, años de vida ajustados por discapacidad (AVAD) y costos asistenciales evitables dentro del sistema de salud. La **Consola de Gestión y Cohortes - Enfermedades Crónicas** es una solución de analítica avanzada y monitorización en tiempo de ejecución construida sobre **Apache IntelliHealth** y **Microsoft SQL Server (Hosvital HIS)**.
 
 El objetivo central del tablero es operacionalizar la **Gestión del Riesgo en Salud (GDR)** mediante cuatro pilares:
 
@@ -35,7 +35,7 @@ El modelo se alimenta de transacciones asistenciales registradas en tiempo real 
 * **`INGRESOS` (Admisiones Institucionales):** Consecutivo de ingreso (`IngCsc`) para el cálculo de reingreso posterior.
 * **`MAEEMP` (Maestro de Empresas):** Razón social de la entidad pagadora (`MENOMB`).
 
-> **Nota Técnica:** Todas las vistas exponen la columna temporal unificada `FECHA_ATENCION` tipificada como `DATETIME` nativo, configurada en Superset con la bandera `Is temporal = True` para habilitar los filtros globales.
+> **Nota Técnica:** Todas las vistas exponen la columna temporal unificada `FECHA_ATENCION` tipificada como `DATETIME` nativo, configurada en IntelliHealth con la bandera `Is temporal = True` para habilitar los filtros globales.
 
 ### 2.2. Definiciones DDL de las Vistas del Modelo
 
@@ -155,7 +155,7 @@ Formato: Porcentaje con 2 decimales (%,.2f).
 ## 4. Estructura Visual y Filtros Nativos
 
 ### 4.1. Catálogo de Visualizaciones
-Panel / Visualización	Tipo de Gráfico en Superset	Configuración Destacada
+Panel / Visualización	Tipo de Gráfico en IntelliHealth	Configuración Destacada
 KPIs Ejecutivos	Big Number with Trendline	Grano temporal mensual. Gradiente activado. Ancho: 4 columnas cada uno.
 Estructura Demográfica	ECharts Bar Chart	Barras apiladas (Stacked). Eje X: Grupo Etario. Desglose: Sexo.
 Consola Nominal	Table (Raw Records)	Buscador de texto habilitado. Paginación activa a 25 registros.

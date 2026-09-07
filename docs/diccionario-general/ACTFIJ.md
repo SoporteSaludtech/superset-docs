@@ -1,0 +1,152 @@
+﻿# ACTFIJ
+
+**Tipo de Objeto:** Tabla Transaccional  
+**Base de Datos:** `HVT_HOSVITAL`  
+**Esquema:** `dbo`
+
+---
+
+## Estructura de Campos
+
+| PK | Nombre de Columna | Tipo de Dato | Admite Nulos | Descripción / Rol Funcional |
+| :-: | :--- | :--- | :-: | :--- |
+| 🔑 | **`EMPCOD`** | `char(2)` | NO | Campo transaccional de Hosvital HIS |
+| 🔑 | **`AcFCod`** | `char(15)` | NO | Campo transaccional de Hosvital HIS |
+|  | **`AcFDsc`** | `char(60)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFSer`** | `char(20)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFPla`** | `char(20)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFBar`** | `char(20)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ClaActId`** | `char(4)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`GruCod`** | `char(4)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`SubGrpCod`** | `char(4)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFEst`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`MarCod`** | `char(4)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`UbiGeoCod`** | `char(6)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFFchCo`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFchAct`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFIndAj`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFMetDe`** | `char(2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFModAj`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFTipAj`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFTipDe`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFVlrCo`** | `money` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFVrEA`** | `money` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFVrNu`** | `money` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFViUt`** | `int` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFDscLa`** | `varchar(MAX)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`DocEntAlm`** | `char(3)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NroEntAlm`** | `decimal(15,0)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`PrvEntAlm`** | `char(15)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`PrvDscEnt`** | `char(60)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`CscEntAlm`** | `int` | SI | Campo transaccional de Hosvital HIS |
+|  | **`FchEntAlm`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`FunCed`** | `char(15)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFBlo`** | `smallint` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActGar`** | `smallint` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActPolNro`** | `char(15)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActPolVig`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`PolTerCod`** | `char(15)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`PolTerNom`** | `char(60)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`PolTerCar`** | `varchar(MAX)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActConMan`** | `char(15)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActManVig`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActManTer`** | `char(15)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActManTCar`** | `varchar(MAX)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActSed`** | `char(9)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActCto`** | `char(9)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActSubCto`** | `char(9)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActUti`** | `char(3)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActSubUti`** | `char(3)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActCtoHis`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActDepNor`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActAjuCto`** | `smallmoney` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActAjuDep`** | `smallmoney` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActFchAju`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActFchDep`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActSdoDep`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActPla`** | `char(15)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFFot`** | `char(50)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActDocMov`** | `char(3)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActNoMov`** | `decimal(15,0)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`DocCodObs`** | `varchar(MAX)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActFijEst`** | `char(8)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActFijPro`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActFijMod`** | `char(8)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActFijPrv`** | `char(15)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActFjPrvD`** | `char(60)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActFchBaj`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ForAdqCod`** | `char(3)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActFCrea`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActFchIna`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActGuiImp`** | `char(15)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ACtFrmDis`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AgCCdg`** | `char(6)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AjsxInfCo`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AjsxInfDe`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFNroDep`** | `int` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFDTDep`** | `char(3)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFNroTDp`** | `decimal(15,0)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFFchTDp`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFDepFis`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFViUFis`** | `int` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFDFNrD`** | `smallmoney` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFDFAjCt`** | `smallmoney` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ACFDFAjDp`** | `smallmoney` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ACFDFCtoH`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ACFDFDNor`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ACFDFAjxI`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ACFDFAjxD`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ACDFFchUD`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ACDFSdoD`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFCodPri`** | `char(15)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFTipHer`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFAsgCd`** | `char(15)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFXCmb`** | `char(15)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFCmbCd`** | `char(15)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFCreCmb`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFCmbFch`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFCmbUs`** | `char(10)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActManNro`** | `int` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFFchAva`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFVlrAva`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFSedAva`** | `char(9)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcfDocAva`** | `char(3)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFNroAva`** | `int` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFVUtAva`** | `int` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFVlrRes`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`DocNroAE`** | `decimal(15,0)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`DocCodAE`** | `char(3)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`McdPtoAE`** | `char(9)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`EmpCodAE`** | `char(2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NAJSXINCO`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACTSDODE`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACTFCHDE`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACTFCHAJ`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACTDEPNO`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACTCTOHI`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACTAJUDE`** | `smallmoney` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACTAJUCT`** | `smallmoney` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACFVLRCO`** | `money` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACFVIUT`** | `int` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACFNROTD`** | `decimal(15,0)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACFNRODE`** | `int` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACFFCHTD`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACFEST`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACFCHACT`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACDFFHUD`** | `datetime` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACTDTDEP`** | `char(3)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ACTTIP`** | `char(2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACTVLRES`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACFTOTUN`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACFMETDE`** | `char(2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ACFTOTUNI`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACTFD`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACTAGC`** | `char(6)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`NACTFPRO`** | `char(1)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ACFCLC1`** | `varchar(20)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFVlrSIv`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`AcFVlrIVA`** | `decimal(17,2)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActImg1`** | `varchar(60)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActImg2`** | `varchar(60)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActImg3`** | `varchar(60)` | SI | Campo transaccional de Hosvital HIS |
+|  | **`ActFile`** | `varchar(60)` | SI | Campo transaccional de Hosvital HIS |

@@ -1,6 +1,6 @@
 ﻿# Consola y Cohortes CAC (Alto Costo)
 
-Este módulo documenta la implementación de la consola analítica para el seguimiento de pacientes con patologías de alto costo (Cáncer, VIH, Renal y Huérfanas) integrado mediante Apache Superset y alimentado desde el motor transaccional de Hosvital HIS.
+Este módulo documenta la implementación de la consola analítica para el seguimiento de pacientes con patologías de alto costo (Cáncer, VIH, Renal y Huérfanas) integrado mediante Apache IntelliHealth y alimentado desde el motor transaccional de Hosvital HIS.
 
 ---
 
@@ -47,12 +47,12 @@ FROM Base_Pacientes
 GROUP BY mpnomp;
 GO;
 ```
-## 2. Registro y Configuración en Apache Superset
+## 2. Registro y Configuración en Apache IntelliHealth
 Dataset: Registrar la vista bajo el nombre DS_Hosvital_CAC seleccionando el esquema dbo.
 
 Columna Temporal: Marcar la columna FECHA_ATENCION como Is temporal para habilitar los filtros globales de tiempo en el dashboard.
 
-Métricas y Agregaciones: Configurar las métricas numéricas y porcentuales utilizando agregaciones de tipo MAX para evitar que Superset vuelva a sumar valores precalculados por la vista.
+Métricas y Agregaciones: Configurar las métricas numéricas y porcentuales utilizando agregaciones de tipo MAX para evitar que IntelliHealth vuelva a sumar valores precalculados por la vista.
 
 Ordenamiento Inicial: Configurar la propiedad Sort query by seleccionando la columna Servicio en modo Ascendente (A-Z).
 

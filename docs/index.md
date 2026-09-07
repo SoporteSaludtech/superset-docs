@@ -8,16 +8,23 @@ Repositorio central de documentación técnica, operativa y funcional de los cua
 
 | Área de Gestión | Cuadro de Mando | Indicadores Principales | Frecuencia | Enlace al Manual |
 | :--- | :--- | :--- | :--- | :--- |
-| **Gestión Asistencial** | **Consola Egresos y Urgencias** | Estancia Media (ALOS), Tasa de Ocupación, Rotación de Camas | 15 Minutos | [Ver Ficha Técnica](dashboards/01-egresos-urgencias.md) |
-| **Gestión Asistencial** | **Consola Análisis de Ingresos** | Total Ingresos, Distribución Ambulatorio vs Hospitalización, Top Especialidades Tratantes, Concentración por EPS | 15 Minutos | [Ver Ficha Técnica](dashboards/consola_analisis_ingresos.md) |
-| **Gestión Asistencial** | **Consola Calidad, Seguridad e IAAS** | Tasa de Infecciones x 100 Camas-Día, Aislamiento por Pabellón | 6 Horas | [Ver Ficha Técnica](dashboards/04-vigilancia-iaas.md) |
-| **Gestión Asistencial** | **Consola Vigilancia en Salud Pública (SIVIGILA)** | Índice de Detección SIVIGILA, Casos Totales, Transmisibilidad ETV vs ETS | 6 Horas | [Ver Ficha Técnica](dashboards/05%20-%20Sivigila.md) |
-| **Gestión Asistencial** | **Cosola Riesgo y Altocosto** | Tasa de Detección CAC, Adherencia a Guías Clínicas, Distribución de Estadíos | 6 Horas | [Ver Ficha Técnica](dashboards/06-alto-costo-cac.md) |
-| **Gestión Asistencial** | **Consola y Cohortes CAC** | Auditoría Nominal de Cohortes, Tasa de Cumplimiento Terapéutico, Días de Tratamiento Activo | 6 Horas| [Ver Ficha Técnica](dashboards/07-consola-y-cohortes-cac.md) |
-| **Gestión Asistencial** | **Consola de Gestión y Cohortes - Enfermedades Crónicas** | Control HTA (PAS < 140 / PAD < 90), Control Metabólico DM2 (HbA1c ≤ 7.0%), Tasa de Reingreso EPOC | 6 Horas | [Ver Ficha Técnica](dashboards/08-consola_gestion_cohortes_cronicas.md) |
-| **Gestión Asistencial** | **Consola Estadísticas de Trauma** | Volumen por Nivel de Triage, Tiempo Puerta-Médico, Tasa de Intervención Quirúrgica de Trauma | 6 Horas | [Ver Ficha Técnica](dashboards/09-consola_estadisticas_trauma.md) |
-| **Gestión Financiera** | **Consola Prefacturación y Producción** | Valor WIP en Tránsito, Aging de Prefactura, Consumos por EPS | 15 Minutos | [Ver Ficha Técnica](dashboards/02-prefacturacion.md) |
-| **Gestión Quirúrgica** | **Consola Programación y Ocupación QX** | Tasa de Cancelación, Oportunidad Quirúrgica, Demanda por Especialidad | 15 Minutos | [Ver Ficha Técnica](dashboards/03-ordenes-quirurgicas.md) |
+| **Arquitectura y Datos** | Arquitectura y Modelo de Datos | Esquema relacional general, pipeline Direct Query y flujos analíticos | N/A | [Ver Arquitectura](arquitectura/modelo-datos.md) |
+| **Arquitectura y Datos** | Diccionario de Vistas BI | Catálogo técnico de vistas SQL materializadas (`VW_*`) | N/A | [Ver Vistas BI](diccionario-datos.md) |
+| **Arquitectura y Datos** | Catálogo General HOSVITAL | Estructura completa de 1.784 tablas y vistas transaccionales | N/A | [Ver Catálogo](diccionario-general/index.md) |
+| **Gestión Asistencial** | Consola Egresos y Urgencias | Estancia Media (ALOS), oportunidad de triage y destinos de alta | 15 Minutos | [Ver Ficha Técnica](dashboards/01-egresos-urgencias.md) |
+| **Gestión Asistencial** | Consola Análisis de Ingresos | Volumen por vía de ingreso, asegurador y especialidad médica | 15 Minutos | [Ver Ficha Técnica](dashboards/10-consola_analisis_ingresos.md) |
+| **Gestión Asistencial** | Calidad, Seguridad e IAAS | Tasa de infecciones por 100 camas-día y protocolos de aislamiento | 6 Horas | [Ver Ficha Técnica](dashboards/04-vigilancia-iaas.md) |
+| **Gestión Asistencial** | Vigilancia Epidemiológica (SIVIGILA)| Notificación obligatoria de eventos, transmisibilidad ETV/ETS | 6 Horas | [Ver Ficha Técnica](dashboards/05 - Sivigila.md) |
+| **Gestión Asistencial** | Riesgo y Alto Costo (CAC) | Adherencia a guías, tamizaje oncológico y marcadores renales | Semanal | [Ver Ficha Técnica](dashboards/06-alto-costo-cac.md) |
+| **Gestión Asistencial** | Consola y Cohortes CAC | Indicadores de severidad y seguimiento de cohortes protegidas | Semanal | [Ver Ficha Técnica](dashboards/07-consola-y-cohortes-cac.md) |
+| **Gestión Asistencial** | Cohortes - Enfermedades Crónicas | Riesgo cardiovascular, HTA, diabetes y control ambulatorio | Mensual | [Ver Ficha Técnica](dashboards/08-consola_gestion_cohortes_cronicas.md) |
+| **Gestión Asistencial** | Estadísticas de Trauma | Índices de severidad (ISS/RTS) y tiempos quirúrgicos iniciales | 12 Horas | [Ver Ficha Técnica](dashboards/09-consola_estadisticas_trauma.md) |
+| **Gestión Quirúrgica** | Programación y Ocupación QX | Rendimiento de quirófanos, cancelaciones y oportunidad de agenda | Tiempo Real | [Ver Ficha Técnica](dashboards/03-ordenes-quirurgicas.md) |
+| **Gestión Administrativa** | Censo Hospitalario y Ocupación | Disponibilidad de camas en tiempo real, bloqueos y desinfección | Tiempo Real | [Ver Ficha Técnica](dashboards/11-consola-censo-hospitalario.md) |
+| **Gestión Logística** | Control FEFO y Trazabilidad de Lotes | Semáforo de vencimiento (Res. 1403), capital en riesgo de caducidad, días para vencer y saldo valorizado por bodega/CUM | Turno / 8 Horas | [Ver Ficha Técnica](logistica/control_fefo_lotes.md) |
+| **Gestión Financiera y Cartera** | Consola de Glosas y Devoluciones | Efectividad de recobro, saldo objetado, pérdidas y homologación | 24 Horas | [Ver Manual](guia-usuario.md) |
+| **Gestión Financiera y Cartera** | Prefacturación y Producción | Días de rezago de prefactura, WIP y cargos en tránsito | Turno / 8 Horas | [Ver Ficha Técnica](dashboards/02-prefacturacion.md) |
+| **Gestión Financiera y Cartera** | Facturación y WIP Post-Alta | Tiempos de egreso a factura, Ley 1438 y corte de estancias | 12 Horas | [Ver Ficha Técnica](dashboards/12-consola-facturacion-wip.md) |
 
 
 ---
