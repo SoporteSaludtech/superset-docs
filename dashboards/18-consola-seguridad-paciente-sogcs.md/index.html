@@ -1,0 +1,2073 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Repositorio técnico, funcional y normativo de indicadores de gestión clínica y financiera.">
+      
+      
+        <meta name="author" content="Dirección de Analítica y Soluciones en Salud">
+      
+      
+        <link rel="canonical" href="https://soportesaludtech.github.io/superset-docs/dashboards/18-consola-seguridad-paciente-sogcs.md/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>18. Consola de Seguridad del Paciente (SOGCS) - Centro de Analítica e Inteligencia Clínica - Hosvital HIS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#18-consola-de-seguridad-del-paciente-sogcs" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Centro de Analítica e Inteligencia Clínica - Hosvital HIS" class="md-header__button md-logo" aria-label="Centro de Analítica e Inteligencia Clínica - Hosvital HIS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Centro de Analítica e Inteligencia Clínica - Hosvital HIS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              18. Consola de Seguridad del Paciente (SOGCS)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Modo Oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo Oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Modo Claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo Claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../arquitectura/modelo-datos/" class="md-tabs__link">
+          
+  
+  
+  Arquitectura y Datos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../01-egresos-urgencias/" class="md-tabs__link">
+          
+  
+  
+  Gestión Asistencial
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="." class="md-tabs__link">
+          
+  
+  
+  Calidad y Auditoría
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../03-ordenes-quirurgicas/" class="md-tabs__link">
+          
+  
+  
+  Gestión Quirúrgica
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../11-consola-censo-hospitalario/" class="md-tabs__link">
+          
+  
+  
+  Gestión Administrativa
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../logistica/13-control_fefo_lotes/" class="md-tabs__link">
+          
+  
+  
+  Gestión Logística
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../financiera/" class="md-tabs__link">
+          
+  
+  
+  Gestión Financiera y Cartera
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Centro de Analítica e Inteligencia Clínica - Hosvital HIS" class="md-nav__button md-logo" aria-label="Centro de Analítica e Inteligencia Clínica - Hosvital HIS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Centro de Analítica e Inteligencia Clínica - Hosvital HIS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura y Datos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitectura y Datos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitectura/modelo-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo de Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diccionario-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diccionario Vistas BI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diccionario-general/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Catálogo General HOSVITAL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Asistencial
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Asistencial
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-egresos-urgencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Egresos y Urgencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-consola_analisis_ingresos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Análisis de Ingresos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-vigilancia-iaas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Calidad, Seguridad e IAAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05%20-%20Sivigila/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Vigilancia en Salud Pública (SIVIGILA)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-alto-costo-cac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Riesgo y Altocosto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-consola-y-cohortes-cac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola y Cohortes CAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-consola_gestion_cohortes_cronicas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola de Gestión y Cohortes - Enfermedades Crónicas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-consola_estadisticas_trauma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Estadísticas de Trauma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-consola-oportunidad-citas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Oportunidad de Citas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-consola-gestion-urgencias.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Gestión de Urgencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calidad y Auditoría
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Calidad y Auditoría
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Seguridad del Paciente (SOGCS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Quirúrgica
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Quirúrgica
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-ordenes-quirurgicas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ocupación y Programación QX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Administrativa
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Administrativa
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-consola-censo-hospitalario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Censo Hospitalario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Logística
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Logística
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logistica/13-control_fefo_lotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Logística
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Financiera y Cartera
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Financiera y Cartera
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financiera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen del Área
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-prefacturacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prefacturación y Producción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-consola-facturacion-wip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Facturación y WIP Post-Alta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guia-usuario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola de Glosas y Devoluciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-consola-edades-cartera-recaudo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Edades de Cartera y Recaudo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ficha-tecnica-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ficha Técnica General
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-proposito-y-alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Propósito y Alcance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Propósito y Alcance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Propósito
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Alcance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-modelo-de-datos-y-origen-de-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Modelo de Datos y Origen de Información
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Modelo de Datos y Origen de Información">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-tablas-involucradas-en-hosvital-his" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Tablas Involucradas en HOSVITAL HIS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ddl-de-la-vista-semantica-actualizada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 DDL de la Vista Semántica Actualizada
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-reglas-y-logica-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Reglas y Lógica de Negocio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-metricas-y-logica-aritmetica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Métricas y Lógica Aritmética
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Métricas y Lógica Aritmética">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-formulas-matematicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Fórmulas Matemáticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-matriz-de-definicion-de-indicadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Matriz de Definición de Indicadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-consultas-sql-por-cada-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Consultas SQL por cada Chart
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Consultas SQL por cada Chart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-tarjetas-ejecutivas-de-cabecera-kpi-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Tarjetas Ejecutivas de Cabecera (KPI Cards)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-estructura-y-configuracion-del-dashboard-intellihealth-610" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Estructura y Configuración del Dashboard (IntelliHealth 6.1.0)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Estructura y Configuración del Dashboard (IntelliHealth 6.1.0)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-esquema-de-distribucion-en-grilla-grid-12-column-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Esquema de Distribución en Grilla (Grid 12-Column Standard)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-detalle-de-configuracion-y-paleta-institucional-json-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Detalle de Configuración y Paleta Institucional (JSON Metadata)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="18-consola-de-seguridad-del-paciente-sogcs">18. Consola de Seguridad del Paciente (SOGCS)</h1>
+<hr />
+<h2 id="1-ficha-tecnica-general">1. Ficha Técnica General</h2>
+<ul>
+<li><strong>Nombre del Tablero:</strong> Consola de Seguridad del Paciente (SOGCS)</li>
+<li><strong>Plataforma Analítica:</strong> IntelliHealth 6.1.0 (Apache Superset)</li>
+<li><strong>Sistema Origen:</strong> Hosvital HIS (Microsoft SQL Server)</li>
+<li><strong>Módulo de Referencia:</strong> Gestión de Calidad, Admisiones, Historia Clínica y Seguridad del Paciente</li>
+<li><strong>Frecuencia de Actualización:</strong> Tiempo Real (Direct Query a vista transaccional optimizada)</li>
+<li><strong>Nivel de Acceso:</strong> Dirección Médica, Comité de Calidad, Coordinadores SOGCS y Auditoría Concurrente</li>
+</ul>
+<hr />
+<h2 id="2-proposito-y-alcance">2. Propósito y Alcance</h2>
+<h3 id="21-proposito">2.1 Propósito</h3>
+<p>Proveer una herramienta gerencial y operativa que permita centralizar la vigilancia epidemiológica, la tipificación de incidentes, cuasi fallas y eventos adversos bajo los lineamientos del Sistema Obligatorio de Garantía de Calidad en Salud (SOGCS). Facilita el análisis causal oportuno, la evaluación de la cultura de reporte y la trazabilidad documental para la toma de decisiones en los comités PAMEC (Plan de Mejoramiento Continuo).</p>
+<h3 id="22-alcance">2.2 Alcance</h3>
+<p>Abarca el monitoreo integral de todos los eventos notificados en las diferentes sedes e instalaciones de la institución, permitiendo segmentar por servicios asistenciales, perfiles profesionales, poblaciones vulnerables (gestantes y lactantes) y grados de criticidad (desde eventos centinela hasta cuasi fallas preventivas).</p>
+<hr />
+<h2 id="3-modelo-de-datos-y-origen-de-informacion">3. Modelo de Datos y Origen de Información</h2>
+<h3 id="31-tablas-involucradas-en-hosvital-his">3.1 Tablas Involucradas en HOSVITAL HIS</h3>
+<ul>
+<li><strong><code>EVEADV</code>:</strong> Tabla central de captura transaccional de eventos adversos e incidentes.</li>
+<li><strong><code>INGRESOS</code>:</strong> Tabla de hospitalización y admisiones para el cruce de fechas de ingreso y trazabilidad del paciente.</li>
+<li><strong><code>MAESED</code>:</strong> Maestra física de sedes de la institución.</li>
+<li><strong><code>MAEPAB</code>:</strong> Maestra de servicios asistenciales / pabellones.</li>
+</ul>
+<h3 id="32-ddl-de-la-vista-semantica-actualizada">3.2 DDL de la Vista Semántica Actualizada</h3>
+<p>{: .no-toc }
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">ALTER</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">VW_SEGURIDAD_PACIENTE_EVENTOS</span><span class="w"> </span><span class="k">AS</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">MPCedu</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Documento_Paciente</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">MPTDoc</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Tipo_Documento</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVSEC</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Secuencia_Evento</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADving</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Id_Ingreso</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">i</span><span class="p">.</span><span class="n">IngFecAdm</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Fecha_Ingreso_Paciente</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVFEC</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Fecha_Ocurrencia</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVREP</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Fecha_Reporte</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="n">hour</span><span class="p">,</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVFEC</span><span class="p">,</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVREP</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Horas_Hasta_Reporte</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVSED</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Codigo_Sede</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="k">ISNULL</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">MCDnom</span><span class="p">,</span><span class="w"> </span><span class="s1">'SEDE PRINCIPAL'</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Nombre_Sede</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVSER</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Codigo_Servicio</span><span class="p">,</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">ISNULL</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">mpnomp</span><span class="p">,</span><span class="w"> </span><span class="s1">'SERVICIO GENERAL'</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Nombre_Servicio</span><span class="p">,</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span><span class="k">UPPER</span><span class="p">(</span><span class="n">LTRIM</span><span class="p">(</span><span class="n">RTRIM</span><span class="p">(</span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVGES</span><span class="p">)))</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'S'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Sí'</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'SI'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Sí'</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'No'</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Es_Gestante</span><span class="p">,</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span><span class="k">UPPER</span><span class="p">(</span><span class="n">LTRIM</span><span class="p">(</span><span class="n">RTRIM</span><span class="p">(</span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVLAC</span><span class="p">)))</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'S'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Sí'</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'SI'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Sí'</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'No'</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Es_Lactante</span><span class="p">,</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span><span class="k">UPPER</span><span class="p">(</span><span class="n">LTRIM</span><span class="p">(</span><span class="n">RTRIM</span><span class="p">(</span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVANO</span><span class="p">)))</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'S'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Anónimo'</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'N'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Identificado'</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'Identificado'</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Tipo_Reporte_Anonimo</span><span class="p">,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">EPCCON</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Codigo_Programa_Clasificacion</span><span class="p">,</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span><span class="k">UPPER</span><span class="p">(</span><span class="n">LTRIM</span><span class="p">(</span><span class="n">RTRIM</span><span class="p">(</span><span class="n">ev</span><span class="p">.</span><span class="n">EPCCON</span><span class="p">)))</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'1'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Evento No Serio'</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'2'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Evento Serio'</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'3'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Evento Centinela'</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'4'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Cuasi Falla'</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'OTRA CLASIFICACIÓN'</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Descripcion_Programa_Clasificacion</span><span class="p">,</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Grupo_Evento_Codigo</span><span class="p">,</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span><span class="k">UPPER</span><span class="p">(</span><span class="n">LTRIM</span><span class="p">(</span><span class="n">RTRIM</span><span class="p">(</span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="p">)))</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'1'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Identificación del evento adverso'</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'2'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Notificación del evento adverso'</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'3'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Investigación del evento adverso'</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'4'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Análisis del Evento Adverso'</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">'5'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Prevención evento adverso'</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'OTRO GRUPO'</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Grupo_Evento_Descripcion</span><span class="p">,</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Subgrupo_Evento_Codigo</span><span class="p">,</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'1'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'1'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Alerta o señal'</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'2'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'1'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Definitiva (Certain)'</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'2'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'2'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Probable (Likely)'</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'2'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'3'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Posible (Possible)'</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'2'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'4'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Improbable (Unlikely)'</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'2'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'5'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Condicional / No Clasificado'</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'2'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'6'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'No Evaluable / Inclasificable'</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'3'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'1'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Manual del Investigador'</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'3'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'2'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Organización de Investigación por Contrato (OIC)'</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'3'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'3'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Patrocinador'</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'4'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'1'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Factor Científico'</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'4'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'2'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Factor Percibido'</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'4'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'3'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Factor Institucional o corporativo'</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'5'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'1'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Riesgo de caídas'</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'5'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'2'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Riesgo de úlceras de Presión'</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEGRUSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'5'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVESUBSEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'3'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Riesgo de Errores de Medicación'</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'SUBGRUPO GENERAL'</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Subgrupo_Evento_Descripcion</span><span class="p">,</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVPER</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Perfil_Profesional_Reporta</span><span class="p">,</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">    </span><span class="n">RTRIM</span><span class="p">(</span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVDES</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Descripcion_Evento</span><span class="p">,</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">    </span><span class="n">RTRIM</span><span class="p">(</span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVPOS</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Posibles_Causas</span><span class="p">,</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVEST</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Estado_Codigo</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="k">FROM</span><span class="w"> </span><span class="n">EVEADV</span><span class="w"> </span><span class="n">ev</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">NOLOCK</span><span class="p">)</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="k">OUTER</span><span class="w"> </span><span class="n">APPLY</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">TOP</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">IngFecAdm</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">INGRESOS</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">NOLOCK</span><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">IngCsc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADving</span><span class="p">)</span><span class="w"> </span><span class="n">i</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="k">OUTER</span><span class="w"> </span><span class="n">APPLY</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">TOP</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">MCDnom</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">MAESED</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">NOLOCK</span><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">RTRIM</span><span class="p">(</span><span class="n">MCDpto</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RTRIM</span><span class="p">(</span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVSED</span><span class="p">))</span><span class="w"> </span><span class="n">s</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="k">OUTER</span><span class="w"> </span><span class="n">APPLY</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">TOP</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">mpnomp</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">MAEPAB</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">NOLOCK</span><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">RTRIM</span><span class="p">(</span><span class="n">mpclapro</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RTRIM</span><span class="p">(</span><span class="n">ev</span><span class="p">.</span><span class="n">EVEADVSER</span><span class="p">))</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+</code></pre></div></p>
+<hr />
+<h2 id="4-reglas-y-logica-de-negocio">4. Reglas y Lógica de Negocio</h2>
+<p>El diseño semántico y analítico de la consola responde a los estándares normativos del <strong>Sistema Obligatorio de Garantía de Calidad en Salud (SOGCS)</strong> y a la metodología del <strong>Protocolo de Londres</strong> para la gestión del riesgo clínico:</p>
+<ul>
+<li><strong>Tiempos de Notificación y Oportunidad:</strong><ul>
+<li>El lapso de respuesta se calcula midiendo la diferencia temporal en horas transcurridas entre el momento del suceso y su ingreso formal al sistema:
+  <span class="arithmatex">\(\Delta t = \text{Fecha\_Reporte} - \text{Fecha\_Ocurrencia}\)</span></li>
+<li>Facilita la auditoría del cumplimiento de la política de notificación institucional (<span class="arithmatex">\(\le 24 \text{ horas}\)</span>), reduciendo el sesgo de memoria del personal y garantizando la contención oportuna del riesgo clínico.</li>
+</ul>
+</li>
+<li><strong>Evaluación de Cultura Justa y No Punitiva:</strong><ul>
+<li>La segregación de la variable <code>Tipo_Reporte_Anonimo</code> (<code>EVEADVANO</code>) permite calcular el índice de confianza institucional. Un predominio de reportes identificados refleja madurez en la cultura de seguridad, mientras que una alta tasa de anonimato orienta intervenciones pedagógicas frente al temor a represalias.</li>
+</ul>
+</li>
+<li><strong>Taxonomía SOGCS y Severidad del Evento:</strong><ul>
+<li>Homologación de la codificación <code>EPCCON</code> en cuatro cuadrantes clínicos:<ol>
+<li><strong>Cuasi Falla (Near Miss):</strong> Error que no alcanzó al paciente gracias a barreras de seguridad. Constituye el pilar del análisis proactivo.</li>
+<li><strong>Evento No Serio:</strong> Incidente que alcanzó al paciente pero no generó secuelas ni prolongó la estancia.</li>
+<li><strong>Evento Serio:</strong> Evento no intencional con daño temporal o prolongación de estancia hospitalaria.</li>
+<li><strong>Evento Centinela:</strong> Suceso adverso crítico que causa muerte o pérdida funcional permanente, requiriendo activación inmediata del comité de seguridad en menos de 72 horas.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>Trazabilidad Causal (Grupos y Subgrupos):</strong><ul>
+<li>Clasificación jerárquica estandarizada en Hosvital HIS donde el <strong>Grupo 4 (Análisis del Evento Adverso)</strong> aísla específicamente los factores etiológicos: <em>Factores Científicos</em>, <em>Factores Percibidos</em> y <em>Factores Institucionales/Corporativos</em>.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="5-metricas-y-logica-aritmetica">5. Métricas y Lógica Aritmética</h2>
+<h3 id="51-formulas-matematicas">5.1 Fórmulas Matemáticas</h3>
+<div class="arithmatex">\[\begin{aligned} \textbf{Total Incidentes/Eventos} &amp;= \sum_{i=1}^{N} \mathbf{1}_{(\text{Secuencia\_Evento}_i)} \\ \textbf{Oportunidad Promedio (Horas)} &amp;= \frac{1}{N} \sum_{i=1}^{N} \text{DATEDIFF}(\text{hour}, \text{Fecha\_Ocurrencia}_i, \text{Fecha\_Reporte}_i) \\ \textbf{Casos Críticos (Serio + Centinela)} &amp;= \sum_{i=1}^{N} \mathbf{1}_{\{\text{Codigo\_Programa\_Clasificacion}_i \in (2, 3)\}} \\ \textbf{Índice de Cuasi Fallas Preventivas} &amp;= \frac{\sum \mathbf{1}_{\{\text{Clasificacion} = \text{'Cuasi Falla'}\}}}{\text{Total Reportes}} \times 100 \end{aligned}\]</div>
+<h3 id="52-matriz-de-definicion-de-indicadores">5.2 Matriz de Definición de Indicadores</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Indicador</th>
+<th style="text-align: left;">Dimensión / Expresión Técnica</th>
+<th style="text-align: left;">Interpretación Clínica / PAMEC</th>
+<th style="text-align: left;">Meta / Umbral</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Volumen Total</strong></td>
+<td style="text-align: left;"><code>COUNT(Secuencia_Evento)</code></td>
+<td style="text-align: left;">Medición global de la tasa de notificación institucional.</td>
+<td style="text-align: left;">Tendencia ascendente controlada</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Oportunidad de Reporte</strong></td>
+<td style="text-align: left;"><code>AVG(Horas_Hasta_Reporte)</code></td>
+<td style="text-align: left;">Velocidad de notificación tras el suceso.</td>
+<td style="text-align: left;"><span class="arithmatex">\(\le 24 \text{ horas}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Carga de Severidad Crítica</strong></td>
+<td style="text-align: left;"><code>COUNT() WHERE EPCCON IN ('2', '3')</code></td>
+<td style="text-align: left;">Eventos con potencial impacto legal y asistencial grave.</td>
+<td style="text-align: left;"><span class="arithmatex">\(0 \text{ Centinelas}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Eficacia de Barreras</strong></td>
+<td style="text-align: left;"><code>COUNT() WHERE EPCCON = '4'</code></td>
+<td style="text-align: left;">Detección preventiva antes de que el error vulnere al paciente.</td>
+<td style="text-align: left;"><span class="arithmatex">\(\ge 20\%\)</span> del volumen global</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-consultas-sql-por-cada-chart">6. Consultas SQL por cada Chart</h2>
+<h3 id="61-tarjetas-ejecutivas-de-cabecera-kpi-cards">6.1 Tarjetas Ejecutivas de Cabecera (KPI Cards)</h3>
+<ul>
+<li><strong>KPI 1: Total de Reportes Registrados</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">      </span><span class="k">COUNT</span><span class="p">(</span><span class="n">Secuencia_Evento</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_Reportes</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">VW_SEGURIDAD_PACIENTE_EVENTOS</span><span class="p">;</span>
+</code></pre></div></li>
+<li><strong>KPI 2: Oportunidad Promedio de Notificación</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">CAST</span><span class="p">(</span><span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">Horas_Hasta_Reporte</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">FLOAT</span><span class="p">)),</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">NUMERIC</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Promedio_Horas_Reporte</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">VW_SEGURIDAD_PACIENTE_EVENTOS</span><span class="p">;</span>
+</code></pre></div></li>
+<li><strong>KPI 3: Consolidado de Eventos Críticos (Serios y Centinelas)</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">Secuencia_Evento</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_Eventos_Criticos</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">VW_SEGURIDAD_PACIENTE_EVENTOS</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">Codigo_Programa_Clasificacion</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">'2'</span><span class="p">,</span><span class="w"> </span><span class="s1">'3'</span><span class="p">);</span>
+</code></pre></div></li>
+<li><strong>KPI 4: Detección de Cuasi Fallas</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">Secuencia_Evento</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_Cuasi_Fallas</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">VW_SEGURIDAD_PACIENTE_EVENTOS</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">Codigo_Programa_Clasificacion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'4'</span><span class="p">;</span>
+</code></pre></div></li>
+<li>KPI 5: Distribución en Población Gestante**
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">Es_Gestante</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">Secuencia_Evento</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_Casos</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">FROM</span><span class="w"> </span><span class="n">VW_SEGURIDAD_PACIENTE_EVENTOS</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Es_Gestante</span><span class="p">;</span>
+</code></pre></div></li>
+<li><strong>KPI 6: Cultura de Seguridad - Reporte Anónimo vs Identificado</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">Tipo_Reporte_Anonimo</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">Secuencia_Evento</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_Reportes</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">FROM</span><span class="w"> </span><span class="n">VW_SEGURIDAD_PACIENTE_EVENTOS</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Tipo_Reporte_Anonimo</span><span class="p">;</span>
+</code></pre></div></li>
+<li><strong>KPI 7: Top 10 Servicios por Frecuencia de Eventos</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">TOP</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">Nombre_Servicio</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">Secuencia_Evento</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_Eventos</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">FROM</span><span class="w"> </span><span class="n">VW_SEGURIDAD_PACIENTE_EVENTOS</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Nombre_Servicio</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Total_Eventos</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div></li>
+<li><strong>KPI 8: Grupos y Subgrupos de Riesgo</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="n">Grupo_Evento_Descripcion</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="n">Subgrupo_Evento_Descripcion</span><span class="p">,</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">Secuencia_Evento</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_Incidentes</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">VW_SEGURIDAD_PACIENTE_EVENTOS</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Grupo_Evento_Descripcion</span><span class="p">,</span><span class="w"> </span><span class="n">Subgrupo_Evento_Descripcion</span><span class="p">;</span>
+</code></pre></div></li>
+<li><strong>KPI 9: Análisis de Factores Causales SOGCS</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="n">Subgrupo_Evento_Descripcion</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Factor_Causal</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">Secuencia_Evento</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Frecuencia</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">FROM</span><span class="w"> </span><span class="n">VW_SEGURIDAD_PACIENTE_EVENTOS</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">Grupo_Evento_Codigo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'4'</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Subgrupo_Evento_Descripcion</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Frecuencia</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div></li>
+<li><strong>KPI 10: Mapa de Calor de Eventos: Sede vs Servicio</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="n">Nombre_Sede</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="n">Nombre_Servicio</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">Secuencia_Evento</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Eventos_Registrados</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">VW_SEGURIDAD_PACIENTE_EVENTOS</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Nombre_Sede</span><span class="p">,</span><span class="w"> </span><span class="n">Nombre_Servicio</span><span class="p">;</span>
+</code></pre></div></li>
+<li><strong>KPI 11: Registro Detallado de Eventos Adversos y Trazabilidad (Sábana Operativa / Tabla de Registros Crudos)</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="n">Fecha_Ocurrencia</span><span class="p">,</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">Secuencia_Evento</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ID_Evento</span><span class="p">,</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">Nombre_Sede</span><span class="p">,</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="n">Nombre_Servicio</span><span class="p">,</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">Descripcion_Programa_Clasificacion</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Clasificacion</span><span class="p">,</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="n">Subgrupo_Evento_Descripcion</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Tipologia</span><span class="p">,</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="n">Tipo_Reporte_Anonimo</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Modalidad</span><span class="p">,</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="n">Descripcion_Evento</span><span class="p">,</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="n">Posibles_Causas</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="k">FROM</span><span class="w"> </span><span class="n">VW_SEGURIDAD_PACIENTE_EVENTOS</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Fecha_Ocurrencia</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div></li>
+</ul>
+<h2 id="7-estructura-y-configuracion-del-dashboard-intellihealth-610">7. Estructura y Configuración del Dashboard (IntelliHealth 6.1.0)</h2>
+<h3 id="71-esquema-de-distribucion-en-grilla-grid-12-column-standard">7.1 Esquema de Distribución en Grilla (Grid 12-Column Standard)</h3>
+<p>El tablero se encuentra estructurado bajo un diseño modular de 12 columnas en IntelliHealth, optimizado para garantizar una lectura jerárquica desde los indicadores ejecutivos gerenciales hasta el detalle analítico operativo:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Fila / Nivel</th>
+<th style="text-align: left;">Componentes Visuales y Tipo de Chart</th>
+<th style="text-align: left;">Distribución en Grilla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Fila 1</strong></td>
+<td style="text-align: left;"><strong>Filtros Nativos Globales:</strong> Rango de Fechas, Sede, Servicio, Clasificación del Evento y Tipo de Reporte.</td>
+<td style="text-align: left;"><code>Disposición Horizontal (Full Width)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fila 2</strong></td>
+<td style="text-align: left;"><strong>Tarjetas KPI Ejecutivas:</strong> Total de Reportes, Promedio de Oportunidad, Eventos Críticos y Cuasi Fallas.</td>
+<td style="text-align: left;">4 Tarjetas de <code>Col: 3</code> c/u</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fila 3</strong></td>
+<td style="text-align: left;"><strong>Epidemiología y Cultura:</strong> Distribución en Gestantes (Pie), Modalidad Anónima vs. Identificada (Donut) y Top 10 Servicios Afectados (Barra Horizontal).</td>
+<td style="text-align: left;">Dos gráficos de <code>Col: 3</code> y un gráfico de <code>Col: 6</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fila 4</strong></td>
+<td style="text-align: left;"><strong>Matriz de Riesgos SOGCS:</strong> Jerarquía de Grupos/Subgrupos (Treemap), Análisis de Factores Causales (Barras) y Mapa de Calor (Sede vs. Servicio).</td>
+<td style="text-align: left;">Treemap de <code>Col: 6</code>, Barras y Heatmap de <code>Col: 3</code> c/u</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fila 5</strong></td>
+<td style="text-align: left;"><strong>Trazabilidad y Auditoría:</strong> Sábana Operativa de Registros Crudos con formato condicional y soporte de exportación.</td>
+<td style="text-align: left;">Tabla Completa de <code>Col: 12</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="72-detalle-de-configuracion-y-paleta-institucional-json-metadata">7.2 Detalle de Configuración y Paleta Institucional (JSON Metadata)</h3>
+<p>La consola incorpora interactividad bidireccional mediante <code>cross_filters_enabled</code>, permitiendo al usuario filtrar dinámicamente todo el tablero con un solo clic sobre cualquier segmento visual. </p>
+<p>La asignación cromática de las etiquetas y la orientación de los filtros se encuentran centralizadas a través del siguiente esquema en formato JSON Metadata:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">"label_colors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="nt">"Evento Centinela"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#E04355"</span><span class="p">,</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="nt">"Evento Serio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#FF9900"</span><span class="p">,</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="nt">"Evento No Serio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#FCCC4F"</span><span class="p">,</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="nt">"Cuasi Falla"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#269A99"</span><span class="p">,</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="nt">"Sí"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#E04355"</span><span class="p">,</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="nt">"No"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#269A99"</span><span class="p">,</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="nt">"Anónimo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#6C757D"</span><span class="p">,</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="nt">"Identificado"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#1A85FF"</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">  </span><span class="nt">"cross_filters_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">  </span><span class="nt">"filter_bar_orientation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORIZONTAL"</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

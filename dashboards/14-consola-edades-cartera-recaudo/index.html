@@ -1,0 +1,2471 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Repositorio técnico, funcional y normativo de indicadores de gestión clínica y financiera.">
+      
+      
+        <meta name="author" content="Dirección de Analítica y Soluciones en Salud">
+      
+      
+        <link rel="canonical" href="https://soportesaludtech.github.io/superset-docs/dashboards/14-consola-edades-cartera-recaudo/">
+      
+      
+        <link rel="prev" href="../../guia-usuario/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Edades de Cartera y Recaudo - Centro de Analítica e Inteligencia Clínica - Hosvital HIS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#consola-14-edades-de-cartera-y-recaudo" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Centro de Analítica e Inteligencia Clínica - Hosvital HIS" class="md-header__button md-logo" aria-label="Centro de Analítica e Inteligencia Clínica - Hosvital HIS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Centro de Analítica e Inteligencia Clínica - Hosvital HIS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Edades de Cartera y Recaudo
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Modo Oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo Oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Modo Claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo Claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../arquitectura/modelo-datos/" class="md-tabs__link">
+          
+  
+  
+  Arquitectura y Datos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../01-egresos-urgencias/" class="md-tabs__link">
+          
+  
+  
+  Gestión Asistencial
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../18-consola-seguridad-paciente-sogcs.md" class="md-tabs__link">
+          
+  
+  
+  Calidad y Auditoría
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../03-ordenes-quirurgicas/" class="md-tabs__link">
+          
+  
+  
+  Gestión Quirúrgica
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../11-consola-censo-hospitalario/" class="md-tabs__link">
+          
+  
+  
+  Gestión Administrativa
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../logistica/13-control_fefo_lotes/" class="md-tabs__link">
+          
+  
+  
+  Gestión Logística
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../financiera/" class="md-tabs__link">
+          
+  
+  
+  Gestión Financiera y Cartera
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Centro de Analítica e Inteligencia Clínica - Hosvital HIS" class="md-nav__button md-logo" aria-label="Centro de Analítica e Inteligencia Clínica - Hosvital HIS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Centro de Analítica e Inteligencia Clínica - Hosvital HIS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura y Datos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitectura y Datos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitectura/modelo-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo de Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diccionario-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diccionario Vistas BI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diccionario-general/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Catálogo General HOSVITAL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Asistencial
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Asistencial
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-egresos-urgencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Egresos y Urgencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-consola_analisis_ingresos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Análisis de Ingresos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-vigilancia-iaas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Calidad, Seguridad e IAAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05%20-%20Sivigila/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Vigilancia en Salud Pública (SIVIGILA)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-alto-costo-cac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Riesgo y Altocosto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-consola-y-cohortes-cac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola y Cohortes CAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-consola_gestion_cohortes_cronicas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola de Gestión y Cohortes - Enfermedades Crónicas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-consola_estadisticas_trauma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Estadísticas de Trauma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-consola-oportunidad-citas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Oportunidad de Citas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-consola-gestion-urgencias.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Gestión de Urgencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calidad y Auditoría
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Calidad y Auditoría
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-consola-seguridad-paciente-sogcs.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Seguridad del Paciente (SOGCS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Quirúrgica
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Quirúrgica
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-ordenes-quirurgicas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ocupación y Programación QX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Administrativa
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Administrativa
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-consola-censo-hospitalario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola Censo Hospitalario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Logística
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Logística
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logistica/13-control_fefo_lotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Logística
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Financiera y Cartera
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestión Financiera y Cartera
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../financiera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen del Área
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-prefacturacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prefacturación y Producción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-consola-facturacion-wip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Facturación y WIP Post-Alta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guia-usuario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consola de Glosas y Devoluciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Edades de Cartera y Recaudo
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Edades de Cartera y Recaudo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ficha-tecnica-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ficha Técnica General
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-proposito-y-alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Propósito y Alcance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Propósito y Alcance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Propósito
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Alcance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-modelo-de-datos-y-origen-de-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Modelo de Datos y Origen de Información
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Modelo de Datos y Origen de Información">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-tablas-involucradas-en-hosvital-his" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Tablas Involucradas en Hosvital HIS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ddl-de-la-vista-semantica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 DDL de la Vista Semántica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-reglas-y-logica-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Reglas y Lógica de Negocio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-metricas-y-logica-aritmetica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Métricas y Lógica Aritmética
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Métricas y Lógica Aritmética">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-formulas-matematicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Fórmulas Matemáticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-consultas-sql-por-cada-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Consultas SQL por cada Chart
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Consultas SQL por cada Chart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kpi-1-resumen-de-indicadores-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KPI 1: Resumen de Indicadores Clave
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-2-distribucion-por-estado-de-gestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart 2: Distribución por Estado de Gestión
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-3-top-aseguradoras-por-saldo-pendiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart 3: Top Aseguradoras por Saldo Pendiente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-4-motivos-normativos-mas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart 4: Motivos Normativos Más Frecuentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-estructura-de-visualizaciones-y-kpis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Estructura de Visualizaciones y KPIs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Estructura de Visualizaciones y KPIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-esquema-de-distribucion-en-grilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Esquema de Distribución en Grilla
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-detalle-de-configuracion-por-componente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Detalle de Configuración por Componente
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2 Detalle de Configuración por Componente">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tarjetas-kpi-de-resumen-ejecutivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarjetas KPI de Resumen Ejecutivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grafico-principal-estratificacion-por-franja-etaria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gráfico Principal: Estratificación por Franja Etaria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-2-distribucion-por-estado-de-gestion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart 2: Distribución por Estado de Gestión
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-3-top-aseguradoras-con-mayor-saldo-pendiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart 3: Top Aseguradoras con Mayor Saldo Pendiente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-4-motivos-normativos-de-glosa-y-no-pago" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart 4: Motivos Normativos de Glosa y No Pago
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matriz-detalle-auditoria-factura-a-factura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matriz Detalle: Auditoría Factura a Factura
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ficha-tecnica-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ficha Técnica General
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-proposito-y-alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Propósito y Alcance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Propósito y Alcance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Propósito
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Alcance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-modelo-de-datos-y-origen-de-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Modelo de Datos y Origen de Información
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Modelo de Datos y Origen de Información">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-tablas-involucradas-en-hosvital-his" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Tablas Involucradas en Hosvital HIS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ddl-de-la-vista-semantica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 DDL de la Vista Semántica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-reglas-y-logica-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Reglas y Lógica de Negocio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-metricas-y-logica-aritmetica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Métricas y Lógica Aritmética
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Métricas y Lógica Aritmética">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-formulas-matematicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Fórmulas Matemáticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-consultas-sql-por-cada-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Consultas SQL por cada Chart
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Consultas SQL por cada Chart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kpi-1-resumen-de-indicadores-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KPI 1: Resumen de Indicadores Clave
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-2-distribucion-por-estado-de-gestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart 2: Distribución por Estado de Gestión
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-3-top-aseguradoras-por-saldo-pendiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart 3: Top Aseguradoras por Saldo Pendiente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-4-motivos-normativos-mas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart 4: Motivos Normativos Más Frecuentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-estructura-de-visualizaciones-y-kpis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Estructura de Visualizaciones y KPIs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Estructura de Visualizaciones y KPIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-esquema-de-distribucion-en-grilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Esquema de Distribución en Grilla
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-detalle-de-configuracion-por-componente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Detalle de Configuración por Componente
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2 Detalle de Configuración por Componente">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tarjetas-kpi-de-resumen-ejecutivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarjetas KPI de Resumen Ejecutivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grafico-principal-estratificacion-por-franja-etaria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gráfico Principal: Estratificación por Franja Etaria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-2-distribucion-por-estado-de-gestion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart 2: Distribución por Estado de Gestión
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-3-top-aseguradoras-con-mayor-saldo-pendiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart 3: Top Aseguradoras con Mayor Saldo Pendiente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-4-motivos-normativos-de-glosa-y-no-pago" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart 4: Motivos Normativos de Glosa y No Pago
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matriz-detalle-auditoria-factura-a-factura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matriz Detalle: Auditoría Factura a Factura
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p>$path = "C:\Users\sopor\Documents\ProyectosBI\superset-docs\docs\dashboards\14-consola-edades-cartera-recaudo.md"</p>
+<p>$docCompleta = @'</p>
+<h1 id="consola-14-edades-de-cartera-y-recaudo">Consola 14: Edades de Cartera y Recaudo</h1>
+<h2 id="1-ficha-tecnica-general">1. Ficha Técnica General</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parámetro</th>
+<th style="text-align: left;">Detalle de Especificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Identificador del Tablero</strong></td>
+<td style="text-align: left;"><code>14-consola-edades-cartera-recaudo</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Módulo Hospitalario</strong></td>
+<td style="text-align: left;">Gestión Financiera y Cartera</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Frecuencia de Actualización</strong></td>
+<td style="text-align: left;">Cada 8 Horas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Motor de Base de Datos</strong></td>
+<td style="text-align: left;">Microsoft SQL Server</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Esquema Semántico</strong></td>
+<td style="text-align: left;"><code>dbo.VW_EDADES_CARTERA_RECAUDO</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Plataforma de Visualización</strong></td>
+<td style="text-align: left;">Apache Superset</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nivel de Granularidad</strong></td>
+<td style="text-align: left;">Factura - Cuota - Tercero Pagador</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-proposito-y-alcance">2. Propósito y Alcance</h2>
+<h3 id="21-proposito">2.1 Propósito</h3>
+<p>Monitorear de forma integral el ciclo de exigibilidad de la cartera hospitalaria emitida, la rotación de cuentas por cobrar según rangos etarios de vencimiento, la efectividad del recaudo frente a los saldos iniciales y el impacto financiero generado por glosas definitivas, devoluciones y notas crédito.</p>
+<h3 id="22-alcance">2.2 Alcance</h3>
+<p>Abarca todas las facturas de venta en estado radicada, aceptada o en cobro prejudicial/jurídico frente a Entidades Promotoras de Salud (EPS), Aseguradoras SOAT, Administradoras de Riesgos Laborales (ARL), Planes Voluntarios y Particulares gestionados en el sistema Hosvital HIS. No incluye facturas anuladas ni ingresos diferidos.</p>
+<hr />
+<h2 id="3-modelo-de-datos-y-origen-de-informacion">3. Modelo de Datos y Origen de Información</h2>
+<h3 id="31-tablas-involucradas-en-hosvital-his">3.1 Tablas Involucradas en Hosvital HIS</h3>
+<ul>
+<li><code>MAEEMP</code>: Maestro de empresas pagadoras y aseguradoras (EPS/ARL/SOAT).</li>
+<li><code>FACMAE</code>: Encabezado maestro de facturación de servicios de salud.</li>
+<li><code>CARTFAC</code>: Detalle y control de saldos de cartera por factura y cuota.</li>
+<li><code>RECCAJ</code>: Recibos de caja y notas de crédito aplicadas a cartera.</li>
+<li><code>GLOMAE</code>: Maestro de registro y conciliación de glosas hospitalarias.</li>
+<li><code>CONTRATO</code>: Maestro contractual y tarifas pactadas por régimen.</li>
+</ul>
+<h3 id="32-ddl-de-la-vista-semantica">3.2 DDL de la Vista Semántica</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">ALTER</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">VW_EDADES_CARTERA_RECAUDO</span><span class="w"> </span><span class="k">AS</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">NUMFAC</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Numero_Factura</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">FECFAC</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Fecha_Factura</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">FECRAD</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Fecha_Radicacion</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">FECVEN</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Fecha_Vencimiento</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">DAY</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">FECVEN</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Dias_Mora</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">DAY</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">FECVEN</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Corriente'</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">DAY</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">FECVEN</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'1 a 30 Días'</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">DAY</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">FECVEN</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">31</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'31 a 60 Días'</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">DAY</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">FECVEN</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">61</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'61 a 90 Días'</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">DAY</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">FECVEN</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">91</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">180</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'91 a 180 Días'</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">DAY</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">FECVEN</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">181</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">360</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'181 a 360 Días'</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'&gt; 360 Días'</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Franja_Etaria</span><span class="p">,</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="n">MENNIT</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">NIT_Aseguradora</span><span class="p">,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="n">MENNOM</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Nombre_Aseguradora</span><span class="p">,</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="n">MENTIP</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Tipo_Aseguradora</span><span class="p">,</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">VALTOT</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Valor_Facturado</span><span class="p">,</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="k">ISNULL</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">VLRABO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Valor_Recaudado</span><span class="p">,</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="k">ISNULL</span><span class="p">(</span><span class="k">g</span><span class="p">.</span><span class="n">VLRGLO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Valor_Glosa_Definitiva</span><span class="p">,</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">VALTOT</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">ISNULL</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">VLRABO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">ISNULL</span><span class="p">(</span><span class="k">g</span><span class="p">.</span><span class="n">VLRGLO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Saldo_Neto_Exigible</span><span class="p">,</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="k">c</span><span class="p">.</span><span class="n">ESTADO_CARTERA</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Estado_Gestion</span><span class="p">,</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="k">c</span><span class="p">.</span><span class="n">COD_MOTIVO_GLOSA</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Codigo_Normativo_Motivo</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">FACMAE</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">NOLOCK</span><span class="p">)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">MAEEMP</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">NOLOCK</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">CODEMP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">MENCOD</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">CARTFAC</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">NOLOCK</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">NUMFAC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">NUMFAC</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">NUMFAC</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">VALGLO</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">VLRGLO</span><span class="w"> </span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">GLOMAE</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">NOLOCK</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">ESTGLO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'A'</span><span class="w"> </span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">NUMFAC</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="p">)</span><span class="w"> </span><span class="k">g</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">NUMFAC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">NUMFAC</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">ESTADO</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s1">'A'</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="4-reglas-y-logica-de-negocio">4. Reglas y Lógica de Negocio</h2>
+<ul>
+<li>
+<p><strong>Exclusión de Anulaciones:</strong> Toda factura con estado A en FACMAE se descarta de los cálculos analíticos.</p>
+</li>
+<li>
+<p><strong>Cómputo de Mora:</strong> Se calcula a partir de la fecha de vencimiento pactada (FECVEN). Si no existe fecha contractual explícita, se toman 30 días calendario posteriores a la radicación (FECRAD).</p>
+</li>
+<li>
+<p><strong>Saldo Exigible Real:</strong> El valor por cobrar reconoce descuentos de abonos (VLRABO) y glosas aceptadas (VLRGLO). Los saldos negativos por anticipos se segregan contablemente.</p>
+</li>
+<li>
+<p><strong>Corte Etario Superior:</strong> Toda obligación superior a 360 días se marca automáticamente como candidata para provisión de cartera y deterioro según norma contable NIIF/NIC 39.</p>
+</li>
+</ul>
+<h2 id="5-metricas-y-logica-aritmetica">5. Métricas y Lógica Aritmética</h2>
+<h3 id="51-formulas-matematicas">5.1 Fórmulas Matemáticas</h3>
+<p><strong>Saldo Total en Cartera:</strong></p>
+<div class="arithmatex">\[\text{Saldo Total} = \sum (\text{Valor Facturado} - \text{Recaudo} - \text{Glosa Aceptada})\]</div>
+<p><strong>Saldo Vencido:</strong></p>
+<div class="arithmatex">\[\text{Saldo Vencido} = \sum \text{Saldo Neto Exigible} \quad \forall \; \text{Días Mora} &gt; 0\]</div>
+<p><strong>Índice de Efectividad de Recaudo (%):</strong></p>
+<div class="arithmatex">\[\text{Efectividad Recaudo} = \left( \frac{\sum \text{Valor Recaudado Periodo}}{\sum \text{Saldo Exigible Periodo}} \right) \times 100\]</div>
+<p><strong>Días de Venta en la Calle (DSO):</strong></p>
+<div class="arithmatex">\[\text{DSO} = \left( \frac{\text{Saldo Promedio de Cartera}}{\text{Facturación Total del Periodo}} \right) \times 365\]</div>
+<h2 id="6-consultas-sql-por-cada-chart">6. Consultas SQL por cada Chart</h2>
+<h3 id="kpi-1-resumen-de-indicadores-clave">KPI 1: Resumen de Indicadores Clave</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">Valor_Facturado</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_Facturado</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">Saldo_Neto_Exigible</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Saldo_Total_Cartera</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">Dias_Mora</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">Saldo_Neto_Exigible</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Saldo_Vencido</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">Valor_Recaudado</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_Recaudado</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">ROUND</span><span class="p">((</span><span class="k">SUM</span><span class="p">(</span><span class="n">Valor_Recaudado</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">NULLIF</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">Valor_Facturado</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Efectividad_Recaudo_Pct</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">VW_EDADES_CARTERA_RECAUDO</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="chart-2-distribucion-por-estado-de-gestion">Chart 2: Distribución por Estado de Gestión</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">SELECT</span><span class="w"> </span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">Estado_Gestion</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">Numero_Factura</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_Facturas</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">Saldo_Neto_Exigible</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Saldo_Pendiente</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">VW_EDADES_CARTERA_RECAUDO</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Estado_Gestion</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Saldo_Pendiente</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="chart-3-top-aseguradoras-por-saldo-pendiente">Chart 3: Top Aseguradoras por Saldo Pendiente</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">TOP</span><span class="w"> </span><span class="mi">10</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">Nombre_Aseguradora</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">Saldo_Neto_Exigible</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Saldo_Pendiente</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">Dias_Mora</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">Saldo_Neto_Exigible</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Saldo_Critico_Mayor_90D</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">VW_EDADES_CARTERA_RECAUDO</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Nombre_Aseguradora</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Saldo_Pendiente</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="chart-4-motivos-normativos-mas-frecuentes">Chart 4: Motivos Normativos Más Frecuentes</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">TOP</span><span class="w"> </span><span class="mi">10</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">Codigo_Normativo_Motivo</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Conteo_Eventos</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">Valor_Glosa_Definitiva</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Valor_Objetado</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">VW_EDADES_CARTERA_RECAUDO</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">Codigo_Normativo_Motivo</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Codigo_Normativo_Motivo</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Valor_Objetado</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="7-estructura-de-visualizaciones-y-kpis">7. Estructura de Visualizaciones y KPIs</h2>
+<h3 id="71-esquema-de-distribucion-en-grilla">7.1 Esquema de Distribución en Grilla</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Fila</th>
+<th style="text-align: left;">Componente / Distribución Horizontal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Cabecera</strong></td>
+<td style="text-align: left;"><strong>Filtros Globales:</strong> Aseguradora (EPS/SOAT/ARL) | Rango de Fechas Radicación/Vencimiento | Sede</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Fila 1 (KPIs)</strong></td>
+<td style="text-align: left;"><code>[Saldo Total Cartera]</code> <code>[Saldo Vencido Exigible]</code> <code>[Recaudo Mes Acumulado]</code> <code>[% Efectividad Recaudo]</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Fila 2</strong></td>
+<td style="text-align: left;"><strong>Gráfico Principal:</strong> Distribución de Saldo por Franja Etaria (<em>Corriente, 1-30, 31-60, 61-90, 91-180, 181-360, &gt;360</em>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Fila 3</strong></td>
+<td style="text-align: left;"><strong>Chart 2:</strong> Estado de Gestión (Donut) | <strong>Chart 3:</strong> Top 10 Aseguradoras por Cartera (Barras Horizontales)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Fila 4</strong></td>
+<td style="text-align: left;"><strong>Chart 4:</strong> Motivos Normativos de Glosa y Mora | <strong>Matriz Detallada:</strong> Auditoría Factura a Factura</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-detalle-de-configuracion-por-componente">7.2 Detalle de Configuración por Componente</h3>
+<h4 id="tarjetas-kpi-de-resumen-ejecutivo">Tarjetas KPI de Resumen Ejecutivo</h4>
+<ul>
+<li><strong>Tipo de Visualización:</strong> Big Number with Trendline.</li>
+<li><strong>Métrica Principal:</strong><ul>
+<li>Saldo Total: <code>SUM(Saldo_Neto_Exigible)</code></li>
+<li>Saldo Vencido: <code>SUM(CASE WHEN Dias_Mora &gt; 0 THEN Saldo_Neto_Exigible ELSE 0 END)</code></li>
+<li>Recaudo del Periodo: <code>SUM(Valor_Recaudado)</code></li>
+<li>Efectividad (%): <code>(SUM(Valor_Recaudado) / NULLIF(SUM(Valor_Facturado), 0)) * 100</code></li>
+</ul>
+</li>
+<li><strong>Línea Temporal (Trendline):</strong> <code>Fecha_Factura</code> (agrupado por Mes).</li>
+<li><strong>Formato de Número:</strong> Moneda <code>$ #,##0</code> para valores monetarios y <code>0.00%</code> para efectividad.</li>
+</ul>
+<hr />
+<h4 id="grafico-principal-estratificacion-por-franja-etaria">Gráfico Principal: Estratificación por Franja Etaria</h4>
+<ul>
+<li><strong>Tipo de Visualización:</strong> Time-series Bar Chart (Stacked / Barras Apiladas).</li>
+<li><strong>Eje X (Categoría):</strong> <code>Franja_Etaria</code> (Orden personalizado: <em>Corriente, 1 a 30, 31 a 60, 61 a 90, 91 a 180, 181 a 360, &gt; 360</em>).</li>
+<li><strong>Métrica (Eje Y):</strong> <code>SUM(Saldo_Neto_Exigible)</code>.</li>
+<li><strong>Desglose (Breakdown / Serie):</strong> <code>Tipo_Aseguradora</code> (Contributivo, Subsidiado, SOAT, ARL, Particulares).</li>
+<li><strong>Tooltip:</strong> Mostrar porcentaje de participación sobre el total de la franja.</li>
+</ul>
+<hr />
+<h4 id="chart-2-distribucion-por-estado-de-gestion_1">Chart 2: Distribución por Estado de Gestión</h4>
+<ul>
+<li><strong>Tipo de Visualización:</strong> Donut Chart (Gráfico de Dona).</li>
+<li><strong>Dimensión:</strong> <code>Estado_Gestion</code>.</li>
+<li><strong>Métrica:</strong> <code>COUNT(Numero_Factura)</code>.</li>
+<li><strong>Métrica Secundaria (Tooltip):</strong> <code>SUM(Saldo_Neto_Exigible)</code>.</li>
+<li><strong>Configuración de Etiquetas:</strong> Mostrar Nombre de Categoría + Porcentaje.</li>
+</ul>
+<hr />
+<h4 id="chart-3-top-aseguradoras-con-mayor-saldo-pendiente">Chart 3: Top Aseguradoras con Mayor Saldo Pendiente</h4>
+<ul>
+<li><strong>Tipo de Visualización:</strong> Horizontal Bar Chart (Barras Horizontales).</li>
+<li><strong>Dimensión (Eje Y):</strong> <code>Nombre_Aseguradora</code>.</li>
+<li><strong>Métrica (Eje X):</strong> <code>SUM(Saldo_Neto_Exigible)</code>.</li>
+<li><strong>Ordenamiento:</strong> Descendente por <code>SUM(Saldo_Neto_Exigible)</code>.</li>
+<li><strong>Límite de Registros (Row Limit):</strong> 10.</li>
+<li><strong>Alerta Visual:</strong> Barra de color diferencial para saldos con <code>Dias_Mora &gt; 90</code>.</li>
+</ul>
+<hr />
+<h4 id="chart-4-motivos-normativos-de-glosa-y-no-pago">Chart 4: Motivos Normativos de Glosa y No Pago</h4>
+<ul>
+<li><strong>Tipo de Visualización:</strong> Bar Chart / Treemap.</li>
+<li><strong>Dimensión:</strong> <code>Codigo_Normativo_Motivo</code>.</li>
+<li><strong>Métrica:</strong> <code>SUM(Valor_Glosa_Definitiva)</code>.</li>
+<li><strong>Métrica Secundaria:</strong> <code>COUNT(Numero_Factura)</code> (Frecuencia del motivo).</li>
+<li><strong>Filtro Aplicado:</strong> <code>Codigo_Normativo_Motivo IS NOT NULL</code>.</li>
+</ul>
+<hr />
+<h4 id="matriz-detalle-auditoria-factura-a-factura">Matriz Detalle: Auditoría Factura a Factura</h4>
+<ul>
+<li><strong>Tipo de Visualización:</strong> Table View con paginación interactiva.</li>
+<li><strong>Columnas Visibles:</strong> <code>Numero_Factura</code>, <code>Nombre_Aseguradora</code>, <code>Fecha_Factura</code>, <code>Fecha_Vencimiento</code>, <code>Dias_Mora</code>, <code>Franja_Etaria</code>, <code>Valor_Facturado</code>, <code>Valor_Recaudado</code>, <code>Valor_Glosa_Definitiva</code>, <code>Saldo_Neto_Exigible</code>, <code>Estado_Gestion</code>.</li>
+<li><strong>Orden Predeterminado:</strong> <code>Dias_Mora</code> en orden descendente.</li>
+<li><strong>Funcionalidad:</strong> Búsqueda rápida por texto, ordenamiento por encabezado de columna y exportación a CSV / Excel habilitada.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
