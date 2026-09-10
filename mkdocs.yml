@@ -58,6 +58,10 @@ nav:
     - Consola y Cohortes CAC: dashboards/07-consola-y-cohortes-cac.md
     - Consola de Gestión y Cohortes - Enfermedades Crónicas: dashboards/08-consola_gestion_cohortes_cronicas.md
     - Consola Estadísticas de Trauma: dashboards/09-consola_estadisticas_trauma.md
+    - Consola Oportunidad de Citas: dashboards/16-consola-oportunidad-citas.md
+    - Consola Gestión de Urgencias: dashboards/17-consola-gestion-urgencias.md
+  - Calidad y Auditoría:
+    - Consola Seguridad del Paciente (SOGCS): dashboards/18-consola-seguridad-paciente-sogcs.md
   - Gestión Quirúrgica:
     - Ocupación y Programación QX: dashboards/03-ordenes-quirurgicas.md
   - Gestión Administrativa:
