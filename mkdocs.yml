@@ -49,6 +49,7 @@ nav:
     - Modelo de Datos: arquitectura/modelo-datos.md
     - Diccionario Vistas BI: diccionario-datos.md
     - Catálogo General HOSVITAL: diccionario-general/index.md
+    - Despliegue en Clientes: deployment/guia-despliegue-cliente.md
   - Gestión Asistencial:
     - Consola Egresos y Urgencias: dashboards/01-egresos-urgencias.md
     - Consola Análisis de Ingresos: dashboards/10-consola_analisis_ingresos.md
@@ -73,5 +74,4 @@ nav:
     - Prefacturación y Producción: dashboards/02-prefacturacion.md
     - Facturación y WIP Post-Alta: dashboards/12-consola-facturacion-wip.md
     - Consola de Glosas y Devoluciones: guia-usuario.md
-    - 'Edades de Cartera y Recaudo': dashboards/14-consola-edades-cartera-recaudo.md
-    
+    - Edades de Cartera y Recaudo: dashboards/14-consola-edades-cartera-recaudo.md
