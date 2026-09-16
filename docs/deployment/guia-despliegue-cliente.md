@@ -187,3 +187,95 @@ Si el cliente requiere un motor relacional o analítico adicional (por ejemplo: 
    docker compose up -d
    ```
 *(La configuración, los dashboards y el branding montados mediante volúmenes externos permanecerán intactos durante todo el proceso).*
+
+## 7. Pasos Posteriores a la Instalación de IntelliHealth
+
+Una vez que los contenedores de Docker estén en ejecución y la suite de Superset se encuentre operativa, ejecute en orden los siguientes pasos de aprovisionamiento en la base de datos y la plataforma:
+
+---
+
+### Paso 1: Credenciales Maestras de Acceso
+El acceso inicial a la interfaz web (`http://localhost:8088` o IP del servidor) se realiza con la cuenta administradora configurada en el despliegue:
+
+* **Usuario:** `admin`
+* **Contraseña:** `AdminSegura2026*`
+
+---
+
+### Paso 2: Aprovisionamiento de Credenciales en SQL Server
+Abra SQL Server Management Studio (SSMS) o una terminal con `sqlcmd` en la instancia del cliente y ejecute el siguiente script para crear el login técnico con acceso exclusivo a la base de datos operativa:
+
+```sql
+-- 1. Eliminar cualquier residuo del usuario y recrearlo limpio
+IF EXISTS (SELECT 1 FROM sys.server_principals WHERE name = 'Superset')
+    DROP LOGIN [Superset];
+GO
+
+-- 2. Crear con directivas de complejidad deshabilitadas
+CREATE LOGIN [Superset] 
+WITH PASSWORD = N'AdminSegura2026X', 
+     CHECK_POLICY = OFF, 
+     CHECK_EXPIRATION = OFF,
+     DEFAULT_DATABASE = [Unificacion_QA];
+GO
+
+-- 3. Habilitar permisos de servidor
+ALTER LOGIN [Superset] ENABLE;
+GRANT CONNECT SQL TO [Superset];
+GO
+
+-- 4. Asegurar el mapeo en la base de datos Unificacion_QA
+USE [Unificacion_QA];
+GO
+
+IF EXISTS (SELECT 1 FROM sys.database_principals WHERE name = 'Superset')
+    DROP USER [Superset];
+GO
+
+CREATE USER [Superset] FOR LOGIN [Superset];
+ALTER ROLE [db_owner] ADD MEMBER [Superset];
+GRANT CONNECT TO [Superset];
+GO
+```
+
+### Paso 3: Configuración de la Conexión en Superset
+
+En la consola web de Superset, registre la base de datos de la siguiente manera:
+
+1. Ingrese a **Settings** > **Data: Database Connections** (o presione **+** > **Data** > **Connect database**).
+2. Defina el nombre de visualización exacto: `HOSVITAL_HIS`.
+3. Ingrese la cadena de conexión en **SQLAlchemy URI**:
+
+```text
+mssql+pymssql://Superset:AdminSegura2026*@host.docker.internal:1415/Unificacion_QA
+```
+4. **Configurar los parámetros de seguridad:**
+    * Vaya a la pestaña **Advanced** > **Security** (o **Engine Parameters**).
+    * En el campo **Connect Arguments**, inserte el siguiente bloque JSON para prevenir conflictos de negociación SSL/TLS:
+
+    ```json
+    {
+      "ssl": false
+    }
+    ```
+
+5. Haga clic en **Test Connection**. Al recibir la confirmación de enlace exitoso, guarde la configuración presionando **Connect** o **Finish**.
+
+---
+
+### Paso 4: Creación de Tablas Complementarias
+
+Establezca conexión sobre la base de datos `Unificacion_QA` a través de SQL Server Management Studio (SSMS) o la utilidad `sqlcmd`, y procese el archivo de definiciones:
+
+* **Script:** `Tabla diagnosticos.sql`
+* **Propósito:** Genera y estructura el catálogo maestro de diagnósticos necesario para cruzar morbilidad, causas de egreso y análisis de motivos de consulta.
+
+---
+
+### Paso 5: Despliegue de Vistas Analíticas
+
+Con el fin de asegurar la disponibilidad de los datasets en Apache Superset y mitigar excepciones por referencias inexistentes (`Error 208: Invalid object name`), aplique el consolidado DDL en `Unificacion_QA`:
+
+* **Script:** `Vistas_Para_IntelliHealth.sql`
+* **Propósito:** Compila las vistas asistenciales, operativas y logísticas que alimentan los tableros (incluyendo `VW_FARMACIA_STOCK_LOTES`, triage, censo hospitalario y oportunidad de atención).
+* **Validación:** Acceda al módulo **Dashboards** en Superset, abra las consolas desplegadas y ejecute **Force refresh** desde el menú contextual (`...`) de los componentes para certificar la visualización de la información.
