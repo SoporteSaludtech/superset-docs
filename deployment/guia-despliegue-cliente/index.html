@@ -831,6 +831,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#7-pasos-posteriores-a-la-instalacion-de-intellihealth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Pasos Posteriores a la Instalación de IntelliHealth
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Pasos Posteriores a la Instalación de IntelliHealth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-1-credenciales-maestras-de-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1: Credenciales Maestras de Acceso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-aprovisionamiento-de-credenciales-en-sql-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2: Aprovisionamiento de Credenciales en SQL Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-3-configuracion-de-la-conexion-en-superset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3: Configuración de la Conexión en Superset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-4-creacion-de-tablas-complementarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 4: Creación de Tablas Complementarias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-5-despliegue-de-vistas-analiticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 5: Despliegue de Vistas Analíticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1953,6 +2025,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#7-pasos-posteriores-a-la-instalacion-de-intellihealth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Pasos Posteriores a la Instalación de IntelliHealth
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Pasos Posteriores a la Instalación de IntelliHealth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-1-credenciales-maestras-de-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1: Credenciales Maestras de Acceso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-aprovisionamiento-de-credenciales-en-sql-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2: Aprovisionamiento de Credenciales en SQL Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-3-configuracion-de-la-conexion-en-superset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3: Configuración de la Conexión en Superset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-4-creacion-de-tablas-complementarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 4: Creación de Tablas Complementarias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-5-despliegue-de-vistas-analiticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 5: Despliegue de Vistas Analíticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2138,6 +2282,85 @@
 </code></pre></div>
 <em>(La configuración, los dashboards y el branding montados mediante volúmenes externos permanecerán intactos durante todo el proceso).</em></li>
 </ol>
+<h2 id="7-pasos-posteriores-a-la-instalacion-de-intellihealth">7. Pasos Posteriores a la Instalación de IntelliHealth</h2>
+<p>Una vez que los contenedores de Docker estén en ejecución y la suite de Superset se encuentre operativa, ejecute en orden los siguientes pasos de aprovisionamiento en la base de datos y la plataforma:</p>
+<hr />
+<h3 id="paso-1-credenciales-maestras-de-acceso">Paso 1: Credenciales Maestras de Acceso</h3>
+<p>El acceso inicial a la interfaz web (<code>http://localhost:8088</code> o IP del servidor) se realiza con la cuenta administradora configurada en el despliegue:</p>
+<ul>
+<li><strong>Usuario:</strong> <code>admin</code></li>
+<li><strong>Contraseña:</strong> <code>AdminSegura2026*</code></li>
+</ul>
+<hr />
+<h3 id="paso-2-aprovisionamiento-de-credenciales-en-sql-server">Paso 2: Aprovisionamiento de Credenciales en SQL Server</h3>
+<p>Abra SQL Server Management Studio (SSMS) o una terminal con <code>sqlcmd</code> en la instancia del cliente y ejecute el siguiente script para crear el login técnico con acceso exclusivo a la base de datos operativa:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">-- 1. Eliminar cualquier residuo del usuario y recrearlo limpio</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">server_principals</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Superset'</span><span class="p">)</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="k">DROP</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="p">[</span><span class="n">Superset</span><span class="p">];</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">GO</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1">-- 2. Crear con directivas de complejidad deshabilitadas</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="k">CREATE</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="p">[</span><span class="n">Superset</span><span class="p">]</span><span class="w"> </span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="s1">'AdminSegura2026X'</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">     </span><span class="n">CHECK_POLICY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">     </span><span class="n">CHECK_EXPIRATION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">     </span><span class="n">DEFAULT_DATABASE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">Unificacion_QA</span><span class="p">];</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="k">GO</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="c1">-- 3. Habilitar permisos de servidor</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="k">ALTER</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="p">[</span><span class="n">Superset</span><span class="p">]</span><span class="w"> </span><span class="n">ENABLE</span><span class="p">;</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">CONNECT</span><span class="w"> </span><span class="k">SQL</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="p">[</span><span class="n">Superset</span><span class="p">];</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="k">GO</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="c1">-- 4. Asegurar el mapeo en la base de datos Unificacion_QA</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="n">USE</span><span class="w"> </span><span class="p">[</span><span class="n">Unificacion_QA</span><span class="p">];</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="k">GO</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">database_principals</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Superset'</span><span class="p">)</span>
+<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="w">    </span><span class="k">DROP</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="p">[</span><span class="n">Superset</span><span class="p">];</span>
+<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="k">GO</span>
+<a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>
+<a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="p">[</span><span class="n">Superset</span><span class="p">]</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="p">[</span><span class="n">Superset</span><span class="p">];</span>
+<a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">ROLE</span><span class="w"> </span><span class="p">[</span><span class="n">db_owner</span><span class="p">]</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="n">MEMBER</span><span class="w"> </span><span class="p">[</span><span class="n">Superset</span><span class="p">];</span>
+<a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">CONNECT</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="p">[</span><span class="n">Superset</span><span class="p">];</span>
+<a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a><span class="k">GO</span>
+</code></pre></div>
+<h3 id="paso-3-configuracion-de-la-conexion-en-superset">Paso 3: Configuración de la Conexión en Superset</h3>
+<p>En la consola web de Superset, registre la base de datos de la siguiente manera:</p>
+<ol>
+<li>Ingrese a <strong>Settings</strong> &gt; <strong>Data: Database Connections</strong> (o presione <strong>+</strong> &gt; <strong>Data</strong> &gt; <strong>Connect database</strong>).</li>
+<li>Defina el nombre de visualización exacto: <code>HOSVITAL_HIS</code>.</li>
+<li>Ingrese la cadena de conexión en <strong>SQLAlchemy URI</strong>:</li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>mssql+pymssql://Superset:AdminSegura2026*@host.docker.internal:1415/Unificacion_QA
+</code></pre></div>
+4. <strong>Configurar los parámetros de seguridad:</strong>
+    * Vaya a la pestaña <strong>Advanced</strong> &gt; <strong>Security</strong> (o <strong>Engine Parameters</strong>).
+    * En el campo <strong>Connect Arguments</strong>, inserte el siguiente bloque JSON para prevenir conflictos de negociación SSL/TLS:</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  "ssl": false
+}
+```
+</code></pre></div>
+<ol>
+<li>Haga clic en <strong>Test Connection</strong>. Al recibir la confirmación de enlace exitoso, guarde la configuración presionando <strong>Connect</strong> o <strong>Finish</strong>.</li>
+</ol>
+<hr />
+<h3 id="paso-4-creacion-de-tablas-complementarias">Paso 4: Creación de Tablas Complementarias</h3>
+<p>Establezca conexión sobre la base de datos <code>Unificacion_QA</code> a través de SQL Server Management Studio (SSMS) o la utilidad <code>sqlcmd</code>, y procese el archivo de definiciones:</p>
+<ul>
+<li><strong>Script:</strong> <code>Tabla diagnosticos.sql</code></li>
+<li><strong>Propósito:</strong> Genera y estructura el catálogo maestro de diagnósticos necesario para cruzar morbilidad, causas de egreso y análisis de motivos de consulta.</li>
+</ul>
+<hr />
+<h3 id="paso-5-despliegue-de-vistas-analiticas">Paso 5: Despliegue de Vistas Analíticas</h3>
+<p>Con el fin de asegurar la disponibilidad de los datasets en Apache Superset y mitigar excepciones por referencias inexistentes (<code>Error 208: Invalid object name</code>), aplique el consolidado DDL en <code>Unificacion_QA</code>:</p>
+<ul>
+<li><strong>Script:</strong> <code>Vistas_Para_IntelliHealth.sql</code></li>
+<li><strong>Propósito:</strong> Compila las vistas asistenciales, operativas y logísticas que alimentan los tableros (incluyendo <code>VW_FARMACIA_STOCK_LOTES</code>, triage, censo hospitalario y oportunidad de atención).</li>
+<li><strong>Validación:</strong> Acceda al módulo <strong>Dashboards</strong> en Superset, abra las consolas desplegadas y ejecute <strong>Force refresh</strong> desde el menú contextual (<code>...</code>) de los componentes para certificar la visualización de la información.</li>
+</ul>
 
 
 
